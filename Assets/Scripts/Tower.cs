@@ -3,18 +3,38 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
     public int price;
+    public int sellPrice;
     public int health;
-    public float attackRange;
-    public float power;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public int power;
+    public int fullHealth;
+    public int fullAmmo;
+    public int ammo;
+    public float timeBetweenShots;
+    public bool reloading;
+    public bool canDamageMetal;
+    public bool canDetectCamo;
+    public bool canAttackFlying;
+    
+    Animator animator;
+
+    protected virtual void Start()
     {
-        
+        animator = GetComponent<Animator>();
+    }
+
+    public void Reload()
+    {
+        ammo = 0;
+        animator.SetTrigger("reload"); // this should set the ammo on OnStateExit
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
-        
+        if (!reloading && ammo == 0)
+        {
+            reloading = true;
+            Reload();
+        }
     }
 }
