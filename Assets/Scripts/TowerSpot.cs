@@ -2,15 +2,29 @@ using UnityEngine;
 
 public class TowerSpot : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    Tower placedTower;
+    
     void Start()
+    {
+
+    }
+
+    void Update()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PlaceTower(Tower prefab)
     {
-        
+        if(placedTower == null)
+        {
+            GameObject newTower = Instantiate(prefab.gameObject, transform);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // make layer only player
+        // display a transparent area showing the TowerSpot
     }
 }
