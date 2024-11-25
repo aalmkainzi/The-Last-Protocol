@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        radarTower = GameObject.FindWithTag("radioTower").GetComponent<RadarTower>();
     }
 
     void Update()
