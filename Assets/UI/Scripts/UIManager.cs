@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    public GameObject uiPanel; // Reference to the Panel containing the UI
+    private bool isNearPoint = false; // Tracks if the player is near the interaction point
     // References to UI elements
     public TextMeshProUGUI lifeCounterText;
     public TextMeshProUGUI coinCounterText;
@@ -21,6 +23,10 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
+        if (isNearPoint && Input.GetKeyDown(KeyCode.E))
+        {
+            ToggleUI();
+        }
         // Update the timer every frame
         timer += Time.deltaTime;
         int minutes = Mathf.FloorToInt(timer / 60f);
@@ -54,5 +60,63 @@ public class UIManager : MonoBehaviour
     {
         rounds = round;
         roundsCounterText.text = $"Rounds: {rounds}";
+    }
+    
+    public void ToggleUI()
+    {
+        // Enable/Disable the UI Panel
+        uiPanel.SetActive(!uiPanel.activeSelf);
+
+        // Pause the game when the UI is active
+        if (uiPanel.activeSelf)
+        {
+            Time.timeScale = 0; // Pause time
+        }
+        else
+        {
+            Time.timeScale = 1; // Resume time
+        }
+    }
+    // Call this when the player enters the interaction point
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isNearPoint = true;
+        }
+    }
+
+    // Call this when the player leaves the interaction point
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isNearPoint = false;
+        }
+    }
+
+    // Functions to call when buttons are clicked
+    public void SelectCannon()
+    {
+        Debug.Log("Cannon Selected!");
+        CloseUI();
+    }
+
+    public void SelectArc()
+    {
+        Debug.Log("Arc Selected!");
+        CloseUI();
+    }
+
+    public void SelectWarrior()
+    {
+        Debug.Log("Warrior Selected!");
+        CloseUI();
+    }
+
+    private void CloseUI()
+    {
+        uiPanel.SetActive(false);
+        Time.timeScale = 1; // Resume time
     }
 }
