@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 1a4ced1b3ec77a74aa887d164963311f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.404
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1a4ced1b3ec77a74aa887d164963311f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1a4ced1b3ec77a74aa887d164963311f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.26
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1a4ced1b3ec77a74aa887d164963311f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -65,6 +65,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1a4ced1b3ec77a74aa887d164963311f, type: 3}
       insertIndex: -1
       addedObject: {fileID: -4007471109656522195}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1a4ced1b3ec77a74aa887d164963311f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -8357505403247439327}
   m_SourcePrefab: {fileID: 100100000, guid: 1a4ced1b3ec77a74aa887d164963311f, type: 3}
 --- !u!1 &2491631295550420686 stripped
 GameObject:
@@ -137,4 +140,28 @@ MonoBehaviour:
   speed: 0
   power: 0
   flying: 1
+  path: []
+  agent: {fileID: 0}
   attackPlayer: 0
+--- !u!195 &-8357505403247439327
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2491631295550420686}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

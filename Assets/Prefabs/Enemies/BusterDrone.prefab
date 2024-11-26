@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 94fb48371d75cfa4eb780a7c5a9d99ca, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.07917023
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 94fb48371d75cfa4eb780a7c5a9d99ca, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.38
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 94fb48371d75cfa4eb780a7c5a9d99ca, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.6446285
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 94fb48371d75cfa4eb780a7c5a9d99ca, type: 3}
       propertyPath: m_LocalRotation.w
@@ -122,6 +122,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 94fb48371d75cfa4eb780a7c5a9d99ca, type: 3}
       insertIndex: -1
       addedObject: {fileID: 433898289887844727}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 94fb48371d75cfa4eb780a7c5a9d99ca, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3297785131397537648}
   m_SourcePrefab: {fileID: 100100000, guid: 94fb48371d75cfa4eb780a7c5a9d99ca, type: 3}
 --- !u!1 &4411996694457419000 stripped
 GameObject:
@@ -145,6 +148,8 @@ MonoBehaviour:
   speed: 7
   power: 7
   flying: 1
+  path: []
+  agent: {fileID: 0}
   attackPlayer: 0
 --- !u!95 &2685617281455276397
 Animator:
@@ -195,3 +200,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!195 &3297785131397537648
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4411996694457419000}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

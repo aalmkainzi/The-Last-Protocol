@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5781502572047762584}
   - component: {fileID: 2977059144712633586}
   - component: {fileID: 5098086355282187264}
+  - component: {fileID: 5607985734376085031}
   m_Layer: 0
   m_Name: DroneAgent
   m_TagString: Untagged
@@ -69,10 +70,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 4
   gearsWhenKilled: 1
-  speed: 4
+  speed: 8
   power: 1
   flying: 1
+  path: []
+  agent: {fileID: 0}
   attackPlayer: 0
+--- !u!195 &5607985734376085031
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339919950861710355}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &451718720365934586
 GameObject:
   m_ObjectHideFlags: 0

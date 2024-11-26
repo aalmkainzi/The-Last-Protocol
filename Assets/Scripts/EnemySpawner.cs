@@ -3,6 +3,7 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Assertions.Must;
 using UnityEngine.UIElements;
 using static UnityEditor.PlayerSettings;
@@ -27,7 +28,7 @@ public class EnemySpanwer : MonoBehaviour
     {
         GameObject prefab = gameplayManager.enemyPrefabs[(int)wave.type];
         Enemy prefabE = prefab.GetComponent<Enemy>();
-        float delay = wave.timeBetweenEach;
+        WaitForSeconds delay = new WaitForSeconds(wave.timeBetweenEach);
         for(int i = 0; i < wave.nb; i++)
         {
             float spawnPosOffset = Random.Range(-1.0f, 1.0f);
@@ -41,7 +42,7 @@ public class EnemySpanwer : MonoBehaviour
                 newObj.transform.GetChild(0).position = flyingPos;
             }
 
-            Vector3[] ogPath = id == 0 ? gameplayManager.path1 : gameplayManager.path2;
+            Vector3[] ogPath = gameplayManager.path1;
             Vector3[] randomPath = new Vector3[ogPath.Length];
 
             for(int j = 0; j < ogPath.Length; j++)
@@ -49,7 +50,10 @@ public class EnemySpanwer : MonoBehaviour
                 randomPath[j] = ogPath[j] + new Vector3(Random.Range(-4.5f, 4.5f), 0, Random.Range(-4.0f, 4.0f));
             }
 
-            newE.pathTween = newE.transform.DOPath(randomPath, 1.0f / newE.speed * 120.0f, PathType.CatmullRom).SetLookAt(0.0f);
+            newE.path = randomPath;
+            newE.agent = newObj.GetComponent<NavMeshAgent>();
+            StartCoroutine(newE.MoveAlongPath());
+
             yield return delay;
         }
     }

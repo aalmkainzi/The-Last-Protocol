@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 328a2e593644c3d418fb0a9cbb854557, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.3473641
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 328a2e593644c3d418fb0a9cbb854557, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 328a2e593644c3d418fb0a9cbb854557, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.4707341
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 328a2e593644c3d418fb0a9cbb854557, type: 3}
       propertyPath: m_LocalRotation.w
@@ -73,6 +73,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 328a2e593644c3d418fb0a9cbb854557, type: 3}
       insertIndex: -1
       addedObject: {fileID: -1461945996221393135}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 328a2e593644c3d418fb0a9cbb854557, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7500999063930137001}
   m_SourcePrefab: {fileID: 100100000, guid: 328a2e593644c3d418fb0a9cbb854557, type: 3}
 --- !u!1 &1278892529582988769 stripped
 GameObject:
@@ -145,4 +148,28 @@ MonoBehaviour:
   speed: 0
   power: 0
   flying: 0
+  path: []
+  agent: {fileID: 0}
   attackPlayer: 0
+--- !u!195 &7500999063930137001
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278892529582988769}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

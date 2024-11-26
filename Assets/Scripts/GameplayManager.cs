@@ -15,8 +15,6 @@ public class GameplayManager : MonoBehaviour
     int curWave = 0;
 
     public Vector3[] path1;
-    public Vector3[] path2;
-
     void Start()
     {
         
@@ -46,14 +44,6 @@ public class GameplayManager : MonoBehaviour
         {
             Gizmos.DrawLine(path1[i], path1[i + 1]);
         }
-
-        if (path2 == null || path2.Length == 0) return;
-
-        for (int i = 0; i < path2.Length - 1; i++)
-        {
-            Gizmos.DrawLine(path2[i], path2[i + 1]);
-        }
-
     }
 }
 

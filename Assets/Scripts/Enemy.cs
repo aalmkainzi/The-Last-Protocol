@@ -4,6 +4,7 @@ using UnityEngine.AI;
 using DG.Tweening;
 using UnityEngine.UIElements;
 using UnityEngine.VFX;
+using UnityEngine.Rendering;
 
 public class Enemy : MonoBehaviour
 {
@@ -14,7 +15,9 @@ public class Enemy : MonoBehaviour
     Animator animator;
     RadarTower radarTower;
     public bool flying;
-    public Tween pathTween;
+    public Vector3[] path;
+    public NavMeshAgent agent;
+
     public enum AttackPlayerBehaviour {
         None, Chase, StopAndShoot, MoveAndShoot
     };
@@ -28,12 +31,13 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         radarTower = GameObject.FindWithTag("radioTower").GetComponent<RadarTower>();
-
+        agent = GetComponent<NavMeshAgent>();
+        agent.speed = speed;
         if (flying)
         {
-            animator = transform.GetChild(0).gameObject.GetComponent<Animator>();
-            float seed = Random.Range(1.25f, 3.5f);
             Transform flyer = transform.GetChild(0);
+            animator = flyer.gameObject.GetComponent<Animator>();
+            float seed = Random.Range(1.25f, 3.5f);
             flyer.DOMoveY(flyer.position.y + seed, Random.Range(2.0f, 4.0f), false).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
         }
         else
@@ -41,17 +45,36 @@ public class Enemy : MonoBehaviour
             animator = GetComponent<Animator>();
         }
 
-        if(attackPlayer == AttackPlayerBehaviour.Chase)
+        if (attackPlayer == AttackPlayerBehaviour.Chase)
         {
             StartCoroutine(ChasePlayerIfInRange());
         }
-        else if(attackPlayer == AttackPlayerBehaviour.StopAndShoot)
+        else if (attackPlayer == AttackPlayerBehaviour.StopAndShoot)
         {
             StartCoroutine(StopAndShootPlayerIfInRange());
         }
-        else if(attackPlayer == AttackPlayerBehaviour.MoveAndShoot)
+        else if (attackPlayer == AttackPlayerBehaviour.MoveAndShoot)
         {
             StartCoroutine(ShootPlayerIfInRange());
+        }
+    }
+
+    public IEnumerator MoveAlongPath()
+    {
+        int cur = 0;
+        agent.SetDestination(path[0]);
+        yield return null;
+        while (cur < path.Length - 1)
+        {
+            Vector3 pos = transform.position;
+            pos.y = path[cur].y;
+            if (Vector3.Distance(path[cur], pos) <= 2.0f)
+            {
+                cur++;
+                Debug.Log("cur: " + cur);
+                agent.SetDestination(path[cur]);
+            }
+            yield return null;
         }
     }
 
