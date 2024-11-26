@@ -118,9 +118,6 @@ PrefabInstance:
       addedObject: {fileID: 947927300815553167}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 94fb48371d75cfa4eb780a7c5a9d99ca, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2684542718581196713}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 94fb48371d75cfa4eb780a7c5a9d99ca, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 2685617281455276397}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 94fb48371d75cfa4eb780a7c5a9d99ca, type: 3}
       insertIndex: -1
@@ -148,28 +145,7 @@ MonoBehaviour:
   speed: 7
   power: 7
   flying: 1
---- !u!195 &2684542718581196713
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4411996694457419000}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  attackPlayer: 0
 --- !u!95 &2685617281455276397
 Animator:
   serializedVersion: 7

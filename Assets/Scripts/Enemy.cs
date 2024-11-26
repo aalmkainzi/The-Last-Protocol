@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using DG.Tweening;
 using UnityEngine.UIElements;
+using UnityEngine.VFX;
 
 public class Enemy : MonoBehaviour
 {
@@ -12,14 +13,21 @@ public class Enemy : MonoBehaviour
     public int power;
     Animator animator;
     RadarTower radarTower;
-    NavMeshAgent agent;
     public bool flying;
-    // Rigidbody rb;
+    public Tween pathTween;
+    public enum AttackPlayerBehaviour {
+        None, Chase, StopAndShoot, MoveAndShoot
+    };
+
+    bool playerInTrigger;
+
+    public AttackPlayerBehaviour attackPlayer;
+    
+    GameplayManager gameplayManager;
+
     void Start()
     {
-        // rb = GetComponent<Rigidbody>();
         radarTower = GameObject.FindWithTag("radioTower").GetComponent<RadarTower>();
-        agent = GetComponent<NavMeshAgent>();
 
         if (flying)
         {
@@ -33,8 +41,33 @@ public class Enemy : MonoBehaviour
             animator = GetComponent<Animator>();
         }
 
-        agent.SetDestination(radarTower.gameObject.transform.position);
+        if(attackPlayer == AttackPlayerBehaviour.Chase)
+        {
+            StartCoroutine(ChasePlayerIfInRange());
+        }
+        else if(attackPlayer == AttackPlayerBehaviour.StopAndShoot)
+        {
+            StartCoroutine(StopAndShootPlayerIfInRange());
+        }
+        else if(attackPlayer == AttackPlayerBehaviour.MoveAndShoot)
+        {
+            StartCoroutine(ShootPlayerIfInRange());
+        }
+    }
 
+    IEnumerator ChasePlayerIfInRange()
+    {
+        yield return null;
+    }
+
+    IEnumerator StopAndShootPlayerIfInRange()
+    {
+        yield return null;
+    }
+
+    IEnumerator ShootPlayerIfInRange()
+    {
+        yield return null;
     }
 
     void Update()

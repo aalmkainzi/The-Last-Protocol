@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 
 public class GameplayManager : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class GameplayManager : MonoBehaviour
     public EnemyWave[] waves;
     public EnemySpanwer[] spawners;
     int curWave = 0;
+
+    public Vector3[] path1;
+    public Vector3[] path2;
 
     void Start()
     {
@@ -30,6 +34,26 @@ public class GameplayManager : MonoBehaviour
     public void Lose()
     {
         // TODO impl
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+
+        if (path1 == null || path1.Length == 0) return;
+
+        for (int i = 0; i < path1.Length - 1; i++)
+        {
+            Gizmos.DrawLine(path1[i], path1[i + 1]);
+        }
+
+        if (path2 == null || path2.Length == 0) return;
+
+        for (int i = 0; i < path2.Length - 1; i++)
+        {
+            Gizmos.DrawLine(path2[i], path2[i + 1]);
+        }
+
     }
 }
 

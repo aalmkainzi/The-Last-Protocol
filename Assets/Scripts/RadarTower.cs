@@ -11,6 +11,7 @@ public class RadarTower : MonoBehaviour
 
     void Start()
     {
+        gameplayManager = GameObject.FindWithTag("gameplayManager").GetComponent<GameplayManager>();
         player = GameObject.FindWithTag("player").GetComponent<Player>();
     }
 
