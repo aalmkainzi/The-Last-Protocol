@@ -426,7 +426,7 @@ MonoBehaviour:
     spawnerIdx: 0
   - type: 1
     nb: 5
-    timeBetweenEach: 12.04
+    timeBetweenEach: 1.28
     spawnerIdx: 0
   spawners:
   - {fileID: 1304215182}
