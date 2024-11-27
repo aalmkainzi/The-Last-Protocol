@@ -5,13 +5,13 @@ using UnityEngine;
 public class FixedTower : Tower
 {
     List<Enemy> enemiesInRange;
-    public SphereCollider rangeCollider;
+    // public SphereCollider rangeCollider;
     float lastShot;
 
     protected override void Start()
     {
         base.Start();
-        rangeCollider = GetComponent<SphereCollider>();
+        // rangeCollider = GetComponent<SphereCollider>();
         enemiesInRange = new List<Enemy>();
         // StartCoroutine(Attack());
     }
@@ -20,7 +20,7 @@ public class FixedTower : Tower
     {
         base.Update();
 
-        // Debug.Log("enemies in range" + enemiesInRange.Count);
+        //Debug.Log("enemies in range" + enemiesInRange.Count);
         //Debug.Log("is reloading: " + reloading);
         //Debug.Log("cur ammo: " + ammo);
 
@@ -38,12 +38,13 @@ public class FixedTower : Tower
             transform.LookAt(lookAt);
             if (shouldFire)
             {
-                // Debug.Log("ATTACKING  ! ! !");
+                Debug.Log("ATTACKING  ! ! !");
                 Enemy e = enemiesInRange[0];
                 Vector3 ePos = e.transform.position;
                 ePos.y = transform.position.y;
                 transform.LookAt(ePos);
                 ammo -= 1;
+                // later make it an actual bullet for pierce (bullet can be just a particle sys for laser effects)
                 bool died = e.TakeDamage(power);
                 if (died)
                     enemiesInRange.RemoveAt(0);
@@ -54,7 +55,7 @@ public class FixedTower : Tower
 
     private void OnTriggerEnter(Collider other)
     {
-        // Debug.Log("collided with " + other.gameObject.name);
+        Debug.Log("collided with " + other.gameObject.name);
         enemiesInRange.Add(other.gameObject.GetComponent<Enemy>());
     }
 

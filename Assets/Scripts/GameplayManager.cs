@@ -27,6 +27,7 @@ public class GameplayManager : MonoBehaviour
         Enemy.curId = 0;
         cube = transform.GetChild(0).gameObject;
         cube.SetActive(false);
+        StartCoroutine(IterateWaves());
     }
 
     void Update()
@@ -40,20 +41,30 @@ public class GameplayManager : MonoBehaviour
                 // open towers menu
                 currentTowerTile.PlaceTower(towerPrefabs[0].GetComponent<Tower>());
             }
+            else if(Input.GetKeyDown(KeyCode.R))
+            {
+                currentTowerTile.PlaceTower(towerPrefabs[3].GetComponent<Tower>());
+            }
         }
         else
         {
             cube.SetActive(false);
         }
 
-        if(curWaveIdx < waves.Length)
+        
+    }
+
+    IEnumerator IterateWaves()
+    {
+        yield return new WaitForSeconds(1.5f);
+        for (int i = 0; i < waves.Length; i++)
         {
             EnemyWave curWave = waves[curWaveIdx];
             spawners[curWave.spawnerIdx].SpawnWave(curWave);
             curWaveIdx++;
+            yield return new WaitForSeconds(curWave.afterWaveDelay);
         }
     }
-
     public void Lose()
     {
         // TODO impl

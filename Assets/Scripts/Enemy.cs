@@ -141,8 +141,6 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
         health -= dmg;
         if(health <= 0)
         {
-            StopAllCoroutines();
-            if (flyingTween != null) flyingTween.Kill();
             Debug.Log("DIED");
             Die();
             return true;
@@ -152,6 +150,9 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
 
     public void Die()
     {
+        StopAllCoroutines();
+        if (flyingTween != null) flyingTween.Kill();
+
         transform.position = new Vector3(999, 999, 999);
         transform.localScale = Vector3.zero;
         this.enabled = false;

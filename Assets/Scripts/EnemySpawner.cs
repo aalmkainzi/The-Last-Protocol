@@ -24,6 +24,7 @@ public class EnemySpanwer : MonoBehaviour
 
     IEnumerator SpawnWaveLoop(EnemyWave wave)
     {
+        Debug.Log("PREFAB " + gameplayManager.enemyPrefabs[(int)wave.type]);
         GameObject prefab = gameplayManager.enemyPrefabs[(int)wave.type];
 
         WaitForSeconds delay = new WaitForSeconds(wave.timeBetweenEach);
