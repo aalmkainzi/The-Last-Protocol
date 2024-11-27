@@ -7,6 +7,9 @@ TagManager:
   - gameplayManager
   - radioTower
   - player
+  - Undefined
+  - walkingE
+  - flyingE
   layers:
   - Default
   - TransparentFX
@@ -14,8 +17,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - TowerRange
+  - EnemyBot
   - 
   - 
   - 

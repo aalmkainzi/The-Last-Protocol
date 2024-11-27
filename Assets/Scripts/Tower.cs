@@ -14,19 +14,22 @@ public class Tower : MonoBehaviour
     public bool canDamageMetal;
     public bool canDetectCamo;
     public bool canAttackFlying;
-    
-    Animator animator;
-
+    public float reloadTime;
     protected virtual void Start()
     {
-        animator = GetComponent<Animator>();
     }
 
     public void Reload()
     {
         ammo = 0;
-        animator.SetTrigger("reload"); // this should set the ammo on OnStateExit
+        Invoke("FillAmmo", reloadTime);
     }
+
+    void FillAmmo()
+    {
+        ammo = fullAmmo;
+    }
+
 
     // Update is called once per frame
     protected virtual void Update()

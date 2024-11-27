@@ -6,8 +6,6 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Assertions.Must;
 using UnityEngine.UIElements;
-using static UnityEditor.PlayerSettings;
-
 public class EnemySpanwer : MonoBehaviour
 {
     GameplayManager gameplayManager;
@@ -27,32 +25,48 @@ public class EnemySpanwer : MonoBehaviour
     IEnumerator SpawnWaveLoop(EnemyWave wave)
     {
         GameObject prefab = gameplayManager.enemyPrefabs[(int)wave.type];
-        Enemy prefabE = prefab.GetComponent<Enemy>();
+
         WaitForSeconds delay = new WaitForSeconds(wave.timeBetweenEach);
-        for(int i = 0; i < wave.nb; i++)
+        for (int i = 0; i < wave.nb; i++)
         {
             float spawnPosOffset = Random.Range(-1.0f, 1.0f);
+
             Vector3 spawnPos = transform.position + spawnOffsetDirection * spawnPosOffset;
             GameObject newObj = Instantiate(prefab, spawnPos, Quaternion.identity);
-            Enemy newE = newObj.GetComponent<Enemy>();
-            if (prefabE.flying)
+            Enemy newE;
+            if (prefab.CompareTag("flyingE"))
             {
-                Vector3 flyingPos = newObj.transform.GetChild(0).position;
+                newE = newObj.transform.GetChild(0).GetComponent<Enemy>();
+                Vector3 flyingPos = newE.transform.position; //newObj.transform.GetChild(0).position;
                 flyingPos.y += Random.Range(3f, 4f);
-                newObj.transform.GetChild(0).position = flyingPos;
+                newE.transform/*.GetChild(0)*/.position = flyingPos;
+            }
+            else
+            {
+                newE = newObj.GetComponent<Enemy>();
+            }
+            if (wave.type == EnemyType.Boss1 || wave.type == EnemyType.Boss2)
+            {
+                // boss warning
             }
 
-            Vector3[] ogPath = gameplayManager.path1;
+            
+
+            Vector3[] ogPath;
+            if(wave.spawnerIdx == 0)
+                ogPath = gameplayManager.path1;
+            else
+                ogPath = gameplayManager.path2;
+
             Vector3[] randomPath = new Vector3[ogPath.Length];
 
-            for(int j = 0; j < ogPath.Length; j++)
+            for(int j = 0; j < ogPath.Length /*- 1*/; j++)
             {
                 randomPath[j] = ogPath[j] + new Vector3(Random.Range(-4.5f, 4.5f), 0, Random.Range(-4.0f, 4.0f));
             }
 
             newE.path = randomPath;
-            newE.agent = newObj.GetComponent<NavMeshAgent>();
-            StartCoroutine(newE.MoveAlongPath());
+            newE.navCor = StartCoroutine(newE.MoveAlongPath());
 
             yield return delay;
         }

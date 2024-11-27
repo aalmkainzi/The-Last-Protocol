@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5781502572047762584}
   - component: {fileID: 2977059144712633586}
-  - component: {fileID: 5098086355282187264}
   - component: {fileID: 5607985734376085031}
   m_Layer: 0
   m_Name: DroneAgent
-  m_TagString: Untagged
+  m_TagString: flyingE
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56,26 +55,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5098086355282187264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 339919950861710355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dbcf94ab3c7d4f46af8a21f642a0d5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 4
-  gearsWhenKilled: 1
-  speed: 8
-  power: 1
-  flying: 1
-  path: []
-  agent: {fileID: 0}
-  attackPlayer: 0
 --- !u!195 &5607985734376085031
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -164,7 +143,7 @@ GameObject:
   - component: {fileID: 3821732403441606623}
   - component: {fileID: 8295980064557552507}
   - component: {fileID: 5978115281884391370}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PA_DroneWingLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +230,7 @@ GameObject:
   - component: {fileID: 4220562484016689240}
   - component: {fileID: 7281949551487067436}
   - component: {fileID: 653410924114585036}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PA_DroneBladeLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -337,7 +316,7 @@ GameObject:
   - component: {fileID: 2874772654514758794}
   - component: {fileID: 7142988783273407627}
   - component: {fileID: 829969106754498255}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PA_DroneWingRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -477,7 +456,7 @@ GameObject:
   - component: {fileID: 8845612140232713441}
   - component: {fileID: 2490946199933894658}
   - component: {fileID: 8967800157200021241}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PA_DroneBladeRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -563,7 +542,7 @@ GameObject:
   - component: {fileID: 4913463625493399303}
   - component: {fileID: 5468698148942430260}
   - component: {fileID: 3634641118174560736}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PA_Drone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -651,7 +630,9 @@ GameObject:
   - component: {fileID: 1508084967489990154}
   - component: {fileID: 6007108510567559058}
   - component: {fileID: 2790035342028234123}
-  m_Layer: 0
+  - component: {fileID: 322675256910676349}
+  - component: {fileID: 8676052216330904966}
+  m_Layer: 7
   m_Name: PA_Drone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -720,6 +701,56 @@ CapsuleCollider:
   m_Height: 0.6
   m_Direction: 2
   m_Center: {x: 0, y: 0.05, z: 0.04}
+--- !u!114 &322675256910676349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4109568273338401631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dbcf94ab3c7d4f46af8a21f642a0d5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  health: 1
+  gearsWhenKilled: 1
+  speed: 8
+  power: 1
+  flying: 1
+  path: []
+  agent: {fileID: 5607985734376085031}
+  player: {fileID: 0}
+  sightRange: 0
+  attackPlayer: 0
+--- !u!54 &8676052216330904966
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4109568273338401631}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &6286700583385404737
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,7 +760,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8189657387325726559}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
