@@ -61,10 +61,12 @@ public class EnemySpanwer : MonoBehaviour
 
             Vector3[] randomPath = new Vector3[ogPath.Length];
 
-            for(int j = 0; j < ogPath.Length /*- 1*/; j++)
+            for(int j = 0; j < ogPath.Length - 1; j++)
             {
                 randomPath[j] = ogPath[j] + new Vector3(Random.Range(-4.5f, 4.5f), 0, Random.Range(-4.0f, 4.0f));
             }
+
+            randomPath[randomPath.Length - 1] = ogPath[ogPath.Length - 1];
 
             newE.path = randomPath;
             newE.navCor = newE.StartCoroutine(newE.MoveAlongPath());

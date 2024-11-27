@@ -1,9 +1,10 @@
-using System.Collections;
 using UnityEngine;
+using DG.Tweening;
 
 public class SmallDrone : Enemy
 {
     GameObject particle1;
+    bool blowUpOnRadio = false;
     protected override void Start()
     {
         base.Start();
@@ -26,12 +27,25 @@ public class SmallDrone : Enemy
 
     protected override void Attack()
     {
-        agent.enabled = true;
-        agent.SetDestination(radarTower.transform.position);
-        StartCoroutine(BlowUpOnImpact());
+        agent.enabled = false;
+        blowUpOnRadio = true;
+        transform.DOMove(radarTower.transform.position, 1.0f, false);
+        Debug.Log("agent enabled: " + agent.enabled);
+        Debug.Log("agnet dst " + agent.destination);
+        // StartCoroutine(BlowUpOnImpact());
     }
 
-    IEnumerator BlowUpOnImpact()
+    private void OnCollisionEnter(Collision other)
+    {
+        Debug.Log("Colliding with " + other.gameObject.name);
+        if (blowUpOnRadio && other.gameObject.CompareTag("radioTower"))
+        {
+            radarTower.TakeDamage(power);
+            Die();
+        }
+    }
+
+/*    IEnumerator BlowUpOnImpact()
     {
         while(true)
         {
@@ -41,5 +55,7 @@ public class SmallDrone : Enemy
                 Die();
             }
         }
-    }
+    }*/
+
+
 }

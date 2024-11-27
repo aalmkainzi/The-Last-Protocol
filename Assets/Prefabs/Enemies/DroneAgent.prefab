@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5781502572047762584}
   - component: {fileID: 2977059144712633586}
   - component: {fileID: 5607985734376085031}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: DroneAgent
   m_TagString: flyingE
   m_Icon: {fileID: 0}
@@ -5226,8 +5226,7 @@ GameObject:
   - component: {fileID: 2145493164088777005}
   - component: {fileID: 2237010185665298387}
   - component: {fileID: 2237442453074862913}
-  - component: {fileID: 5224979179176065520}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10160,27 +10159,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!135 &5224979179176065520
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2146597050340425889}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 4.035004
-  m_Center: {x: -0.1295842, y: -0.05510427, z: 0.06734623}
 --- !u!1 &2147247890822065081
 GameObject:
   m_ObjectHideFlags: 0
@@ -39629,7 +39607,7 @@ GameObject:
   - component: {fileID: 4913463625493399303}
   - component: {fileID: 5468698148942430260}
   - component: {fileID: 3634641118174560736}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: PA_Drone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39785,10 +39763,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.06
+  m_Radius: 0.07
   m_Height: 0.6
   m_Direction: 2
-  m_Center: {x: 0, y: 0.05, z: 0.04}
+  m_Center: {x: 0, y: 0.03, z: 0.04}
 --- !u!54 &8676052216330904966
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -39839,6 +39817,7 @@ MonoBehaviour:
   agent: {fileID: 5607985734376085031}
   player: {fileID: 0}
   sightRange: 0
+  attackRange: 6.5
   attackPlayer: 0
 --- !u!1 &6286700583385404737
 GameObject:
@@ -39849,13 +39828,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8189657387325726559}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8189657387325726559
 Transform:
   m_ObjectHideFlags: 0

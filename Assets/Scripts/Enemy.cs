@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
     public NavMeshAgent agent;
     public Player player;
     public float sightRange;
-
+    public float attackRange;
     Tween flyingTween;
     public enum AttackPlayerBehaviour {
         None, Chase, StopAndShoot, MoveAndShoot
@@ -70,9 +70,12 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
     }
     protected virtual void Update()
     {
-        float distanceFromGoal = Vector3.Distance(radarTower.gameObject.transform.position, transform.position);
-        if (distanceFromGoal <= 1.5f)
+        Vector3 posIgnorY = transform.position;
+        posIgnorY.y = radarTower.transform.position.y;
+        float distanceFromGoal = Vector3.Distance(radarTower.gameObject.transform.position, posIgnorY);
+        if (distanceFromGoal <= attackRange)
         {
+            Debug.Log("REACHED ATK RANGE");
             Attack();
         }
     }
@@ -82,6 +85,7 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
         yield return null;
         while (curTargetIdx < path.Length - 1)
         {
+            // if(agent.active)
             Vector3 pos = transform.position;
             pos.y = path[curTargetIdx].y;
             if (Vector3.Distance(path[curTargetIdx], pos) <= 2.0f)
@@ -126,6 +130,7 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
 
     protected virtual void Attack()
     {
+        Debug.Log("actually we here for some reason");
         animator.SetTrigger("attack");
         radarTower.TakeDamage(power);
     }
