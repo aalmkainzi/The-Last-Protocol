@@ -22,8 +22,10 @@ public class GameplayManager : MonoBehaviour
     public TowerTile currentTowerTile;
     GameObject cube;
 
+    List<FixedTower> placedTowers;
     void Start()
     {
+        placedTowers = new List<FixedTower> ();
         Enemy.curId = 0;
         cube = transform.GetChild(0).gameObject;
         cube.SetActive(false);
@@ -36,14 +38,19 @@ public class GameplayManager : MonoBehaviour
         {
             cube.SetActive(true);
             cube.transform.position = currentTowerTile.transform.position;
+            GameObject newTower = null;
             if (Input.GetKeyDown(KeyCode.E))
             {
                 // open towers menu
-                currentTowerTile.PlaceTower(towerPrefabs[0].GetComponent<Tower>());
+                newTower = currentTowerTile.PlaceTower(towerPrefabs[0].GetComponent<Tower>());
             }
             else if(Input.GetKeyDown(KeyCode.R))
             {
-                currentTowerTile.PlaceTower(towerPrefabs[3].GetComponent<Tower>());
+                newTower = currentTowerTile.PlaceTower(towerPrefabs[3].GetComponent<Tower>());
+            }
+            if(newTower != null)
+            {
+                placedTowers.Add(newTower.GetComponent<FixedTower>());
             }
         }
         else
@@ -52,6 +59,14 @@ public class GameplayManager : MonoBehaviour
         }
 
         
+    }
+
+    public void RemoveEnemyFromAllTowers(Enemy e)
+    {
+        for(int i = 0; i < placedTowers.Count; i++)
+        {
+            placedTowers[i].enemiesInRange.Remove(e);
+        }
     }
 
     IEnumerator IterateWaves()

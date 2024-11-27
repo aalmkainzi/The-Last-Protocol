@@ -13,12 +13,15 @@ public class TowerTile : MonoBehaviour
     {
     }
 
-    public void PlaceTower(Tower prefab)
+    public GameObject PlaceTower(Tower prefab)
     {
         if(placedTower == null)
         {
             GameObject newTower = Instantiate(prefab.gameObject, transform);
+            placedTower = newTower.GetComponent<Tower>();
+            return newTower;
         }
+        return null;
     }
 
     private void OnTriggerStay(Collider other)

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6765466975049792453}
-  - component: {fileID: 4136312789054325483}
+  - component: {fileID: 3378266383544789500}
   m_Layer: 7
   m_Name: BusterDrone (1)
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 4708508398128727187}
   m_Father: {fileID: 1579042127342031346}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &4136312789054325483
+--- !u!95 &3378266383544789500
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -2162,6 +2162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dbcf94ab3c7d4f46af8a21f642a0d5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
   health: 100
   gearsWhenKilled: 25
   speed: 7

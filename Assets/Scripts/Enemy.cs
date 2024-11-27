@@ -17,13 +17,15 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
     public int gearsWhenKilled;
     public float speed;
     public int power;
-    Animator animator;
-    RadarTower radarTower;
+    public Animator animator;
+    protected RadarTower radarTower;
     public bool flying;
     
     public Vector3[] path;
     int curTargetIdx;
+
     public Coroutine navCor;
+    private Coroutine attackCor;
 
     public NavMeshAgent agent;
     public Player player;
@@ -40,39 +42,40 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
     
     GameplayManager gameplayManager;
 
-    void Start()
+    protected virtual void Start()
     {
         id = curId++;
+        gameplayManager = GameObject.FindWithTag("gameplayManager").GetComponent<GameplayManager>();
         player = GameObject.FindWithTag("player").GetComponent<Player>();
         radarTower = GameObject.FindWithTag("radioTower").GetComponent<RadarTower>();
-        // agent = GetComponent<NavMeshAgent>();
         agent.speed = speed;
         if (flying)
         {
-            //Transform flyer = transform.GetChild(0);
-            animator = gameObject.GetComponent<Animator>();
             float seed = UnityEngine.Random.Range(1.25f, 3.5f);
             flyingTween = transform.DOMoveY(transform.position.y + seed, UnityEngine.Random.Range(2.0f, 4.0f), false).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
-        }
-        else
-        {
-            animator = GetComponent<Animator>();
         }
 
         if (attackPlayer == AttackPlayerBehaviour.Chase)
         {
-            StartCoroutine(ChasePlayerIfInRange());
+            attackCor = StartCoroutine(ChasePlayerIfInRange());
         }
         else if (attackPlayer == AttackPlayerBehaviour.StopAndShoot)
         {
-            StartCoroutine(StopAndShootPlayerIfInRange());
+            attackCor = StartCoroutine(StopAndShootPlayerIfInRange());
         }
         else if (attackPlayer == AttackPlayerBehaviour.MoveAndShoot)
         {
-            StartCoroutine(ShootPlayerIfInRange());
+            attackCor = StartCoroutine(ShootPlayerIfInRange());
         }
     }
-
+    protected virtual void Update()
+    {
+        float distanceFromGoal = Vector3.Distance(radarTower.gameObject.transform.position, transform.position);
+        if (distanceFromGoal <= 1.5f)
+        {
+            Attack();
+        }
+    }
     public IEnumerator MoveAlongPath()
     {
         agent.SetDestination(path[curTargetIdx]);
@@ -121,16 +124,7 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
         yield return null;
     }
 
-    void Update()
-    {
-        float distanceFromGoal = Vector3.Distance(radarTower.gameObject.transform.position, transform.position);
-        if(distanceFromGoal <= 1.5f)
-        {
-            Attack();
-        }
-    }
-
-    void Attack()
+    protected virtual void Attack()
     {
         animator.SetTrigger("attack");
         radarTower.TakeDamage(power);
@@ -141,6 +135,7 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
         health -= dmg;
         if(health <= 0)
         {
+            gameplayManager.RemoveEnemyFromAllTowers(this);
             Debug.Log("DIED");
             Die();
             return true;
@@ -148,16 +143,47 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
         return false;
     }
 
-    public void Die()
+    public virtual void Die()
     {
-        StopAllCoroutines();
-        if (flyingTween != null) flyingTween.Kill();
+        if(attackCor != null)
+            StopCoroutine(attackCor);        
+        StopCoroutine(navCor);
 
-        transform.position = new Vector3(999, 999, 999);
-        transform.localScale = Vector3.zero;
-        this.enabled = false;
-        agent.isStopped = true;
         agent.enabled = false;
+
+        StartCoroutine(SpinInSpiral());
+        
+        if (flyingTween != null) flyingTween.Kill();
+    }
+
+    IEnumerator SpinInSpiral()
+    {
+        float timeElapsed = 0f;
+        float rotationSpeed = 200f;
+        float spiralFrequency = 3f;
+        float spiralSpeed = 1.0f;
+        float startTime = Time.time;
+        float downwardSpeed = 4.0f;
+        Vector3 initialPosition = transform.position;
+        while (Time.time - startTime < 5.0f)
+        {
+            transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
+
+            // Calculate the new position in the spiral relative to the initial position
+            float x = Mathf.Cos(timeElapsed * spiralFrequency) * timeElapsed * spiralSpeed;
+            float z = Mathf.Sin(timeElapsed * spiralFrequency) * timeElapsed * spiralSpeed;
+
+            // Update the position while keeping the current Y-axis value
+            transform.position = initialPosition + new Vector3(x, 0, z);
+            initialPosition -= new Vector3(0, downwardSpeed * Time.deltaTime, 0);
+
+            // Increment time
+            timeElapsed += Time.deltaTime;
+
+            // Wait for the next frame
+            yield return null;
+        }
+        Destroy(flying ? transform.parent.gameObject : gameObject);
     }
 
     public bool Equals(Enemy other)

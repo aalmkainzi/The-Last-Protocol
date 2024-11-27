@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FixedTower : Tower
 {
-    List<Enemy> enemiesInRange;
+    public List<Enemy> enemiesInRange;
     // public SphereCollider rangeCollider;
     float lastShot;
 
@@ -45,9 +45,7 @@ public class FixedTower : Tower
                 transform.LookAt(ePos);
                 ammo -= 1;
                 // later make it an actual bullet for pierce (bullet can be just a particle sys for laser effects)
-                bool died = e.TakeDamage(power);
-                if (died)
-                    enemiesInRange.RemoveAt(0);
+                e.TakeDamage(power);
                 lastShot = Time.time;
             }
         }

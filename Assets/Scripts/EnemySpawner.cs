@@ -67,7 +67,7 @@ public class EnemySpanwer : MonoBehaviour
             }
 
             newE.path = randomPath;
-            newE.navCor = StartCoroutine(newE.MoveAlongPath());
+            newE.navCor = newE.StartCoroutine(newE.MoveAlongPath());
 
             yield return delay;
         }
