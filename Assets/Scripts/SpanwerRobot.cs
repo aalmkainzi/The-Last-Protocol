@@ -65,6 +65,9 @@ public class SpanwerRobot : Enemy
     public override void Die()
     {
         base.Die();
+        transform.DOKill();
+        audio.clip = gameplayManager.booms[Random.Range(0, gameplayManager.booms.Length)];
+        audio.Play();
         StartCoroutine(SpinInSpiral());
         particle.SetActive(true);
     }

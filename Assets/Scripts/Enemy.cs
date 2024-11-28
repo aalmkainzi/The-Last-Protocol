@@ -32,6 +32,8 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
     public float sightRange;
     public float attackRange;
     Tween flyingTween;
+    public AudioSource audio;
+
     public enum AttackPlayerBehaviour {
         None, Chase, StopAndShoot, MoveAndShoot
     };
@@ -46,6 +48,7 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
 
     protected virtual void Start()
     {
+        audio = GetComponent<AudioSource>();
         id = curId++;
         gameplayManager = GameObject.FindWithTag("gameplayManager").GetComponent<GameplayManager>();
         player = GameObject.FindWithTag("player").GetComponent<Player>();

@@ -1,6 +1,4 @@
-using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class EndWalkAnimEarly : StateMachineBehaviour
 {

@@ -3,6 +3,8 @@ using UnityEngine;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using System.Collections;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameplayManager : MonoBehaviour
 {
@@ -23,8 +25,19 @@ public class GameplayManager : MonoBehaviour
     GameObject cube;
 
     List<FixedTower> placedTowers;
+
+    GameObject overlay;
+    TMP_Text moneyText;
+
+
+    public AudioClip[] booms;
+    Player p;
+
     void Start()
     {
+        p = GameObject.FindWithTag("player").GetComponent<Player>();
+        overlay = GameObject.FindWithTag("ui_overlay");
+        overlay.SetActive(true);
         placedTowers = new List<FixedTower> ();
         Enemy.curId = 0;
         cube = transform.GetChild(0).gameObject;
@@ -57,8 +70,11 @@ public class GameplayManager : MonoBehaviour
         {
             cube.SetActive(false);
         }
+    }
 
-        
+    public void SelectTower()
+    {
+        moneyText.text = p.money + "";
     }
 
     public void RemoveEnemyFromAllTowers(Enemy e)
@@ -82,7 +98,7 @@ public class GameplayManager : MonoBehaviour
     }
     public void Lose()
     {
-        // TODO impl
+        SceneManager.LoadScene("MainMenu");
     }
 
     private void OnDrawGizmosSelected()

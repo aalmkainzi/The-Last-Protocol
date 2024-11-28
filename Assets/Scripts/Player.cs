@@ -5,7 +5,8 @@ public class Player : MonoBehaviour
     public int health;
     public int fullHealth;
     public float moveSpeed;
-
+    public int money;
+    public int power = 1;
     void Start()
     {
         

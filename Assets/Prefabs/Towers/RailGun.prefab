@@ -360,9 +360,10 @@ MonoBehaviour:
   fullHealth: 0
   fullAmmo: 78
   ammo: 78
-  timeBetweenShots: 0.1
+  timeBetweenShots: 0.75
   reloading: 0
   canDamageMetal: 0
   canDetectCamo: 0
   canAttackFlying: 0
   reloadTime: 1
+  enemiesInRange: []
