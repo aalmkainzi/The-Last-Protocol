@@ -1,13 +1,13 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1102 &-5345517341853574289
+--- !u!1102 &-3132659764554362427
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 2382960812160_TempMotion
+  m_Name: 2382960812160_TempMotion 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -58,8 +58,8 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: -5345517341853574289}
-    m_Position: {x: 335.9432, y: 472.8603, z: 0}
+    m_State: {fileID: -3132659764554362427}
+    m_Position: {x: 320, y: 510, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -69,4 +69,4 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 350, y: 340, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: -5345517341853574289}
+  m_DefaultState: {fileID: -3132659764554362427}

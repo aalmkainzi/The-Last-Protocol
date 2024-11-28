@@ -122,7 +122,6 @@ public enum EnemyType
     E1 = 0,
     E2,
     E3,
-    E4,
     Boss1,
     Boss2
 }

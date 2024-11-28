@@ -22,7 +22,6 @@ public class EnemySpanwer : MonoBehaviour
 
     IEnumerator SpawnWaveLoop(EnemyWave wave)
     {
-        Debug.Log("PREFAB " + gameplayManager.enemyPrefabs[(int)wave.type]);
         GameObject prefab = gameplayManager.enemyPrefabs[(int)wave.type];
 
         WaitForSeconds delay = new WaitForSeconds(wave.timeBetweenEach);
@@ -46,10 +45,16 @@ public class EnemySpanwer : MonoBehaviour
             }
             
             Vector3[] ogPath;
-            if(wave.spawnerIdx == 0)
+            if (wave.spawnerIdx == 0)
+            {
                 ogPath = gameplayManager.path1;
+                newE.pathId = 0;
+            }
             else
+            {
                 ogPath = gameplayManager.path2;
+                newE.pathId = 1;
+            }
 
             Vector3[] randomPath = new Vector3[ogPath.Length];
 

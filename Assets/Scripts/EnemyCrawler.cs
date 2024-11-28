@@ -21,12 +21,19 @@ public class EnemyCrawler : Enemy
     {
         base.Die();
         particle1.SetActive(true);
+        animator.SetBool("die", true);
+        Invoke(nameof(DestroyCrawler), 1.75f);
+    }
+
+    void DestroyCrawler()
+    {
+        Destroy(transform.parent.gameObject);
     }
 
     protected override void Attack()
     {
-        agent.enabled = false;
+        agent.isStopped = true;
         animator.SetBool("attack", true);
-        Invoke(nameof(Die), 1.0f);
+        radarTower.TakeDamage(power);
     }
 }

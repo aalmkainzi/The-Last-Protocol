@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
     public bool flying;
     
     public Vector3[] path;
-    int curTargetIdx;
+    protected int curTargetIdx;
 
     public Coroutine navCor;
     private Coroutine attackCor;
@@ -38,9 +38,11 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
 
     bool playerInTrigger;
 
+    public int pathId;
+
     public AttackPlayerBehaviour attackPlayer;
     
-    GameplayManager gameplayManager;
+    protected GameplayManager gameplayManager;
 
     protected virtual void Start()
     {
@@ -75,7 +77,6 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
         float distanceFromGoal = Vector3.Distance(radarTower.gameObject.transform.position, posIgnorY);
         if (distanceFromGoal <= attackRange)
         {
-            Debug.Log("REACHED ATK RANGE");
             Attack();
         }
     }
@@ -88,7 +89,7 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
             // if(agent.active)
             Vector3 pos = transform.position;
             pos.y = path[curTargetIdx].y;
-            if (Vector3.Distance(path[curTargetIdx], pos) <= 2.0f)
+            if (Vector3.Distance(path[curTargetIdx], pos) <= 2.5f)
             {
                 curTargetIdx++;
                 agent.SetDestination(path[curTargetIdx]);
@@ -141,7 +142,6 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
         if(health <= 0)
         {
             gameplayManager.RemoveEnemyFromAllTowers(this);
-            Debug.Log("DIED");
             Die();
             return true;
         }
@@ -154,7 +154,7 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
             StopCoroutine(attackCor);        
         StopCoroutine(navCor);
 
-        agent.enabled = false;
+        // agent.isStopped = true;
 
         
         if (flyingTween != null) flyingTween.Kill();
@@ -187,6 +187,7 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
             // Wait for the next frame
             yield return null;
         }
+        transform.DOKill();
         Destroy(transform.parent.gameObject);
     }
 

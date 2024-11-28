@@ -31,17 +31,14 @@ public class SmallDrone : Enemy
         agent.enabled = false;
         blowUpOnRadio = true;
         transform.DOMove(radarTower.transform.position, 1.0f, false);
-        Debug.Log("agent enabled: " + agent.enabled);
-        Debug.Log("agnet dst " + agent.destination);
-        // StartCoroutine(BlowUpOnImpact());
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        Debug.Log("Colliding with " + other.gameObject.name);
         if (blowUpOnRadio && other.gameObject.CompareTag("radioTower"))
         {
             radarTower.TakeDamage(power);
+            transform.DOKill();
             Die();
         }
     }
