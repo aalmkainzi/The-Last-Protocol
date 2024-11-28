@@ -22,6 +22,7 @@ public class SmallDrone : Enemy
     public override void Die()
     {
         base.Die();
+        StartCoroutine(SpinInSpiral());
         particle1.SetActive(true);
     }
 

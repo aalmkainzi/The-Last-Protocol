@@ -1,11 +1,9 @@
 using DG.Tweening;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Assertions.Must;
-using UnityEngine.UIElements;
+
 public class EnemySpanwer : MonoBehaviour
 {
     GameplayManager gameplayManager;
@@ -34,25 +32,19 @@ public class EnemySpanwer : MonoBehaviour
 
             Vector3 spawnPos = transform.position + spawnOffsetDirection * spawnPosOffset;
             GameObject newObj = Instantiate(prefab, spawnPos, Quaternion.identity);
-            Enemy newE;
+            Enemy newE = newE = newObj.transform.GetChild(0).GetComponent<Enemy>();
             if (prefab.CompareTag("flyingE"))
             {
-                newE = newObj.transform.GetChild(0).GetComponent<Enemy>();
                 Vector3 flyingPos = newE.transform.position; //newObj.transform.GetChild(0).position;
                 flyingPos.y += Random.Range(3f, 4f);
                 newE.transform/*.GetChild(0)*/.position = flyingPos;
             }
-            else
-            {
-                newE = newObj.GetComponent<Enemy>();
-            }
+            
             if (wave.type == EnemyType.Boss1 || wave.type == EnemyType.Boss2)
             {
                 // boss warning
             }
-
             
-
             Vector3[] ogPath;
             if(wave.spawnerIdx == 0)
                 ogPath = gameplayManager.path1;

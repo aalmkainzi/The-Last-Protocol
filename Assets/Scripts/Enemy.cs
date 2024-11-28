@@ -156,12 +156,11 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
 
         agent.enabled = false;
 
-        StartCoroutine(SpinInSpiral());
         
         if (flyingTween != null) flyingTween.Kill();
     }
 
-    IEnumerator SpinInSpiral()
+    protected IEnumerator SpinInSpiral()
     {
         float timeElapsed = 0f;
         float rotationSpeed = 200f;
@@ -188,7 +187,7 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
             // Wait for the next frame
             yield return null;
         }
-        Destroy(flying ? transform.parent.gameObject : gameObject);
+        Destroy(transform.parent.gameObject);
     }
 
     public bool Equals(Enemy other)
