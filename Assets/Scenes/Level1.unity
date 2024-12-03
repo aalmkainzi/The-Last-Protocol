@@ -119,63 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &9478927
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5309107398827645648, guid: 4ce043bf5a1770442ab0dca3f318c2e2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 61.998047
-      objectReference: {fileID: 0}
-    - target: {fileID: 5309107398827645648, guid: 4ce043bf5a1770442ab0dca3f318c2e2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.3670716
-      objectReference: {fileID: 0}
-    - target: {fileID: 5309107398827645648, guid: 4ce043bf5a1770442ab0dca3f318c2e2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 126.80739
-      objectReference: {fileID: 0}
-    - target: {fileID: 5309107398827645648, guid: 4ce043bf5a1770442ab0dca3f318c2e2, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5309107398827645648, guid: 4ce043bf5a1770442ab0dca3f318c2e2, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5309107398827645648, guid: 4ce043bf5a1770442ab0dca3f318c2e2, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5309107398827645648, guid: 4ce043bf5a1770442ab0dca3f318c2e2, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5309107398827645648, guid: 4ce043bf5a1770442ab0dca3f318c2e2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5309107398827645648, guid: 4ce043bf5a1770442ab0dca3f318c2e2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5309107398827645648, guid: 4ce043bf5a1770442ab0dca3f318c2e2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6323292278505858709, guid: 4ce043bf5a1770442ab0dca3f318c2e2, type: 3}
-      propertyPath: m_Name
-      value: RailGun
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4ce043bf5a1770442ab0dca3f318c2e2, type: 3}
 --- !u!1001 &12124331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3363,4 +3306,3 @@ SceneRoots:
   - {fileID: 808151549}
   - {fileID: 1254264427}
   - {fileID: 270953696}
-  - {fileID: 9478927}
