@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using TMPro;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class GameplayManager : MonoBehaviour
 {
@@ -14,7 +15,20 @@ public class GameplayManager : MonoBehaviour
     public GameObject[] enemyPrefabs;
     public GameObject[] towerPrefabs;
 
-    public EnemyWave[] waves;
+    // public EnemyWave[] waves;
+
+    [System.Serializable]
+    public struct Round
+    {
+        public Round(EnemyWave[] waves)
+        {
+            this.waves = waves;
+        }
+        public EnemyWave[] waves;
+    };
+
+    public Round[] rounds;
+
     public EnemySpanwer[] spawners;
     int curWaveIdx = 0;
 
@@ -28,6 +42,7 @@ public class GameplayManager : MonoBehaviour
 
     GameObject overlay;
     TMP_Text moneyText;
+    TMP_Text roundText;
 
 
     public AudioClip[] booms;
@@ -35,14 +50,35 @@ public class GameplayManager : MonoBehaviour
 
     void Start()
     {
+        rounds = new Round[3]{
+            new Round(new EnemyWave[] {new EnemyWave(EnemyType.E1, 3, 0.5f, 0, 1.0f), new EnemyWave(EnemyType.E2, 3, 0.5f, 0, 1.0f)}),
+            new Round(new EnemyWave[] {new EnemyWave(EnemyType.E1, 2, 0.5f, 1, 0.0f), new EnemyWave(EnemyType.E1, 3, 0.5f, 0, 0.0f)}),
+            new Round(new EnemyWave[] {new EnemyWave(EnemyType.E3, 2, 0.6f, 0, 0.0f), new EnemyWave(EnemyType.E3, 2, 0.6f, 1, 0.0f), new EnemyWave(EnemyType.E2, 2, 0.6f, 0, 0.0f), new EnemyWave(EnemyType.E2, 2, 0.6f, 1, 0.0f)}),
+            /*new Round(new EnemyWave[] {}),
+            new Round(new EnemyWave[] {}),
+            new Round(new EnemyWave[] {}),
+            new Round(new EnemyWave[] {}),
+            new Round(new EnemyWave[] {}),
+            new Round(new EnemyWave[] {}),
+            new Round(new EnemyWave[] {})
+*/        };
+
+       /* rounds = new Round[1]
+        {
+            new Round(new EnemyWave[]{new EnemyWave(EnemyType.E3, 2, 0.5f, 0, 0.0f) })
+        };*/
         p = GameObject.FindWithTag("player").GetComponent<Player>();
         overlay = GameObject.FindWithTag("ui_overlay");
         overlay.SetActive(true);
+
+        roundText = GameObject.FindWithTag("RoundText").GetComponent<TMP_Text>();
+        roundText.text = "Round: 0";
+
         placedTowers = new List<FixedTower> ();
         Enemy.curId = 0;
         cube = transform.GetChild(0).gameObject;
         cube.SetActive(false);
-        StartCoroutine(IterateWaves());
+        StartCoroutine(IterateRounds());
     }
 
     void Update()
@@ -85,19 +121,36 @@ public class GameplayManager : MonoBehaviour
         }
     }
 
-    IEnumerator IterateWaves()
+    bool roundDone = false;
+    IEnumerator IterateRounds()
+    {
+        WaitForSeconds afterRoundDelay = new WaitForSeconds(10.0f);
+        for (int i = 0; i < rounds.Length; i++)
+        {
+            roundText.text = "Round: " + (i + 1);
+            roundDone = false;
+            Round round = rounds[i];
+            StartCoroutine(IterateWaves(round));
+            while (!roundDone) yield return null;
+            yield return afterRoundDelay;
+        }
+    }
+    IEnumerator IterateWaves(Round round)
     {
         yield return new WaitForSeconds(1.5f);
-        for (int i = 0; i < waves.Length; i++)
+        for (int i = 0; i < round.waves.Length; i++)
         {
-            EnemyWave curWave = waves[curWaveIdx];
+            EnemyWave curWave = round.waves[curWaveIdx];
             spawners[curWave.spawnerIdx].SpawnWave(curWave);
             curWaveIdx++;
             yield return new WaitForSeconds(curWave.afterWaveDelay);
         }
+        roundDone = true;
+        curWaveIdx = 0;
     }
     public void Lose()
     {
+        DOTween.KillAll();
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -121,6 +174,11 @@ public class GameplayManager : MonoBehaviour
             Gizmos.DrawLine(path2[i], path2[i + 1]);
         }
     }
+
+    public AudioClip GetRandomBoom()
+    {
+        return booms[Random.Range(0, booms.Length)];
+    }
 }
 
 [System.Serializable]
@@ -131,6 +189,15 @@ public struct EnemyWave
     public float timeBetweenEach;
     public int spawnerIdx;
     public float afterWaveDelay;
+
+    public EnemyWave(EnemyType t, int nbE, float tb = 0.25f, int spawnerId = 0, float timeAfter = 1.0f)
+    {
+        type = t;
+        nb = nbE;
+        timeBetweenEach = tb;
+        spawnerIdx = spawnerId;
+        afterWaveDelay = timeAfter;
+    }
 };
 
 public enum EnemyType

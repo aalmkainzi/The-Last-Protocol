@@ -12,6 +12,9 @@ TagManager:
   - flyingE
   - ui_tower
   - ui_overlay
+  - Enemy
+  - RoundText
+  - HealthSlider
   layers:
   - Default
   - TransparentFX
@@ -24,7 +27,7 @@ TagManager:
   - Ground
   - Radio
   - EnemyAgent
-  - 
+  - Bomb
   - 
   - 
   - 

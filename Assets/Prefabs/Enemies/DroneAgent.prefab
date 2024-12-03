@@ -34790,13 +34790,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1508084967489990154}
   - component: {fileID: 6007108510567559058}
-  - component: {fileID: 2790035342028234123}
   - component: {fileID: 8676052216330904966}
   - component: {fileID: 8182219667170261747}
   - component: {fileID: 8355262701925522354}
+  - component: {fileID: 1088865243954870568}
   m_Layer: 7
   m_Name: PA_Drone
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34841,29 +34841,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!136 &2790035342028234123
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4109568273338401631}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.07
-  m_Height: 0.6
-  m_Direction: 2
-  m_Center: {x: 0, y: 0.03, z: 0.04}
 --- !u!54 &8676052216330904966
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -34886,7 +34863,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
@@ -34915,6 +34892,9 @@ MonoBehaviour:
   player: {fileID: 0}
   sightRange: 0
   attackRange: 6.5
+  audio: {fileID: 0}
+  timeBetweenAttacks: 0
+  lastAttackTime: 0
   pathId: 0
   attackPlayer: 0
 --- !u!82 &8355262701925522354
@@ -35014,6 +34994,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!135 &1088865243954870568
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4109568273338401631}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.4
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6286700583385404737
 GameObject:
   m_ObjectHideFlags: 0

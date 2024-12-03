@@ -33,7 +33,8 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
     public float attackRange;
     Tween flyingTween;
     public AudioSource audio;
-
+    public float timeBetweenAttacks;
+    public float lastAttackTime;
     public enum AttackPlayerBehaviour {
         None, Chase, StopAndShoot, MoveAndShoot
     };
@@ -78,8 +79,9 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
         Vector3 posIgnorY = transform.position;
         posIgnorY.y = radarTower.transform.position.y;
         float distanceFromGoal = Vector3.Distance(radarTower.gameObject.transform.position, posIgnorY);
-        if (distanceFromGoal <= attackRange)
+        if (distanceFromGoal <= attackRange && Time.time - lastAttackTime >= timeBetweenAttacks)
         {
+            lastAttackTime = Time.time;
             Attack();
         }
     }
@@ -156,7 +158,7 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
         if(attackCor != null)
             StopCoroutine(attackCor);        
         StopCoroutine(navCor);
-
+        
         // agent.isStopped = true;
 
         

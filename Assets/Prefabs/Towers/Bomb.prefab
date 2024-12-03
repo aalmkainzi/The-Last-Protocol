@@ -81,7 +81,7 @@ PrefabInstance:
       addedObject: {fileID: 2773380964864490434}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 856efb581ed2d2a44878c30ec4516d9f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5778033323032252189}
+      addedObject: {fileID: 5133521781802717347}
   m_SourcePrefab: {fileID: 100100000, guid: 856efb581ed2d2a44878c30ec4516d9f, type: 3}
 --- !u!1 &1456929044762757681 stripped
 GameObject:
@@ -107,9 +107,9 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 5
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5778033323032252189
+--- !u!114 &5133521781802717347
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1456929044762757681}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc4ef5db1268b3644b7c6f917cdb8926, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a991a862be89d240be0f7c81983cfd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   price: 1200
@@ -134,4 +134,7 @@ MonoBehaviour:
   canDetectCamo: 0
   canAttackFlying: 0
   reloadTime: 0
-  rangeCollider: {fileID: 0}
+  enemiesInRange: []
+  bomb: {fileID: 8500547112247097650, guid: a132f6d1b68d52d4996cd4e8235cbf72, type: 3}
+  bombThrowPower: 3
+  force: 10

@@ -38,28 +38,30 @@ public class FixedTower : Tower
             transform.LookAt(lookAt);
             if (shouldFire)
             {
-                Debug.Log("ATTACKING  ! ! !");
                 Enemy e = enemiesInRange[0];
                 Vector3 ePos = e.transform.position;
                 ePos.y = transform.position.y;
                 transform.LookAt(ePos);
                 ammo -= 1;
                 // later make it an actual bullet for pierce (bullet can be just a particle sys for laser effects)
-                e.TakeDamage(power);
+                Fire(e);
                 lastShot = Time.time;
             }
         }
     }
 
+    protected virtual void Fire(Enemy target)
+    {
+        target.TakeDamage(power);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("collided with " + other.gameObject.name);
         enemiesInRange.Add(other.gameObject.GetComponent<Enemy>());
     }
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("TRIGGER EXIT");
         enemiesInRange.Remove(other.gameObject.GetComponent<Enemy>());
     }
 }

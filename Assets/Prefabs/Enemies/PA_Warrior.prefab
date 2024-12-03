@@ -14809,7 +14809,7 @@ GameObject:
   - component: {fileID: 8626278199018201733}
   m_Layer: 7
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14845,7 +14845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  health: 6
+  health: 1
   gearsWhenKilled: 1
   speed: 16
   power: 3
@@ -14857,6 +14857,8 @@ MonoBehaviour:
   sightRange: 0
   attackRange: 5
   audio: {fileID: 0}
+  timeBetweenAttacks: 1
+  lastAttackTime: 0
   pathId: 0
   attackPlayer: 0
 --- !u!135 &275499235241136698
@@ -14878,7 +14880,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.73
+  m_Radius: 0.39
   m_Center: {x: 0, y: 0.18, z: -0.08}
 --- !u!54 &4529535006769497290
 Rigidbody:
@@ -15275,10 +15277,8 @@ GameObject:
   m_Component:
   - component: {fileID: 225598862787722926}
   - component: {fileID: 4256020983502619151}
-  - component: {fileID: 8540557183016842034}
-  - component: {fileID: 3273388099212222138}
   - component: {fileID: 6265792680455835761}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: PA_Warrior
   m_TagString: walkingE
   m_Icon: {fileID: 0}
@@ -15323,54 +15323,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!54 &8540557183016842034
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2517216746209754193}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
---- !u!65 &3273388099212222138
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2517216746209754193}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.20646027, y: 0.2982871, z: 0.6956189}
-  m_Center: {x: 0.005986754, y: 0.26197177, z: -0.15219054}
 --- !u!195 &6265792680455835761
 NavMeshAgent:
   m_ObjectHideFlags: 0

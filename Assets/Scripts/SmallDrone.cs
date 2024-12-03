@@ -44,18 +44,4 @@ public class SmallDrone : Enemy
             Die();
         }
     }
-
-/*    IEnumerator BlowUpOnImpact()
-    {
-        while(true)
-        {
-            if(Vector3.Distance(transform.position, radarTower.transform.position) <= 0.75f)
-            {
-                radarTower.TakeDamage(5);
-                Die();
-            }
-        }
-    }*/
-
-
 }
