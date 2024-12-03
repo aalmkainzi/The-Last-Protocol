@@ -14,8 +14,9 @@ public class Rail : MonoBehaviour
         }
     }
 
-    public void Launch(Vector3 dir, int dmg)
+    public void Launch(Vector3 target, int dmg)
     {
+        transform.LookAt(target);
         damage = dmg;
         Invoke(nameof(DestroyThis), 7.5f);
         StartCoroutine(MoveForward());

@@ -28,6 +28,7 @@ public class Tower : MonoBehaviour
     void FillAmmo()
     {
         ammo = fullAmmo;
+        reloading = false;
     }
 
 

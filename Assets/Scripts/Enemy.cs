@@ -35,6 +35,7 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
     public AudioSource audio;
     public float timeBetweenAttacks;
     public float lastAttackTime;
+    public bool dead;
     public enum AttackPlayerBehaviour {
         None, Chase, StopAndShoot, MoveAndShoot
     };
@@ -146,7 +147,6 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
         health -= dmg;
         if(health <= 0)
         {
-            gameplayManager.RemoveEnemyFromAllTowers(this);
             Die();
             return true;
         }
@@ -158,6 +158,9 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
         if(attackCor != null)
             StopCoroutine(attackCor);        
         StopCoroutine(navCor);
+
+        dead = true;
+        gameplayManager.RemoveEnemyFromAllTowers(this);
 
         // agent.isStopped = true;
 

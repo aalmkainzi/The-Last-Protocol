@@ -30,10 +30,10 @@ public class RailTower : FixedTower
     protected override void Fire(Enemy target)
     {
         // TODO make it shoot from the correct Vec3
-        Vector3 projectileRotation = transform.rotation.eulerAngles;
-        projectileRotation.x = railGunHead.transform.rotation.eulerAngles.x;
-        GameObject newRail = Instantiate(rail, railGunHead.transform.GetChild(0).position, Quaternion.Euler(projectileRotation));
+        //Vector3 projectileRotation = railGunHead.transform.rotation.eulerAngles;
+        //projectileRotation.x += -90.0f;
+        GameObject newRail = Instantiate(rail, railGunHead.transform.GetChild(0).position, Quaternion.identity);//Quaternion.Euler(projectileRotation));
 
-        newRail.GetComponent<Rail>().Launch(transform.forward, power);
+        newRail.GetComponent<Rail>().Launch(target.transform.position, power);
     }
 }

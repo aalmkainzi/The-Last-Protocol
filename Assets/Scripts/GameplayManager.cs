@@ -65,7 +65,7 @@ public class GameplayManager : MonoBehaviour
 
         rounds = new Round[1]
         {
-            new Round(new EnemyWave[]{new EnemyWave(EnemyType.E2, 10, 5.5f, 0, 0.0f) })
+            new Round(new EnemyWave[]{new EnemyWave(EnemyType.E1, 1000, 2f, 0, 0.0f) })
         };
         p = GameObject.FindWithTag("player").GetComponent<Player>();
         overlay = GameObject.FindWithTag("ui_overlay");
@@ -85,8 +85,8 @@ public class GameplayManager : MonoBehaviour
     {
         if(currentTowerTile != null)
         {
-            cube.SetActive(true);
-            cube.transform.position = currentTowerTile.transform.position;
+            //cube.SetActive(true);
+            //cube.transform.position = currentTowerTile.transform.position;
             GameObject newTower = null;
             if (Input.GetKeyDown(KeyCode.E))
             {

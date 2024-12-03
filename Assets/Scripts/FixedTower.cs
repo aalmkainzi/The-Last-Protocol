@@ -57,7 +57,11 @@ public class FixedTower : Tower
 
     private void OnTriggerEnter(Collider other)
     {
-        enemiesInRange.Add(other.gameObject.GetComponent<Enemy>());
+        Enemy e = other.gameObject.GetComponent<Enemy>();
+        if (!e.dead)
+        {
+            enemiesInRange.Add(other.gameObject.GetComponent<Enemy>());
+        }
     }
 
     private void OnTriggerExit(Collider other)

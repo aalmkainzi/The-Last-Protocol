@@ -4,8 +4,10 @@ public class TowerTile : MonoBehaviour
 {
     Tower placedTower;
     GameplayManager gameplayManager;
+    GameObject cube;
     void Start()
     {
+        cube = transform.GetChild(0).gameObject;
         gameplayManager = GameObject.FindWithTag("gameplayManager").GetComponent<GameplayManager>();
     }
 
@@ -19,6 +21,7 @@ public class TowerTile : MonoBehaviour
         {
             GameObject newTower = Instantiate(prefab.gameObject, transform);
             placedTower = newTower.GetComponent<Tower>();
+            cube.SetActive(false);
             return newTower;
         }
         return null;
