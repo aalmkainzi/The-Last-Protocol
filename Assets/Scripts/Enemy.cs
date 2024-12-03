@@ -158,10 +158,10 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
         if(attackCor != null)
             StopCoroutine(attackCor);        
         StopCoroutine(navCor);
-        
+
         // agent.isStopped = true;
 
-        
+        transform.DOKill();
         if (flyingTween != null) flyingTween.Kill();
     }
 

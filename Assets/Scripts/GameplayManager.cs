@@ -63,10 +63,10 @@ public class GameplayManager : MonoBehaviour
             new Round(new EnemyWave[] {})
 */        };
 
-       /* rounds = new Round[1]
+        rounds = new Round[1]
         {
-            new Round(new EnemyWave[]{new EnemyWave(EnemyType.E3, 2, 0.5f, 0, 0.0f) })
-        };*/
+            new Round(new EnemyWave[]{new EnemyWave(EnemyType.E2, 10, 5.5f, 0, 0.0f) })
+        };
         p = GameObject.FindWithTag("player").GetComponent<Player>();
         overlay = GameObject.FindWithTag("ui_overlay");
         overlay.SetActive(true);
