@@ -143,6 +143,7 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
         radarTower.TakeDamage(power);
     }
 
+    int ii = 0;
     public bool TakeDamage(int dmg)
     {
         health -= dmg;
@@ -153,6 +154,7 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
         }
         else
         {
+            Debug.Log("PLAYING SOUND " + ii++);
             audioSource.PlayOneShot(gameplayManager.GetDamageSound());
         }
         return false;

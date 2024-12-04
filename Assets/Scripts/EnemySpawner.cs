@@ -1,8 +1,5 @@
-using DG.Tweening;
 using System.Collections;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class EnemySpanwer : MonoBehaviour
 {

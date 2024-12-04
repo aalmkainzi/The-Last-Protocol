@@ -1,6 +1,6 @@
-using DG.Tweening;
 using System.Collections;
 using UnityEngine;
+using PrimeTween;
 
 public class SpanwerRobot : Enemy
 {
@@ -65,7 +65,6 @@ public class SpanwerRobot : Enemy
     public override void Die()
     {
         base.Die();
-        transform.DOKill();
         GetComponent<AudioSource>().clip = gameplayManager.booms[Random.Range(0, gameplayManager.booms.Length)];
         GetComponent<AudioSource>().Play();
         StartCoroutine(SpinInSpiral());
@@ -77,7 +76,7 @@ public class SpanwerRobot : Enemy
         Debug.Log("BOSS ATTACKING");
         agent.enabled = false;
         blowUpOnRadio = true;
-        transform.DOMove(radarTower.transform.position, 1.0f, false);
+        PrimeTween.Tween.Position(transform, radarTower.transform.position, duration: 1.0f);
     }
 
     private void OnCollisionEnter(Collision other)
@@ -86,7 +85,6 @@ public class SpanwerRobot : Enemy
         if (blowUpOnRadio && other.gameObject.CompareTag("radioTower"))
         {
             radarTower.TakeDamage(power);
-            transform.DOKill();
             Die();
         }
     }

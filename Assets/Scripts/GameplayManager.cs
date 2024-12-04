@@ -70,13 +70,19 @@ public class GameplayManager : MonoBehaviour
             //new Round(new EnemyWave[] {})
         };
 
-        //rounds = new Round[1]
-        //{
-        //    new Round(new EnemyWave[]{
-        //        new EnemyWave(EnemyType.Stealth, 2, 0.25f, 0, 0.0f),
-        //        new EnemyWave(EnemyType.Stealth, 2, 0.25f, 1, 0.0f)
-        //    })
-        //};
+        rounds = new Round[1]
+        {
+            new Round(new EnemyWave[]{
+                new EnemyWave(EnemyType.Stealth, 2, 0.25f, 0, 0.0f),
+                new EnemyWave(EnemyType.Stealth, 2, 0.25f, 1, 0.0f),
+                new EnemyWave(EnemyType.SmallDrone, 10, 0.65f, 0, 6.5f),
+                new EnemyWave(EnemyType.Crawler, 5, 0.6f, 0, 4f),
+                new EnemyWave(EnemyType.BigDrone, 3, 2.25f, 0, 3.0f),
+                new EnemyWave(EnemyType.DroneSpawnerBoss, 1, 0.25f, 0, 2.0f),
+                new EnemyWave(EnemyType.SmallDrone, 10, 0.75f, 1, 6.5f),
+                new EnemyWave(EnemyType.WalkerBoss, 1, 0.6f, 0, 0.0f)
+            })
+        };
 
         p = GameObject.FindWithTag("player").GetComponent<Player>();
         overlay = GameObject.FindWithTag("ui_overlay");
