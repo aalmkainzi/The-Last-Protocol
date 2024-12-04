@@ -57,7 +57,7 @@ public class FixedTower : Tower
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("ENEMY ENTERED TRIGGER");
+        // Debug.Log("ENEMY ENTERED TRIGGER");
         Enemy e = other.gameObject.GetComponent<Enemy>();
         if (!e.dead)
         {

@@ -463,12 +463,13 @@ MonoBehaviour:
   - {fileID: 339919950861710355, guid: fdd02052719f5ce40bd136c9ed67aed2, type: 3}
   - {fileID: 2517216746209754193, guid: a9433ad10405eb84aab7c46658fba482, type: 3}
   - {fileID: 6232000131440173129, guid: 3252b55f5aefb1148b017a612b1e6d91, type: 3}
+  - {fileID: 6458261333924989125, guid: 596cd9fb81a18a042b0767016b9d308b, type: 3}
   - {fileID: 4630958869915385769, guid: f7985a263ca302342aa828598e4660cd, type: 3}
   - {fileID: 5412705611421586247, guid: 7a8b6972241f21c47b36e27c79f2b12e, type: 3}
   towerPrefabs:
   - {fileID: 3904205397943604257, guid: 6b76e814fb7ee8c44a6eb3d6ed02adc7, type: 3}
   - {fileID: 8335230829920721689, guid: 8990c57d316479f4e9b71bad7ccd0366, type: 3}
-  - {fileID: 6051203735436861641, guid: 781c2f011c8cf8742a74548bb571c3dc, type: 3}
+  - {fileID: 8717836045142420663, guid: c082026cf4923a24e816c20013c4d266, type: 3}
   - {fileID: 6323292278505858709, guid: 4ce043bf5a1770442ab0dca3f318c2e2, type: 3}
   rounds:
   - waves: []
@@ -477,10 +478,10 @@ MonoBehaviour:
   - {fileID: 1304215182}
   - {fileID: 746374650}
   path1:
-  - {x: 24.1, y: 5, z: 85.4}
-  - {x: 26.4, y: 5, z: 109.2}
-  - {x: 70.2, y: 5, z: 111.2}
-  - {x: 72.8, y: 5, z: 155}
+  - {x: 24.2, y: 3, z: 85.4}
+  - {x: 24.8, y: 3, z: 108.2}
+  - {x: 70.2, y: 3, z: 111.2}
+  - {x: 72.8, y: 3, z: 155}
   path2:
   - {x: 97, y: 7, z: 177}
   - {x: 70.2, y: 7, z: 178.4}
@@ -495,8 +496,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9e92a6462b01e4f4882d9d51bb64bafe, type: 3}
   - {fileID: 8300000, guid: 58a1b741fa6d18349af6d89c55b6f2e5, type: 3}
   enemyDamageSounds:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 5caa2f4c240e6424b8dc4cf877431f1c, type: 3}
+  - {fileID: 8300000, guid: 6609f3d09c23ed14da39bade8e8bb1da, type: 3}
   towerUI: {fileID: 0}
 --- !u!4 &145331845
 Transform:

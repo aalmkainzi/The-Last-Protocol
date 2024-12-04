@@ -49,7 +49,7 @@ public class GameplayManager : MonoBehaviour
     public AudioClip[] booms;
     Player p;
 
-    public AudioClip[] enemyDamageSounds;
+    [SerializeField] private AudioClip[] enemyDamageSounds;
 
     public GameObject towerUI;
 
@@ -58,9 +58,9 @@ public class GameplayManager : MonoBehaviour
         PrimeTweenConfig.SetTweensCapacity(1000);
 
         rounds = new Round[3]{
-            new Round(new EnemyWave[] {new EnemyWave(EnemyType.E1, 3, 0.5f, 0, 1.0f), new EnemyWave(EnemyType.E2, 3, 0.5f, 0, 1.0f)}),
-            new Round(new EnemyWave[] {new EnemyWave(EnemyType.E1, 2, 0.5f, 1, 0.0f), new EnemyWave(EnemyType.E1, 3, 0.5f, 0, 0.0f)}),
-            new Round(new EnemyWave[] {new EnemyWave(EnemyType.E3, 2, 0.6f, 0, 0.0f), new EnemyWave(EnemyType.E3, 2, 0.6f, 1, 0.0f), new EnemyWave(EnemyType.E2, 2, 0.6f, 0, 0.0f), new EnemyWave(EnemyType.E2, 2, 0.6f, 1, 0.0f)}),
+            new Round(new EnemyWave[] {new EnemyWave(EnemyType.SmallDrone, 3, 0.5f, 0, 1.0f), new EnemyWave(EnemyType.Crawler, 3, 0.5f, 0, 1.0f)}),
+            new Round(new EnemyWave[] {new EnemyWave(EnemyType.SmallDrone, 2, 0.5f, 1, 0.0f), new EnemyWave(EnemyType.SmallDrone, 3, 0.5f, 0, 0.0f)}),
+            new Round(new EnemyWave[] {new EnemyWave(EnemyType.BigDrone, 2, 0.6f, 0, 0.0f), new EnemyWave(EnemyType.BigDrone, 2, 0.6f, 1, 0.0f), new EnemyWave(EnemyType.Crawler, 2, 0.6f, 0, 0.0f), new EnemyWave(EnemyType.Crawler, 2, 0.6f, 1, 0.0f)}),
             /*new Round(new EnemyWave[] {}),
             new Round(new EnemyWave[] {}),
             new Round(new EnemyWave[] {}),
@@ -72,7 +72,10 @@ public class GameplayManager : MonoBehaviour
 
         rounds = new Round[1]
         {
-            new Round(new EnemyWave[]{new EnemyWave(EnemyType.E1, 1000, 0.25f, 0, 0.0f) })
+            new Round(new EnemyWave[]{
+                new EnemyWave(EnemyType.Stealth, 2, 0.25f, 0, 0.0f),
+                new EnemyWave(EnemyType.Stealth, 2, 0.25f, 1, 0.0f)
+            })
         };
 
         p = GameObject.FindWithTag("player").GetComponent<Player>();
@@ -96,11 +99,6 @@ public class GameplayManager : MonoBehaviour
         StartCoroutine(IterateRounds());
     }
 
-    public void GetMoney(int money)
-    {
-        p.money += money;
-    }
-
     void Update()
     {
         if(currentTowerTile != null)
@@ -112,6 +110,16 @@ public class GameplayManager : MonoBehaviour
         }
 
         moneyText.text = p.money + "";
+    }
+
+    public void GetMoney(int money)
+    {
+        p.money += money;
+    }
+
+    public AudioClip GetDamageSound()
+    {
+        return enemyDamageSounds[Random.Range(0, enemyDamageSounds.Length)];
     }
 
     public void EnableTowerUI()
@@ -227,11 +235,12 @@ public struct EnemyWave
 
 public enum EnemyType
 {
-    E1 = 0,
-    E2,
-    E3,
-    Boss1,
-    Boss2
+    SmallDrone = 0,
+    Crawler,
+    BigDrone,
+    Stealth,
+    DroneSpawnerBoss,
+    WalkerBoss
 }
 
 [System.Serializable]

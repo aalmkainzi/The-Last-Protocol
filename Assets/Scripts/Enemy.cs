@@ -153,7 +153,7 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
         }
         else
         {
-            audioSource.PlayOneShot(gameplayManager.enemyDamageSounds[0]);
+            audioSource.PlayOneShot(gameplayManager.GetDamageSound());
         }
         return false;
     }

@@ -39,7 +39,7 @@ public class EnemySpanwer : MonoBehaviour
                 newE.transform/*.GetChild(0)*/.position = flyingPos;
             }
             
-            if (wave.type == EnemyType.Boss1 || wave.type == EnemyType.Boss2)
+            if (wave.type == EnemyType.DroneSpawnerBoss || wave.type == EnemyType.WalkerBoss)
             {
                 // boss warning
             }

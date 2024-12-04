@@ -21,7 +21,7 @@ public class Rycast_game : MonoBehaviour
         bang = GetComponent<AudioSource>();
         ps = transform.Find("Particle").gameObject.GetComponent<ParticleSystem>();
         ps2 = ps.gameObject.transform.GetChild(0).GetComponent<ParticleSystem>();
-        layerMask = 1 << LayerMask.NameToLayer("EnemyBot");
+        layerMask = (1 << LayerMask.NameToLayer("EnemyBot")) | (1 << LayerMask.NameToLayer("EnemyBotStealth"));
         player = transform.parent.parent.gameObject.GetComponent<Player>();
     }
     void Update()
@@ -72,6 +72,7 @@ public class Rycast_game : MonoBehaviour
                         laserLine.SetPosition(0, firePoint.position);
                         laserLine.SetPosition(1, hit.point);
             */
+            Debug.Log("DAMAGED E");
             Enemy enemy = closest.GetComponent<Enemy>();
             enemy.TakeDamage(player.power);
         }

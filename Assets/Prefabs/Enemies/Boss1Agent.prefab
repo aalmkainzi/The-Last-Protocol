@@ -476,7 +476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  health: 1
+  health: 17
   gearsWhenKilled: 100
   speed: 4.07
   power: 12
@@ -487,7 +487,7 @@ MonoBehaviour:
   player: {fileID: 0}
   sightRange: 0
   attackRange: 0
-  audio: {fileID: 0}
+  audioSource: {fileID: 0}
   timeBetweenAttacks: 0
   lastAttackTime: 0
   dead: 0
