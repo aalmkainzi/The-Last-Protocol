@@ -57,26 +57,26 @@ public class GameplayManager : MonoBehaviour
     {
         PrimeTweenConfig.SetTweensCapacity(1000);
 
-        rounds = new Round[3]{
+        rounds = new Round[5]{
             new Round(new EnemyWave[] {new EnemyWave(EnemyType.SmallDrone, 3, 0.5f, 0, 1.0f), new EnemyWave(EnemyType.Crawler, 3, 0.5f, 0, 1.0f)}),
             new Round(new EnemyWave[] {new EnemyWave(EnemyType.SmallDrone, 2, 0.5f, 1, 0.0f), new EnemyWave(EnemyType.SmallDrone, 3, 0.5f, 0, 0.0f)}),
             new Round(new EnemyWave[] {new EnemyWave(EnemyType.BigDrone, 2, 0.6f, 0, 0.0f), new EnemyWave(EnemyType.BigDrone, 2, 0.6f, 1, 0.0f), new EnemyWave(EnemyType.Crawler, 2, 0.6f, 0, 0.0f), new EnemyWave(EnemyType.Crawler, 2, 0.6f, 1, 0.0f)}),
-            /*new Round(new EnemyWave[] {}),
-            new Round(new EnemyWave[] {}),
-            new Round(new EnemyWave[] {}),
-            new Round(new EnemyWave[] {}),
-            new Round(new EnemyWave[] {}),
-            new Round(new EnemyWave[] {}),
-            new Round(new EnemyWave[] {})
-*/        };
-
-        rounds = new Round[1]
-        {
-            new Round(new EnemyWave[]{
-                new EnemyWave(EnemyType.Stealth, 2, 0.25f, 0, 0.0f),
-                new EnemyWave(EnemyType.Stealth, 2, 0.25f, 1, 0.0f)
-            })
+            new Round(new EnemyWave[] {new EnemyWave(EnemyType.BigDrone, 2, 0.6f, 0, 0.0f), new EnemyWave(EnemyType.BigDrone, 2, 0.6f, 1, 0.0f), new EnemyWave(EnemyType.Crawler, 2, 0.6f, 0, 0.0f), new EnemyWave(EnemyType.Crawler, 2, 0.6f, 1, 0.0f)}),
+            new Round(new EnemyWave[] {new EnemyWave(EnemyType.DroneSpawnerBoss, 1, 0.6f, 0, 0.0f), new EnemyWave(EnemyType.DroneSpawnerBoss, 2, 0.6f, 1, 0.0f), new EnemyWave(EnemyType.Crawler, 2, 0.6f, 0, 0.0f), new EnemyWave(EnemyType.Crawler, 2, 0.6f, 1, 0.0f)}),
+            //new Round(new EnemyWave[] {}),
+            //new Round(new EnemyWave[] {}),
+            //new Round(new EnemyWave[] {}),
+            //new Round(new EnemyWave[] {}),
+            //new Round(new EnemyWave[] {})
         };
+
+        //rounds = new Round[1]
+        //{
+        //    new Round(new EnemyWave[]{
+        //        new EnemyWave(EnemyType.Stealth, 2, 0.25f, 0, 0.0f),
+        //        new EnemyWave(EnemyType.Stealth, 2, 0.25f, 1, 0.0f)
+        //    })
+        //};
 
         p = GameObject.FindWithTag("player").GetComponent<Player>();
         overlay = GameObject.FindWithTag("ui_overlay");
