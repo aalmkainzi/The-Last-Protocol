@@ -5,7 +5,8 @@ using JetBrains.Annotations;
 using System.Collections;
 using TMPro;
 using UnityEngine.SceneManagement;
-using DG.Tweening;
+// using DG.Tweening;
+using PrimeTween;
 
 public class GameplayManager : MonoBehaviour
 {
@@ -38,7 +39,7 @@ public class GameplayManager : MonoBehaviour
     public TowerTile currentTowerTile;
     GameObject cube;
 
-    List<FixedTower> placedTowers;
+    public List<FixedTower> placedTowers;
 
     GameObject overlay;
     TMP_Text moneyText;
@@ -48,8 +49,14 @@ public class GameplayManager : MonoBehaviour
     public AudioClip[] booms;
     Player p;
 
+    public AudioClip[] enemyDamageSounds;
+
+    public GameObject towerUI;
+
     void Start()
     {
+        PrimeTweenConfig.SetTweensCapacity(1000);
+
         rounds = new Round[3]{
             new Round(new EnemyWave[] {new EnemyWave(EnemyType.E1, 3, 0.5f, 0, 1.0f), new EnemyWave(EnemyType.E2, 3, 0.5f, 0, 1.0f)}),
             new Round(new EnemyWave[] {new EnemyWave(EnemyType.E1, 2, 0.5f, 1, 0.0f), new EnemyWave(EnemyType.E1, 3, 0.5f, 0, 0.0f)}),
@@ -65,52 +72,70 @@ public class GameplayManager : MonoBehaviour
 
         rounds = new Round[1]
         {
-            new Round(new EnemyWave[]{new EnemyWave(EnemyType.E1, 1000, 2f, 0, 0.0f) })
+            new Round(new EnemyWave[]{new EnemyWave(EnemyType.E1, 1000, 0.25f, 0, 0.0f) })
         };
+
         p = GameObject.FindWithTag("player").GetComponent<Player>();
         overlay = GameObject.FindWithTag("ui_overlay");
         overlay.SetActive(true);
 
+        towerUI = GameObject.FindWithTag("ui_tower");
+        towerUI.SetActive(false);
+
         roundText = GameObject.FindWithTag("RoundText").GetComponent<TMP_Text>();
         roundText.text = "Round: 0";
+
+        moneyText = GameObject.FindWithTag("MoneyText").GetComponent<TMP_Text>();
+        moneyText.text = p.money + "";
 
         placedTowers = new List<FixedTower> ();
         Enemy.curId = 0;
         cube = transform.GetChild(0).gameObject;
         cube.SetActive(false);
+
         StartCoroutine(IterateRounds());
+    }
+
+    public void GetMoney(int money)
+    {
+        p.money += money;
     }
 
     void Update()
     {
         if(currentTowerTile != null)
         {
-            //cube.SetActive(true);
-            //cube.transform.position = currentTowerTile.transform.position;
-            GameObject newTower = null;
-            if (Input.GetKeyDown(KeyCode.E))
+            if(Input.GetKeyDown(KeyCode.E))
             {
-                // open towers menu
-                newTower = currentTowerTile.PlaceTower(towerPrefabs[0].GetComponent<Tower>());
-            }
-            else if(Input.GetKeyDown(KeyCode.R))
-            {
-                newTower = currentTowerTile.PlaceTower(towerPrefabs[3].GetComponent<Tower>());
-            }
-            if(newTower != null)
-            {
-                placedTowers.Add(newTower.GetComponent<FixedTower>());
+                EnableTowerUI();
             }
         }
-        else
-        {
-            cube.SetActive(false);
-        }
+
+        moneyText.text = p.money + "";
     }
 
-    public void SelectTower()
+    public void EnableTowerUI()
     {
-        moneyText.text = p.money + "";
+        towerUI.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void DisableTowerUI()
+    {
+        towerUI.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    public void SelectTower(int towerTy)
+    {
+        Tower towerPrefab = towerPrefabs[(int)towerTy].GetComponent<Tower>();
+        if (p.money >= towerPrefab.price)
+        {
+            p.money -= towerPrefab.price;
+            currentTowerTile.PlaceTower(towerPrefab);
+        }
     }
 
     public void RemoveEnemyFromAllTowers(Enemy e)
@@ -150,7 +175,7 @@ public class GameplayManager : MonoBehaviour
     }
     public void Lose()
     {
-        DOTween.KillAll();
+        // DOTween.KillAll();
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -208,3 +233,12 @@ public enum EnemyType
     Boss1,
     Boss2
 }
+
+[System.Serializable]
+public enum TowerType
+{
+    Bomb,
+    Generator,
+    Turret,
+    Rail
+};

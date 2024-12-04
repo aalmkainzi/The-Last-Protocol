@@ -6,6 +6,7 @@ public class RailTower : FixedTower
     public GameObject rail;
     public float railLaunchPower = 1;
     public GameObject railGunHead;
+    public int pierce;
     protected override void Start()
     {
         base.Start();
@@ -34,6 +35,6 @@ public class RailTower : FixedTower
         //projectileRotation.x += -90.0f;
         GameObject newRail = Instantiate(rail, railGunHead.transform.GetChild(0).position, Quaternion.identity);//Quaternion.Euler(projectileRotation));
 
-        newRail.GetComponent<Rail>().Launch(target.transform.position, power);
+        newRail.GetComponent<Rail>().Launch(target.transform.position, power, pierce);
     }
 }

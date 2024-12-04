@@ -1,7 +1,8 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
-using DG.Tweening;
+// using DG.Tweening;
+using PrimeTween;
 using UnityEngine.UIElements;
 using UnityEngine.VFX;
 using UnityEngine.Rendering;
@@ -32,7 +33,7 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
     public float sightRange;
     public float attackRange;
     Tween flyingTween;
-    public AudioSource audio;
+    public AudioSource audioSource;
     public float timeBetweenAttacks;
     public float lastAttackTime;
     public bool dead;
@@ -50,7 +51,7 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
 
     protected virtual void Start()
     {
-        audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
         id = curId++;
         gameplayManager = GameObject.FindWithTag("gameplayManager").GetComponent<GameplayManager>();
         player = GameObject.FindWithTag("player").GetComponent<Player>();
@@ -59,7 +60,7 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
         if (flying)
         {
             float seed = UnityEngine.Random.Range(1.25f, 3.5f);
-            flyingTween = transform.DOMoveY(transform.position.y + seed, UnityEngine.Random.Range(2.0f, 4.0f), false).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
+            flyingTween = PrimeTween.Tween.PositionY(transform, startValue: transform.position.y, endValue: transform.position.y + seed, duration: UnityEngine.Random.Range(2.0f, 4.0f), ease: Ease.InOutSine, cycles: -1, cycleMode: CycleMode.Yoyo);
         }
 
         if (attackPlayer == AttackPlayerBehaviour.Chase)
@@ -150,6 +151,10 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
             Die();
             return true;
         }
+        else
+        {
+            audioSource.PlayOneShot(gameplayManager.enemyDamageSounds[0]);
+        }
         return false;
     }
 
@@ -161,11 +166,12 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
 
         dead = true;
         gameplayManager.RemoveEnemyFromAllTowers(this);
+        gameplayManager.GetMoney(gearsWhenKilled);
 
         // agent.isStopped = true;
 
-        transform.DOKill();
-        if (flyingTween != null) flyingTween.Kill();
+        // transform.DOKill();
+        // if (flyingTween != null) flyingTween.Kill();
     }
 
     protected IEnumerator SpinInSpiral()
@@ -195,7 +201,7 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
             // Wait for the next frame
             yield return null;
         }
-        transform.DOKill();
+        // transform.DOKill();
         Destroy(transform.parent.gameObject);
     }
 

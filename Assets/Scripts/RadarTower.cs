@@ -20,11 +20,6 @@ public class RadarTower : MonoBehaviour
         player = GameObject.FindWithTag("player").GetComponent<Player>();
     }
 
-    void Update()
-    {
-        
-    }
-
     public void TakeDamage(int dmg)
     {
         health -= dmg;

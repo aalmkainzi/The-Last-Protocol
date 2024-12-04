@@ -15,6 +15,7 @@ TagManager:
   - Enemy
   - RoundText
   - HealthSlider
+  - MoneyText
   layers:
   - Default
   - TransparentFX

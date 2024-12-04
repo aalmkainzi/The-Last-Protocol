@@ -219,10 +219,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a991a862be89d240be0f7c81983cfd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  price: 1200
+  price: 750
   sellPrice: 750
   health: 0
-  power: 10
+  power: 2
   fullHealth: 0
   fullAmmo: 100
   ammo: 100

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TowerTile : MonoBehaviour
 {
-    Tower placedTower;
+    FixedTower placedTower;
     GameplayManager gameplayManager;
     GameObject cube;
     void Start()
@@ -20,7 +20,8 @@ public class TowerTile : MonoBehaviour
         if(placedTower == null)
         {
             GameObject newTower = Instantiate(prefab.gameObject, transform);
-            placedTower = newTower.GetComponent<Tower>();
+            placedTower = newTower.GetComponent<FixedTower>();
+            gameplayManager.placedTowers.Add(placedTower);
             cube.SetActive(false);
             return newTower;
         }
@@ -41,6 +42,7 @@ public class TowerTile : MonoBehaviour
         if (gameplayManager.currentTowerTile == this)
         {
             gameplayManager.currentTowerTile = null;
+            gameplayManager.DisableTowerUI();
         }
     }
 }

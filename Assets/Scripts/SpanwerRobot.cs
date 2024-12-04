@@ -66,8 +66,8 @@ public class SpanwerRobot : Enemy
     {
         base.Die();
         transform.DOKill();
-        audio.clip = gameplayManager.booms[Random.Range(0, gameplayManager.booms.Length)];
-        audio.Play();
+        GetComponent<AudioSource>().clip = gameplayManager.booms[Random.Range(0, gameplayManager.booms.Length)];
+        GetComponent<AudioSource>().Play();
         StartCoroutine(SpinInSpiral());
         particle.SetActive(true);
     }

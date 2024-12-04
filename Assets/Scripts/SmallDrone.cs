@@ -1,6 +1,6 @@
 using UnityEngine;
-using DG.Tweening;
-
+// using DG.Tweening;
+using PrimeTween;
 public class SmallDrone : Enemy
 {
     GameObject particle1;
@@ -22,8 +22,8 @@ public class SmallDrone : Enemy
     public override void Die()
     {
         base.Die();
-        audio.clip = gameplayManager.booms[Random.Range(0, gameplayManager.booms.Length)];
-        audio.Play();
+        GetComponent<AudioSource>().clip = gameplayManager.booms[Random.Range(0, gameplayManager.booms.Length)];
+        GetComponent<AudioSource>().Play();
         StartCoroutine(SpinInSpiral());
         particle1.SetActive(true);
     }
@@ -32,7 +32,8 @@ public class SmallDrone : Enemy
     {
         agent.enabled = false;
         blowUpOnRadio = true;
-        transform.DOMove(radarTower.transform.position, 1.0f, false);
+
+        PrimeTween.Tween.Position(transform, radarTower.transform.position, duration: 1.0f);
     }
 
     private void OnCollisionEnter(Collision other)
@@ -40,7 +41,6 @@ public class SmallDrone : Enemy
         if (blowUpOnRadio && other.gameObject.CompareTag("radioTower"))
         {
             radarTower.TakeDamage(power);
-            transform.DOKill();
             Die();
         }
     }

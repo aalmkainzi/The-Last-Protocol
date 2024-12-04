@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38b5edd5b66ce814f9ce5dfb87a11a30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  price: 1750
+  price: 1000
   sellPrice: 1200
   health: 0
   power: 5
