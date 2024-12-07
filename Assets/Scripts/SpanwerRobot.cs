@@ -9,13 +9,12 @@ public class SpanwerRobot : Enemy
     public GameObject spawner2;
     bool blowUpOnRadio;
 
-    GameObject particle;
+    public GameObject particle;
     protected override void Start()
     {
         base.Start();
         dronePrefab = gameplayManager.enemyPrefabs[0];
         StartCoroutine(SpawnDrones());
-        particle = transform.Find("Particle").gameObject;
         particle.SetActive(false);
     }
 
@@ -73,7 +72,7 @@ public class SpanwerRobot : Enemy
 
     protected override void Attack()
     {
-        Debug.Log("BOSS ATTACKING");
+        // Debug.Log("BOSS ATTACKING");
         agent.enabled = false;
         blowUpOnRadio = true;
         PrimeTween.Tween.Position(transform, radarTower.transform.position, duration: 1.0f);
@@ -81,7 +80,7 @@ public class SpanwerRobot : Enemy
 
     private void OnCollisionEnter(Collision other)
     {
-        Debug.Log("Colliding with " + other.gameObject.name);
+        // Debug.Log("Colliding with " + other.gameObject.name);
         if (blowUpOnRadio && other.gameObject.CompareTag("radioTower"))
         {
             radarTower.TakeDamage(power);

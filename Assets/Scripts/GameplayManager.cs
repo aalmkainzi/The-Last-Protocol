@@ -84,6 +84,13 @@ public class GameplayManager : MonoBehaviour
             })
         };
 
+        rounds = new Round[1]
+        {
+            new Round(new EnemyWave[]{
+                new EnemyWave(EnemyType.DroneSpawnerBoss, 2, 2.75f, 0, 0.0f),
+            })
+        };
+
         p = GameObject.FindWithTag("player").GetComponent<Player>();
         overlay = GameObject.FindWithTag("ui_overlay");
         overlay.SetActive(true);

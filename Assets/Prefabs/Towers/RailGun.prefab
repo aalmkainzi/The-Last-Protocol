@@ -345,7 +345,7 @@ MonoBehaviour:
   rail: {fileID: 2266430398975871140, guid: e1cb2625b4d52814c812d31cc78eafdc, type: 3}
   railLaunchPower: 1
   railGunHead: {fileID: 327260206469569497}
-  pierce: 2
+  pierce: 10
   force: 10
 --- !u!1 &8040762758146301797
 GameObject:
