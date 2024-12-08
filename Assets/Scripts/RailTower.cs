@@ -9,6 +9,9 @@ public class RailTower : FixedTower
     protected override void Start()
     {
         base.Start();
+        Vector3 headRot = railGunHead.transform.localRotation.eulerAngles;
+        headRot.x = -90;
+        railGunHead.transform.localRotation = Quaternion.Euler(headRot);
     }
 
     protected override void Update()

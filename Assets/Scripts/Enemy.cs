@@ -162,10 +162,10 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
 
     public virtual void Die()
     {
-        if(attackCor != null)
+/*        if(attackCor != null)
             StopCoroutine(attackCor);        
-        StopCoroutine(navCor);
-
+        StopCoroutine(navCor);*/
+        StopAllCoroutines();
         dead = true;
         gameplayManager.RemoveEnemyFromAllTowers(this);
         gameplayManager.GetMoney(gearsWhenKilled);
