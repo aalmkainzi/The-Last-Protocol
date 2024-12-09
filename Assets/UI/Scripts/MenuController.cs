@@ -21,16 +21,16 @@ public class MenuController : MonoBehaviour
     }
     private IEnumerator FadeOutMenu()
     {
-        float startAlpha = mainMenuGroup.alpha;
-        float time = 0;
-
-        // Fading the main menu out
-        while (time < fadeDuration)
-        {
-            mainMenuGroup.alpha = Mathf.Lerp(startAlpha, 0, time / fadeDuration);
-            time += Time.deltaTime;
-            yield return null;
-        }
+        // float startAlpha = mainMenuGroup.alpha;
+        // float time = 0;
+        //
+        // // Fading the main menu out
+        // while (time < fadeDuration)
+        // {
+        //     mainMenuGroup.alpha = Mathf.Lerp(startAlpha, 0, time / fadeDuration);
+        //     time += Time.deltaTime;
+        yield return null;
+        // }
         mainMenuGroup.alpha = 0;
         mainMenuGroup.interactable = false;
 
