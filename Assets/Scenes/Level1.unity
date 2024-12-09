@@ -612,7 +612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2164887436332146524, guid: fd2f1c1673cee9d4b8d5e33217cf1616, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -460
+      value: -362
       objectReference: {fileID: 0}
     - target: {fileID: 3084583108758985487, guid: fd2f1c1673cee9d4b8d5e33217cf1616, type: 3}
       propertyPath: m_Value
@@ -1688,7 +1688,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.33333334
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 95597f7b256e3664d900989290baf0e1, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1 &821385619
 GameObject:
