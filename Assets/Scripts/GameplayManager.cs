@@ -45,19 +45,20 @@ public class GameplayManager : MonoBehaviour
     TMP_Text moneyText;
     TMP_Text roundText;
 
-
     public AudioClip[] booms;
     Player p;
 
     [SerializeField] private AudioClip[] enemyDamageSounds;
 
     public GameObject towerUI;
+    public GameObject upgradeUI;
 
     void Start()
     {
         PrimeTweenConfig.SetTweensCapacity(1000);
 
-        rounds = new Round[5]{
+        rounds = new Round[5]
+        {
             new Round(new EnemyWave[] {new EnemyWave(EnemyType.SmallDrone, 3, 0.5f, 0, 1.0f), new EnemyWave(EnemyType.Crawler, 3, 0.5f, 0, 1.0f)}),
             new Round(new EnemyWave[] {new EnemyWave(EnemyType.SmallDrone, 2, 0.5f, 1, 0.0f), new EnemyWave(EnemyType.SmallDrone, 3, 0.5f, 0, 0.0f)}),
             new Round(new EnemyWave[] {new EnemyWave(EnemyType.BigDrone, 2, 0.6f, 0, 0.0f), new EnemyWave(EnemyType.BigDrone, 2, 0.6f, 1, 0.0f), new EnemyWave(EnemyType.Crawler, 2, 0.6f, 0, 0.0f), new EnemyWave(EnemyType.Crawler, 2, 0.6f, 1, 0.0f)}),
@@ -98,6 +99,9 @@ public class GameplayManager : MonoBehaviour
         towerUI = GameObject.FindWithTag("ui_tower");
         towerUI.SetActive(false);
 
+        upgradeUI = GameObject.FindWithTag("ui_upgrade");
+        upgradeUI.SetActive(false);
+
         roundText = GameObject.FindWithTag("RoundText").GetComponent<TMP_Text>();
         roundText.text = "Round: 0";
 
@@ -114,11 +118,18 @@ public class GameplayManager : MonoBehaviour
 
     void Update()
     {
-        if(currentTowerTile != null)
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            if(Input.GetKeyDown(KeyCode.E))
+            if(currentTowerTile != null)
             {
-                EnableTowerUI();
+                if (currentTowerTile.placedTower == null)
+                {
+                    EnableTowerUI();
+                }
+                else
+                {
+                    EnableUpgradeUI();
+                }
             }
         }
 
@@ -141,10 +152,17 @@ public class GameplayManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
+    public void EnableUpgradeUI()
+    {
+        upgradeUI.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
 
-    public void DisableTowerUI()
+    public void DisableUI()
     {
         towerUI.SetActive(false);
+        upgradeUI.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -156,6 +174,7 @@ public class GameplayManager : MonoBehaviour
         {
             p.money -= towerPrefab.price;
             currentTowerTile.PlaceTower(towerPrefab);
+            DisableUI();
         }
     }
 

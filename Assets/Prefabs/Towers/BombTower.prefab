@@ -232,6 +232,7 @@ MonoBehaviour:
   canDetectCamo: 0
   canAttackFlying: 0
   reloadTime: 0
+  rend: {fileID: 6741124689138561686}
   enemiesInRange: []
   bomb: {fileID: 8500547112247097650, guid: a132f6d1b68d52d4996cd4e8235cbf72, type: 3}
   bombThrowPower: 3

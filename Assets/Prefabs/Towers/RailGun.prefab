@@ -341,6 +341,7 @@ MonoBehaviour:
   canDetectCamo: 0
   canAttackFlying: 0
   reloadTime: 2.5
+  rend: {fileID: 4599980303188793343}
   enemiesInRange: []
   rail: {fileID: 2266430398975871140, guid: e1cb2625b4d52814c812d31cc78eafdc, type: 3}
   railLaunchPower: 1

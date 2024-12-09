@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TowerTile : MonoBehaviour
 {
-    FixedTower placedTower;
+    public FixedTower placedTower;
     GameplayManager gameplayManager;
     GameObject cube;
     void Start()
@@ -30,7 +30,7 @@ public class TowerTile : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(placedTower == null && gameplayManager.currentTowerTile == null)
+        if(gameplayManager.currentTowerTile == null)
         {
             gameplayManager.currentTowerTile = this;
         }
@@ -42,7 +42,7 @@ public class TowerTile : MonoBehaviour
         if (gameplayManager.currentTowerTile == this)
         {
             gameplayManager.currentTowerTile = null;
-            gameplayManager.DisableTowerUI();
+            gameplayManager.DisableUI();
         }
     }
 }
