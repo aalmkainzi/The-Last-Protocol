@@ -90,14 +90,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 100110, guid: bff429107601444d59c67940e6ad78c4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8691015727756914173}
+      addedObject: {fileID: 4152643097734272564}
   m_SourcePrefab: {fileID: 100100000, guid: bff429107601444d59c67940e6ad78c4, type: 3}
 --- !u!1 &8335230829920721689 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100110, guid: bff429107601444d59c67940e6ad78c4, type: 3}
   m_PrefabInstance: {fileID: 8335230829920689175}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8691015727756914173
+--- !u!114 &4152643097734272564
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,23 +106,49 @@ MonoBehaviour:
   m_GameObject: {fileID: 8335230829920721689}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38b5edd5b66ce814f9ce5dfb87a11a30, type: 3}
+  m_Script: {fileID: 11500000, guid: 5292067ab1535f549bfc8ca7531c72ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   price: 500
-  sellPrice: 100
+  sellPrice: 300
   health: 0
-  power: 0
+  power: 1
   fullHealth: 0
-  fullAmmo: 0
-  ammo: 0
-  timeBetweenShots: 5
+  fullAmmo: 500
+  ammo: 500
+  timeBetweenShots: 0.1
   reloading: 0
   canDamageMetal: 0
   canDetectCamo: 0
   canAttackFlying: 0
-  reloadTime: 0
+  reloadTime: 0.1
+  upgradePath:
+    tower: {fileID: 4152643097734272564}
+    currentUpgrade1: 0
+    currentUpgrade2: 0
+    upgrade1:
+    - text: 'Efficiency: Earns 5 More'
+      powerOffset: 0
+      fullAmmoOffset: 0
+      ammoOffset: 0
+      timeBetweenShotsOffset: 0
+      reloadTimeOffset: 0
+      explosionRangeOffset: 0
+      moneyPerAttackOffset: 5
+      newColor: {r: 0.54380214, g: 1, b: 0, a: 1}
+    upgrade2:
+    - text: 'Faster Production: Generates Money Faster'
+      powerOffset: 0
+      fullAmmoOffset: 0
+      ammoOffset: -1
+      timeBetweenShotsOffset: -2
+      reloadTimeOffset: -2
+      explosionRangeOffset: 0
+      moneyPerAttackOffset: 0
+      newColor: {r: 0.4801774, g: 0, b: 1, a: 1}
   rend: {fileID: 8335230829922714725}
+  enemiesInRange: []
+  moneyPerAttack: 22
 --- !u!23 &8335230829922714725 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 2300018, guid: bff429107601444d59c67940e6ad78c4, type: 3}

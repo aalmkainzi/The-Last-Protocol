@@ -11,6 +11,7 @@ public class Upgrade
     public float timeBetweenShotsOffset;
     public float reloadTimeOffset;
     public float explosionRangeOffset;
+    public int moneyPerAttackOffset;
 
     public Color newColor;
 
@@ -25,6 +26,11 @@ public class Upgrade
         {
             BombTower bt = (BombTower) tower;
             bt.explosionRange += explosionRangeOffset;
+        }
+        if(moneyPerAttackOffset > 0)
+        {
+            GeneratorTower gt = (GeneratorTower) tower;
+            gt.moneyPerAttack += moneyPerAttackOffset;
         }
 
         tower.rend.material.color = newColor;
