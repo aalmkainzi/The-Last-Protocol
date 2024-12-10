@@ -341,12 +341,34 @@ MonoBehaviour:
   canDetectCamo: 0
   canAttackFlying: 0
   reloadTime: 2.5
-  rend: {fileID: 4599980303188793343}
+  upgradePath:
+    tower: {fileID: 9086901898694949524}
+    currentUpgrade1: 0
+    currentUpgrade2: 0
+    upgrade1:
+    - text: 'Fast Charge: Increase Fire Rate'
+      powerOffset: 0
+      fullAmmoOffset: 0
+      ammoOffset: 0
+      timeBetweenShotsOffset: -0.5
+      reloadTimeOffset: -0.5
+      explosionRangeOffset: 0
+      newColor: {r: 1, g: 0, b: 0.8475332, a: 1}
+    upgrade2:
+    - text: 'Power Rails: Increase Damage by 1'
+      powerOffset: 1
+      fullAmmoOffset: 0
+      ammoOffset: 0
+      timeBetweenShotsOffset: 0
+      reloadTimeOffset: 0
+      explosionRangeOffset: 0
+      newColor: {r: 0.08757973, g: 0, b: 1, a: 1}
+  rend: {fileID: 6545618862471559498}
   enemiesInRange: []
   rail: {fileID: 2266430398975871140, guid: e1cb2625b4d52814c812d31cc78eafdc, type: 3}
   railLaunchPower: 1
   railGunHead: {fileID: 327260206469569497}
-  pierce: 10
+  pierce: 2
   force: 10
 --- !u!1 &8040762758146301797
 GameObject:

@@ -16,7 +16,7 @@ public class Tower : MonoBehaviour
     public bool canAttackFlying;
     public float reloadTime;
 
-    UpgradePath upgradePath;
+    public UpgradePath upgradePath;
 
     public Renderer rend;
     protected virtual void Start()

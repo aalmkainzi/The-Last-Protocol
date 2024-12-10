@@ -232,9 +232,24 @@ MonoBehaviour:
   canDetectCamo: 0
   canAttackFlying: 0
   reloadTime: 0
+  upgradePath:
+    tower: {fileID: 7854927748014251935}
+    currentUpgrade1: 0
+    currentUpgrade2: 0
+    upgrade1:
+    - text: 'Big Bombs: Increase Explosion Radius'
+      powerOffset: 0
+      fullAmmoOffset: 0
+      ammoOffset: 0
+      timeBetweenShotsOffset: 0
+      reloadTimeOffset: 0
+      explosionRangeOffset: 0.2
+      newColor: {r: 1, g: 0.36276448, b: 0, a: 0}
+    upgrade2: []
   rend: {fileID: 6741124689138561686}
   enemiesInRange: []
   bomb: {fileID: 8500547112247097650, guid: a132f6d1b68d52d4996cd4e8235cbf72, type: 3}
+  explosionRange: 0
   bombThrowPower: 3
   force: 10
 --- !u!135 &4779211355167687192

@@ -155,8 +155,20 @@ public class GameplayManager : MonoBehaviour
     public void EnableUpgradeUI()
     {
         upgradeUI.SetActive(true);
+        Upgrade u1 = currentTowerTile.placedTower.upgradePath.GetUpgrade1();
+        Upgrade u2 = currentTowerTile.placedTower.upgradePath.GetUpgrade2();
+
+        // TODO should also disable button when null
+        upgradeUI.transform.Find("U1").GetChild(0).GetComponent<TMP_Text>().text = u1 != null ? u1.text : "No More Upgrades";
+        upgradeUI.transform.Find("U2").GetChild(0).GetComponent<TMP_Text>().text = u2 != null ? u2.text : "No More Upgrades";
+
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+    }
+
+    public void ApplyUpgradeOfCurrentTower(int which)
+    {
+        currentTowerTile.placedTower.upgradePath.ApplyUpgrade(which);
     }
 
     public void DisableUI()
