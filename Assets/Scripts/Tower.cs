@@ -19,8 +19,12 @@ public class Tower : MonoBehaviour
     public UpgradePath upgradePath;
 
     public Renderer rend;
+    public AudioSource audioSource;
+    public AudioClip attackSound;
+
     protected virtual void Start()
     {
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void Reload()
