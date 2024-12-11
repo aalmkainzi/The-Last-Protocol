@@ -88,7 +88,7 @@ public class GameplayManager : MonoBehaviour
         rounds = new Round[1]
         {
             new Round(new EnemyWave[]{
-                new EnemyWave(EnemyType.DroneSpawnerBoss, 2, 2.75f, 0, 0.0f),
+                new EnemyWave(EnemyType.SmallDrone, 50, 1.75f, 0, 0.0f),
             })
         };
 

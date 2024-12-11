@@ -15,6 +15,7 @@ public class Tower : MonoBehaviour
     public bool canDetectCamo;
     public bool canAttackFlying;
     public float reloadTime;
+    public float projectileScale;
 
     public UpgradePath upgradePath;
 

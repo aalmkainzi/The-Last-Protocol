@@ -12,6 +12,7 @@ public class Upgrade
     public float reloadTimeOffset;
     public float explosionRangeOffset;
     public int moneyPerAttackOffset;
+    public float projectileScaleOffset;
 
     public Color newColor;
 
@@ -22,6 +23,8 @@ public class Upgrade
         tower.ammo += ammoOffset;
         tower.timeBetweenShots += timeBetweenShotsOffset;
         tower.reloadTime += ammoOffset;
+        tower.projectileScale += projectileScaleOffset;
+
         if(explosionRangeOffset > 0)
         {
             BombTower bt = (BombTower) tower;

@@ -233,6 +233,7 @@ MonoBehaviour:
   canDetectCamo: 0
   canAttackFlying: 0
   reloadTime: 0
+  projectileScale: 0.54
   upgradePath:
     tower: {fileID: 7854927748014251935}
     currentUpgrade1: 0
@@ -246,6 +247,7 @@ MonoBehaviour:
       reloadTimeOffset: 0
       explosionRangeOffset: 0.2
       moneyPerAttackOffset: 0
+      projectileScaleOffset: 0.5
       newColor: {r: 1, g: 0.36276448, b: 0, a: 1}
     upgrade2:
     - text: 'Barrel Spin: Increase Fire Rate'
@@ -256,7 +258,18 @@ MonoBehaviour:
       reloadTimeOffset: 0
       explosionRangeOffset: 0
       moneyPerAttackOffset: 0
+      projectileScaleOffset: 0
       newColor: {r: 0.24296895, g: 0.33780733, b: 0.6603774, a: 1}
+    - text: Machine Gun Bombs
+      powerOffset: -1
+      fullAmmoOffset: 0
+      ammoOffset: 0
+      timeBetweenShotsOffset: -0.6
+      reloadTimeOffset: 0
+      explosionRangeOffset: -2.5
+      moneyPerAttackOffset: 0
+      projectileScaleOffset: -0.25
+      newColor: {r: 0.8126445, g: 0, b: 1, a: 1}
   rend: {fileID: 6741124689138561686}
   audioSource: {fileID: 0}
   attackSound: {fileID: 8300000, guid: 4886ad5b4b3d68c49b648776c2e8218f, type: 3}
