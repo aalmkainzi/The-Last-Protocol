@@ -20,10 +20,15 @@ public class Bomb : MonoBehaviour
         ps4 = ps.transform.GetChild(2).GetComponent<ParticleSystem>();
     }
 
+    void Update()
+    {
+        
+    }
+
     public void Launch(Vector3 forceDir, float force, int damage)
     {
         power = damage;
-        rb.linearVelocity = forceDir;
+        rb.AddForce(forceDir * force, ForceMode.Impulse);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -44,8 +49,10 @@ public class Bomb : MonoBehaviour
             Enemy e = obj.GetComponent<Enemy>();
             e.TakeDamage(power);
         }
-        ps.Play(true);
-        GetComponent<Renderer>().enabled = false;
+        ps.Play();
+        ps2.Play();
+        ps3.Play();
+        ps4.Play();
         Invoke(nameof(DestroyThis), 2.0f);
     }
 

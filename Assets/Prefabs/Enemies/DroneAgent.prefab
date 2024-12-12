@@ -76,7 +76,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 0
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &451718720365934586
 GameObject:
   m_ObjectHideFlags: 0
@@ -34892,10 +34892,9 @@ MonoBehaviour:
   player: {fileID: 0}
   sightRange: 0
   attackRange: 6.5
-  audioSource: {fileID: 0}
+  audio: {fileID: 0}
   timeBetweenAttacks: 0
   lastAttackTime: 0
-  dead: 0
   pathId: 0
   attackPlayer: 0
 --- !u!82 &8355262701925522354
