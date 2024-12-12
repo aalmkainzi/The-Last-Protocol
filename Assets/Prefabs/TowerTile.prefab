@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1401200020305982301}
   - component: {fileID: 4416644861512104577}
   - component: {fileID: 7382899727772422887}
-  m_Layer: 14
+  m_Layer: 0
   m_Name: TowerTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd8b7a776c67d144da676cd6a942acfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placedTower: {fileID: 0}
 --- !u!135 &7382899727772422887
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -43,7 +43,7 @@ public class FixedTower : Tower
                 ePos.y = transform.position.y;
                 transform.LookAt(ePos);
                 ammo -= 1;
-                audioSource.PlayOneShot(attackSound);
+                // later make it an actual bullet for pierce (bullet can be just a particle sys for laser effects)
                 Fire(e);
                 lastShot = Time.time;
             }
