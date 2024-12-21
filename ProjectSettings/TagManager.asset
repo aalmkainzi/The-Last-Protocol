@@ -16,6 +16,7 @@ TagManager:
   - RoundText
   - HealthSlider
   - MoneyText
+  - ui_upgrade
   layers:
   - Default
   - TransparentFX
@@ -31,8 +32,8 @@ TagManager:
   - Bomb
   - RailProjectile
   - EnemyBotStealth
-  - 
-  - 
+  - TowerTile
+  - Player
   - 
   - 
   - 

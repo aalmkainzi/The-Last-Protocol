@@ -45,19 +45,21 @@ public class GameplayManager : MonoBehaviour
     TMP_Text moneyText;
     TMP_Text roundText;
 
-
     public AudioClip[] booms;
     Player p;
 
     [SerializeField] private AudioClip[] enemyDamageSounds;
 
     public GameObject towerUI;
+    public GameObject upgradeUI;
+    public DefeatedMenuController defeatedMenuController;
 
     void Start()
     {
         PrimeTweenConfig.SetTweensCapacity(1000);
 
-        rounds = new Round[5]{
+        rounds = new Round[5]
+        {
             new Round(new EnemyWave[] {new EnemyWave(EnemyType.SmallDrone, 3, 0.5f, 0, 1.0f), new EnemyWave(EnemyType.Crawler, 3, 0.5f, 0, 1.0f)}),
             new Round(new EnemyWave[] {new EnemyWave(EnemyType.SmallDrone, 2, 0.5f, 1, 0.0f), new EnemyWave(EnemyType.SmallDrone, 3, 0.5f, 0, 0.0f)}),
             new Round(new EnemyWave[] {new EnemyWave(EnemyType.BigDrone, 2, 0.6f, 0, 0.0f), new EnemyWave(EnemyType.BigDrone, 2, 0.6f, 1, 0.0f), new EnemyWave(EnemyType.Crawler, 2, 0.6f, 0, 0.0f), new EnemyWave(EnemyType.Crawler, 2, 0.6f, 1, 0.0f)}),
@@ -73,23 +75,30 @@ public class GameplayManager : MonoBehaviour
         rounds = new Round[1]
         {
             new Round(new EnemyWave[]{
-                new EnemyWave(EnemyType.Stealth, 2, 0.25f, 0, 0.0f),
-                new EnemyWave(EnemyType.Stealth, 2, 0.25f, 1, 0.0f),
                 new EnemyWave(EnemyType.SmallDrone, 10, 0.65f, 0, 6.5f),
                 new EnemyWave(EnemyType.Crawler, 5, 0.6f, 0, 4f),
                 new EnemyWave(EnemyType.BigDrone, 3, 2.25f, 0, 3.0f),
                 new EnemyWave(EnemyType.DroneSpawnerBoss, 1, 0.25f, 0, 2.0f),
                 new EnemyWave(EnemyType.SmallDrone, 10, 0.75f, 1, 6.5f),
-                new EnemyWave(EnemyType.WalkerBoss, 1, 0.6f, 0, 0.0f)
+                new EnemyWave(EnemyType.WalkerBoss, 1, 0.6f, 0, 3.0f),
+                new EnemyWave(EnemyType.Stealth, 1, 0, 0, 2.0f),
+                new EnemyWave(EnemyType.Stealth, 1, 0, 1, 0.0f),
+
             })
         };
 
-        rounds = new Round[1]
-        {
-            new Round(new EnemyWave[]{
-                new EnemyWave(EnemyType.DroneSpawnerBoss, 2, 2.75f, 0, 0.0f),
-            })
-        };
+        //rounds = new Round[1]
+        //{
+        //    new Round(new EnemyWave[]{
+        //        new EnemyWave(EnemyType.SmallDrone, 50, 1.75f, 0, 0.0f),
+        //    })
+        //};
+
+        GameObject.Find("BombPrice").GetComponent<TMP_Text>().text = towerPrefabs[0].GetComponent<Tower>().price + "";
+        GameObject.Find("GeneratorPrice").GetComponent<TMP_Text>().text = towerPrefabs[1].GetComponent<Tower>().price + "";
+        GameObject.Find("TurretPrice").GetComponent<TMP_Text>().text = towerPrefabs[2].GetComponent<Tower>().price + "";
+        GameObject.Find("RailPrice").GetComponent<TMP_Text>().text = towerPrefabs[3].GetComponent<Tower>().price + "";
+
 
         p = GameObject.FindWithTag("player").GetComponent<Player>();
         overlay = GameObject.FindWithTag("ui_overlay");
@@ -97,6 +106,9 @@ public class GameplayManager : MonoBehaviour
 
         towerUI = GameObject.FindWithTag("ui_tower");
         towerUI.SetActive(false);
+
+        upgradeUI = GameObject.FindWithTag("ui_upgrade");
+        upgradeUI.SetActive(false);
 
         roundText = GameObject.FindWithTag("RoundText").GetComponent<TMP_Text>();
         roundText.text = "Round: 0";
@@ -114,11 +126,18 @@ public class GameplayManager : MonoBehaviour
 
     void Update()
     {
-        if(currentTowerTile != null)
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            if(Input.GetKeyDown(KeyCode.E))
+            if(currentTowerTile != null)
             {
-                EnableTowerUI();
+                if (currentTowerTile.placedTower == null)
+                {
+                    EnableTowerUI();
+                }
+                else
+                {
+                    EnableUpgradeUI();
+                }
             }
         }
 
@@ -141,10 +160,30 @@ public class GameplayManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
+    public void EnableUpgradeUI()
+    {
+        upgradeUI.SetActive(true);
+        Upgrade u1 = currentTowerTile.placedTower.upgradePath.GetUpgrade1();
+        Upgrade u2 = currentTowerTile.placedTower.upgradePath.GetUpgrade2();
 
-    public void DisableTowerUI()
+        // TODO should also disable button when null
+        upgradeUI.transform.Find("U1").GetChild(0).GetComponent<TMP_Text>().text = u1 != null ? u1.text : "No More Upgrades";
+        upgradeUI.transform.Find("U2").GetChild(0).GetComponent<TMP_Text>().text = u2 != null ? u2.text : "No More Upgrades";
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void ApplyUpgradeOfCurrentTower(int which)
+    {
+        currentTowerTile.placedTower.upgradePath.ApplyUpgrade(which);
+    }
+
+    public
+        void DisableUI()
     {
         towerUI.SetActive(false);
+        upgradeUI.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -156,6 +195,7 @@ public class GameplayManager : MonoBehaviour
         {
             p.money -= towerPrefab.price;
             currentTowerTile.PlaceTower(towerPrefab);
+            DisableUI();
         }
     }
 
@@ -196,8 +236,7 @@ public class GameplayManager : MonoBehaviour
     }
     public void Lose()
     {
-        // DOTween.KillAll();
-        SceneManager.LoadScene("MainMenu");
+        defeatedMenuController.OnPlayerDefeated();
     }
 
     private void OnDrawGizmosSelected()
