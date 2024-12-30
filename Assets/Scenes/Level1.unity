@@ -851,6 +851,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6818014967360185739, guid: fd2f1c1673cee9d4b8d5e33217cf1616, type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8242192484471180500, guid: fd2f1c1673cee9d4b8d5e33217cf1616, type: 3}
       propertyPath: m_Name
       value: Canvas_in-game
@@ -1317,15 +1321,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 05bc0b7960e9f419ab22d677cfa2c806, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 05bc0b7960e9f419ab22d677cfa2c806, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 05bc0b7960e9f419ab22d677cfa2c806, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 05bc0b7960e9f419ab22d677cfa2c806, type: 3}
       propertyPath: m_LocalPosition.x

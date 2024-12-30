@@ -17,6 +17,15 @@ public class PlayIntro : MonoBehaviour
         videoPlayer.loopPointReached += OnVideoEnd;
     }
 
+    private void Update()
+    {
+        if(videoPlayer.isPlaying && Input.anyKeyDown)
+        {
+            Debug.Log("SKIPEPED? ? ? ? ?");
+            OnVideoComplete();
+        }
+    }
+
     // Method to start playing the video
     public void PlayVideo()
     {
