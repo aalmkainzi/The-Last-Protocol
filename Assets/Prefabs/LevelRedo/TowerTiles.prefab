@@ -1,0 +1,537 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6446416436091664634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4715733410039826608}
+  m_Layer: 0
+  m_Name: TowerTiles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4715733410039826608
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6446416436091664634}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 45.104195, y: 3.5660377, z: 94.8816}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 180564298419129791}
+  - {fileID: 4108644546222255104}
+  - {fileID: 4139111246729042896}
+  - {fileID: 2978111454066925851}
+  - {fileID: 401995174317409929}
+  - {fileID: 2963823811367399488}
+  - {fileID: 347264746835012004}
+  - {fileID: 3318734618689238327}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1293502567299972834
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4715733410039826608}
+    m_Modifications:
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759509863514238695, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_Name
+      value: TowerTile
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+--- !u!4 &180564298419129791 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+  m_PrefabInstance: {fileID: 1293502567299972834}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1650045370619131348
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4715733410039826608}
+    m_Modifications:
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 38.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 36.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759509863514238695, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_Name
+      value: TowerTile (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+--- !u!4 &401995174317409929 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+  m_PrefabInstance: {fileID: 1650045370619131348}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1703403597926390521
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4715733410039826608}
+    m_Modifications:
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 85
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759509863514238695, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_Name
+      value: TowerTile (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+--- !u!4 &347264746835012004 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+  m_PrefabInstance: {fileID: 1703403597926390521}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3027294440667506829
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4715733410039826608}
+    m_Modifications:
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -31.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.992
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759509863514238695, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_Name
+      value: TowerTile (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+--- !u!4 &4139111246729042896 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+  m_PrefabInstance: {fileID: 3027294440667506829}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3059872194855690077
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4715733410039826608}
+    m_Modifications:
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -17.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 24.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759509863514238695, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_Name
+      value: TowerTile (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+--- !u!4 &4108644546222255104 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+  m_PrefabInstance: {fileID: 3059872194855690077}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4190158996398002758
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4715733410039826608}
+    m_Modifications:
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 135.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759509863514238695, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_Name
+      value: TowerTile (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+--- !u!4 &2978111454066925851 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+  m_PrefabInstance: {fileID: 4190158996398002758}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4202863350951854877
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4715733410039826608}
+    m_Modifications:
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 43.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759509863514238695, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_Name
+      value: TowerTile (7)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+--- !u!4 &2963823811367399488 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+  m_PrefabInstance: {fileID: 4202863350951854877}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4430570563258861162
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4715733410039826608}
+    m_Modifications:
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 26.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759509863514238695, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+      propertyPath: m_Name
+      value: TowerTile (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+--- !u!4 &3318734618689238327 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1401200020305982301, guid: 36c33c615a6993e45988f7efcbac595e, type: 3}
+  m_PrefabInstance: {fileID: 4430570563258861162}
+  m_PrefabAsset: {fileID: 0}

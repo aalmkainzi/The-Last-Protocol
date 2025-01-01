@@ -57,7 +57,7 @@ public class EnemySpanwer : MonoBehaviour
 
             for(int j = 0; j < ogPath.Length - 1; j++)
             {
-                randomPath[j] = ogPath[j] + new Vector3(Random.Range(-4.5f, 4.5f), 0, Random.Range(-4.0f, 4.0f));
+                randomPath[j] = ogPath[j] + new Vector3(Random.Range(-10.5f, 10.5f), 0, Random.Range(-10.0f, 10.0f));
             }
 
             randomPath[randomPath.Length - 1] = ogPath[ogPath.Length - 1];
