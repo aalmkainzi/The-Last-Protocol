@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Main Camera Blends
   m_EditorClassIdentifier: 
   m_CustomBlends:
-  - m_From: VCC_Level
-    m_To: VCC_Level
+  - m_From: Virtual Camera
+    m_To: Virtual Camera
     m_Blend:
-      m_Style: 1
+      m_Style: 6
       m_Time: 2
       m_CustomCurve:
         serializedVersion: 2
