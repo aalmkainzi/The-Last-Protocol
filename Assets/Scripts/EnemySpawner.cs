@@ -27,6 +27,9 @@ public class EnemySpanwer : MonoBehaviour
             Vector3 spawnPos = transform.position + spawnOffsetDirection * spawnPosOffset;
             GameObject newObj = Instantiate(prefab, spawnPos, Quaternion.identity);
             Enemy newE = newE = newObj.transform.GetChild(0).GetComponent<Enemy>();
+
+            GameplayManager.instance.enemies.Add(newE);
+
             if (prefab.CompareTag("flyingE"))
             {
                 Vector3 flyingPos = newE.transform.position; //newObj.transform.GetChild(0).position;
