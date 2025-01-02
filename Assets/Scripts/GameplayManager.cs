@@ -10,8 +10,10 @@ using PrimeTween;
 
 public class GameplayManager : MonoBehaviour
 {
-    public static List<Tower> towers;
-    public static List<Enemy> enemies;
+    public static GameplayManager instance;
+
+    public List<Tower> towers;
+    public List<Enemy> enemies;
 
     public GameObject[] enemyPrefabs;
     public GameObject[] towerPrefabs;
@@ -56,6 +58,16 @@ public class GameplayManager : MonoBehaviour
 
     void Start()
     {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         PrimeTweenConfig.SetTweensCapacity(1000);
 
         rounds = new Round[5]
