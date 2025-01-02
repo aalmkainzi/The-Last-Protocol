@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
-// using DG.Tweening;
 using PrimeTween;
 using UnityEngine.UIElements;
 using UnityEngine.VFX;
@@ -99,7 +98,8 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
             if (Vector3.Distance(path[curTargetIdx], pos) <= 2.5f)
             {
                 curTargetIdx++;
-                agent.SetDestination(path[curTargetIdx]);
+                Vector3 randOffset = new Vector3(UnityEngine.Random.Range(-1.0f, 1.0f), UnityEngine.Random.Range(-1.0f, 1.0f), UnityEngine.Random.Range(-1.0f, 1.0f));
+                agent.SetDestination(path[curTargetIdx] + randOffset);
             }
             yield return null;
         }
