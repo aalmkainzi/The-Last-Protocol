@@ -226,7 +226,6 @@ GameObject:
   - component: {fileID: 8412620434778739500}
   - component: {fileID: 6542776193503660614}
   - component: {fileID: 7174415300089069401}
-  - component: {fileID: 1621094451830364515}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -318,23 +317,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
---- !u!114 &1621094451830364515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1458364821261692722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3075066abf7ed14c9528edce2efc605, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainMenuGroup: {fileID: 5546892289932748715}
-  levelSelectionPanel: {fileID: 1355071134314064825}
-  fadeDuration: 1
-  fadeCanvasGroup: {fileID: 8605024791621649620}
+    m_Bits: 65527
 --- !u!1 &3365173944352549019
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,7 +663,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1621094451830364515}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
         m_MethodName: PlayButtonClicked
         m_Mode: 1
@@ -1827,7 +1810,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1621094451830364515}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
@@ -1960,7 +1943,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1621094451830364515}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
         m_MethodName: LoadLevel1
         m_Mode: 1
