@@ -27,7 +27,7 @@ public class UpgradePath
         }
 
         end:
-        GameObject.FindWithTag("gameplayManager").GetComponent<GameplayManager>().DisableUI();
+        GameplayManager.instance.DisableUI();
     }
 
     public Upgrade GetUpgrade1()

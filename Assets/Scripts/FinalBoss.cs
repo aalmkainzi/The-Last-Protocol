@@ -18,7 +18,7 @@ public class FinalBoss : Enemy
 
     public override void Die()
     {
-        GetComponent<AudioSource>().clip = gameplayManager.booms[Random.Range(0, gameplayManager.booms.Length)];
+        GetComponent<AudioSource>().clip = GameplayManager.instance.booms[Random.Range(0, GameplayManager.instance.booms.Length)];
         GetComponent<AudioSource>().Play();
         animator.StopPlayback();
         particle.SetActive(true);

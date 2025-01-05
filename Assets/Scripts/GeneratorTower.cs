@@ -3,14 +3,12 @@ using UnityEngine.Rendering;
 
 public class GeneratorTower : FixedTower
 {
-    GameplayManager gameplayManager;
     public int moneyPerAttack = 10;
     float lastTimeMoneyMade;
 
     protected override void Start()
     {
         base.Start();
-        gameplayManager = GameObject.FindWithTag("gameplayManager").GetComponent<GameplayManager>();
     }
 
     protected override void Update()
@@ -32,6 +30,6 @@ public class GeneratorTower : FixedTower
 
     protected override void Fire(Enemy target)
     {
-        gameplayManager.GetMoney(moneyPerAttack);
+        GameplayManager.instance.GetMoney(moneyPerAttack);
     }
 }

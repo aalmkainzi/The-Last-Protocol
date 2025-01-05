@@ -10,8 +10,9 @@ using PrimeTween;
 
 public class GameplayManager : MonoBehaviour
 {
-    public static List<Tower> towers;
-    public static List<Enemy> enemies;
+    public static GameplayManager instance;
+
+    public List<Enemy> enemies;
 
     public GameObject[] enemyPrefabs;
     public GameObject[] towerPrefabs;
@@ -56,7 +57,19 @@ public class GameplayManager : MonoBehaviour
 
     void Start()
     {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         PrimeTweenConfig.SetTweensCapacity(1000);
+
+        enemies = new();
 
         rounds = new Round[5]
         {
@@ -72,20 +85,20 @@ public class GameplayManager : MonoBehaviour
             //new Round(new EnemyWave[] {})
         };
 
-        rounds = new Round[1]
-        {
-            new Round(new EnemyWave[]{
-                new EnemyWave(EnemyType.SmallDrone, 10, 0.65f, 0, 6.5f),
-                new EnemyWave(EnemyType.Crawler, 5, 0.6f, 0, 4f),
-                new EnemyWave(EnemyType.BigDrone, 3, 2.25f, 0, 3.0f),
-                new EnemyWave(EnemyType.DroneSpawnerBoss, 1, 0.25f, 0, 2.0f),
-                new EnemyWave(EnemyType.SmallDrone, 10, 0.75f, 1, 6.5f),
-                new EnemyWave(EnemyType.WalkerBoss, 1, 0.6f, 0, 3.0f),
-                new EnemyWave(EnemyType.Stealth, 1, 0, 0, 2.0f),
-                new EnemyWave(EnemyType.Stealth, 1, 0, 1, 0.0f),
+        //rounds = new Round[1]
+        //{
+        //    new Round(new EnemyWave[]{
+        //        new EnemyWave(EnemyType.SmallDrone, 10, 0.65f, 0, 6.5f),
+        //        new EnemyWave(EnemyType.Crawler, 5, 0.6f, 0, 4f),
+        //        new EnemyWave(EnemyType.BigDrone, 3, 2.25f, 0, 3.0f),
+        //        new EnemyWave(EnemyType.DroneSpawnerBoss, 1, 0.25f, 0, 2.0f),
+        //        new EnemyWave(EnemyType.SmallDrone, 10, 0.75f, 1, 6.5f),
+        //        new EnemyWave(EnemyType.WalkerBoss, 1, 0.6f, 0, 3.0f),
+        //        new EnemyWave(EnemyType.Stealth, 1, 0, 0, 2.0f),
+        //        new EnemyWave(EnemyType.Stealth, 1, 0, 1, 0.0f),
 
-            })
-        };
+        //    })
+        //};
 
         //rounds = new Round[1]
         //{
@@ -207,18 +220,27 @@ public class GameplayManager : MonoBehaviour
         }
     }
 
-    bool roundDone = false;
+    bool roundFinishedSpawning = false;
     IEnumerator IterateRounds()
     {
-        WaitForSeconds afterRoundDelay = new WaitForSeconds(10.0f);
         for (int i = 0; i < rounds.Length; i++)
         {
             roundText.text = "Round: " + (i + 1);
-            roundDone = false;
             Round round = rounds[i];
+            roundFinishedSpawning = false;
             StartCoroutine(IterateWaves(round));
-            while (!roundDone) yield return null;
-            yield return afterRoundDelay;
+            while (!roundFinishedSpawning) yield return null;
+
+            WaitForSeconds checkTime = new WaitForSeconds(1.0f);
+
+            redoLoop:
+            yield return checkTime;
+            foreach(Enemy e in enemies)
+            {
+                if (e == null || e.dead) continue;
+                goto redoLoop;
+            }
+            Debug.Log("FINISHED ROUND");
         }
     }
     IEnumerator IterateWaves(Round round)
@@ -231,7 +253,7 @@ public class GameplayManager : MonoBehaviour
             curWaveIdx++;
             yield return new WaitForSeconds(curWave.afterWaveDelay);
         }
-        roundDone = true;
+        roundFinishedSpawning = true;
         curWaveIdx = 0;
     }
     public void Lose()

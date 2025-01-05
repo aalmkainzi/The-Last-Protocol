@@ -46,13 +46,10 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
 
     public AttackPlayerBehaviour attackPlayer;
     
-    protected GameplayManager gameplayManager;
-
     protected virtual void Start()
     {
         audioSource = GetComponent<AudioSource>();
         id = curId++;
-        gameplayManager = GameObject.FindWithTag("gameplayManager").GetComponent<GameplayManager>();
         player = GameObject.FindWithTag("player").GetComponent<Player>();
         radarTower = GameObject.FindWithTag("radioTower").GetComponent<RadarTower>();
         agent.speed = speed;
@@ -155,7 +152,7 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
         else
         {
             Debug.Log("PLAYING SOUND " + ii++);
-            audioSource.PlayOneShot(gameplayManager.GetDamageSound());
+            audioSource.PlayOneShot(GameplayManager.instance.GetDamageSound());
         }
         return false;
     }
@@ -167,8 +164,8 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
         StopCoroutine(navCor);*/
         StopAllCoroutines();
         dead = true;
-        gameplayManager.RemoveEnemyFromAllTowers(this);
-        gameplayManager.GetMoney(gearsWhenKilled);
+        GameplayManager.instance.RemoveEnemyFromAllTowers(this);
+        GameplayManager.instance.GetMoney(gearsWhenKilled);
 
         // agent.isStopped = true;
 

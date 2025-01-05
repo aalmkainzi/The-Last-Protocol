@@ -3,12 +3,10 @@ using UnityEngine;
 public class TowerTile : MonoBehaviour
 {
     public FixedTower placedTower;
-    GameplayManager gameplayManager;
     GameObject cube;
     void Start()
     {
         cube = transform.GetChild(0).gameObject;
-        gameplayManager = GameObject.FindWithTag("gameplayManager").GetComponent<GameplayManager>();
     }
 
     void Update()
@@ -21,7 +19,7 @@ public class TowerTile : MonoBehaviour
         {
             GameObject newTower = Instantiate(prefab.gameObject, transform);
             placedTower = newTower.GetComponent<FixedTower>();
-            gameplayManager.placedTowers.Add(placedTower);
+            GameplayManager.instance.placedTowers.Add(placedTower);
             cube.SetActive(false);
             return newTower;
         }
@@ -30,19 +28,19 @@ public class TowerTile : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(gameplayManager.currentTowerTile == null)
+        if(GameplayManager.instance.currentTowerTile == null)
         {
-            gameplayManager.currentTowerTile = this;
+            GameplayManager.instance.currentTowerTile = this;
         }
         // make layer only player
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (gameplayManager.currentTowerTile == this)
+        if (GameplayManager.instance.currentTowerTile == this)
         {
-            gameplayManager.currentTowerTile = null;
-            gameplayManager.DisableUI();
+            GameplayManager.instance.currentTowerTile = null;
+            GameplayManager.instance.DisableUI();
         }
     }
 }
