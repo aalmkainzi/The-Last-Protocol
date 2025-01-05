@@ -2961,6 +2961,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 429644441}
     m_Modifications:
+    - target: {fileID: 4083051428925290991, guid: 7ec979c4f1c1db241a0ccde7fbaff349, type: 3}
+      propertyPath: m_PlayableAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 9b1b4c48e388c6147a93f23769ca6fe9, type: 2}
+    - target: {fileID: 4083051428925290991, guid: 7ec979c4f1c1db241a0ccde7fbaff349, type: 3}
+      propertyPath: m_SceneBindings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4083051428925290991, guid: 7ec979c4f1c1db241a0ccde7fbaff349, type: 3}
+      propertyPath: m_SceneBindings.Array.data[0].key
+      value: 
+      objectReference: {fileID: 8936567945272818991, guid: 9b1b4c48e388c6147a93f23769ca6fe9, type: 2}
+    - target: {fileID: 4083051428925290991, guid: 7ec979c4f1c1db241a0ccde7fbaff349, type: 3}
+      propertyPath: m_SceneBindings.Array.data[1].key
+      value: 
+      objectReference: {fileID: -5058798579689436640, guid: 9b1b4c48e388c6147a93f23769ca6fe9, type: 2}
     - target: {fileID: 8576653719427669118, guid: 7ec979c4f1c1db241a0ccde7fbaff349, type: 3}
       propertyPath: m_Name
       value: AudioAsset
