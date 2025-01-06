@@ -14847,7 +14847,7 @@ MonoBehaviour:
   id: 0
   health: 2
   gearsWhenKilled: 1
-  speed: 16
+  speed: 7
   power: 3
   animator: {fileID: 4256020983502619151}
   flying: 0

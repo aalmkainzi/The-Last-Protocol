@@ -3,13 +3,11 @@ using UnityEngine;
 
 public class EnemySpanwer : MonoBehaviour
 {
-    GameplayManager gameplayManager;
     public Vector3 spawnOffsetDirection; // either (1,0,0) or (0,0,1)
     public int id;
 
     void Start()
     {
-        gameplayManager = GameObject.FindWithTag("gameplayManager").GetComponent<GameplayManager>();
     }
 
     void Update()
@@ -19,7 +17,7 @@ public class EnemySpanwer : MonoBehaviour
 
     IEnumerator SpawnWaveLoop(EnemyWave wave)
     {
-        GameObject prefab = gameplayManager.enemyPrefabs[(int)wave.type];
+        GameObject prefab = GameplayManager.instance.enemyPrefabs[(int)wave.type];
 
         WaitForSeconds delay = new WaitForSeconds(wave.timeBetweenEach);
         for (int i = 0; i < wave.nb; i++)
@@ -29,6 +27,9 @@ public class EnemySpanwer : MonoBehaviour
             Vector3 spawnPos = transform.position + spawnOffsetDirection * spawnPosOffset;
             GameObject newObj = Instantiate(prefab, spawnPos, Quaternion.identity);
             Enemy newE = newE = newObj.transform.GetChild(0).GetComponent<Enemy>();
+
+            GameplayManager.instance.enemies.Add(newE);
+
             if (prefab.CompareTag("flyingE"))
             {
                 Vector3 flyingPos = newE.transform.position; //newObj.transform.GetChild(0).position;
@@ -44,12 +45,12 @@ public class EnemySpanwer : MonoBehaviour
             Vector3[] ogPath;
             if (wave.spawnerIdx == 0)
             {
-                ogPath = gameplayManager.path1;
+                ogPath = GameplayManager.instance.path1;
                 newE.pathId = 0;
             }
             else
             {
-                ogPath = gameplayManager.path2;
+                ogPath = GameplayManager.instance.path2;
                 newE.pathId = 1;
             }
 

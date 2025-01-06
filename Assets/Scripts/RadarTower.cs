@@ -8,7 +8,6 @@ public class RadarTower : MonoBehaviour
     public int health;
     public Player player;
 
-    public GameplayManager gameplayManager;
     // player can upgrade his weapon at the radar tower
 
     Slider healthSlider;
@@ -16,7 +15,6 @@ public class RadarTower : MonoBehaviour
     {
         healthSlider = GameObject.FindWithTag("HealthSlider").GetComponent<Slider>();
         healthSlider.value = 0;
-        gameplayManager = GameObject.FindWithTag("gameplayManager").GetComponent<GameplayManager>();
         player = GameObject.FindWithTag("player").GetComponent<Player>();
     }
 
@@ -26,7 +24,7 @@ public class RadarTower : MonoBehaviour
         healthSlider.value = 1.0f - ((float) health / fullHealth);
         if (health <= 0)
         {
-            gameplayManager.Lose();
+            GameplayManager.instance.Lose();
         }
     }
 

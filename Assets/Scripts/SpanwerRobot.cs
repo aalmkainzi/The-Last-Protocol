@@ -13,7 +13,7 @@ public class SpanwerRobot : Enemy
     protected override void Start()
     {
         base.Start();
-        dronePrefab = gameplayManager.enemyPrefabs[0];
+        dronePrefab = GameplayManager.instance.enemyPrefabs[0];
         StartCoroutine(SpawnDrones());
         particle.SetActive(false);
     }
@@ -40,9 +40,9 @@ public class SpanwerRobot : Enemy
 
             Vector3[] ogPath;
             if (pathId == 0)
-                ogPath = gameplayManager.path1;
+                ogPath = GameplayManager.instance.path1;
             else
-                ogPath = gameplayManager.path2;
+                ogPath = GameplayManager.instance.path2;
 
             Vector3[] randomPath = new Vector3[ogPath.Length - curTargetIdx];
 
@@ -64,7 +64,7 @@ public class SpanwerRobot : Enemy
     public override void Die()
     {
         base.Die();
-        GetComponent<AudioSource>().clip = gameplayManager.booms[Random.Range(0, gameplayManager.booms.Length)];
+        GetComponent<AudioSource>().clip = GameplayManager.instance.booms[Random.Range(0, GameplayManager.instance.booms.Length)];
         GetComponent<AudioSource>().Play();
         StartCoroutine(SpinInSpiral());
         particle.SetActive(true);
