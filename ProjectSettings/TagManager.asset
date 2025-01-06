@@ -17,6 +17,12 @@ TagManager:
   - HealthSlider
   - MoneyText
   - ui_upgrade
+  - Weapon
+  - SecondCamera
+  - BulletSpawn
+  - LevelPart
+  - Dummie
+  - Main Camera
   layers:
   - Default
   - TransparentFX
@@ -35,7 +41,7 @@ TagManager:
   - TowerTile
   - Player
   - 
-  - 
+  - Weapon
   - 
   - 
   - 

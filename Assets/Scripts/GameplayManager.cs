@@ -113,7 +113,7 @@ public class GameplayManager : MonoBehaviour
         GameObject.Find("RailPrice").GetComponent<TMP_Text>().text = towerPrefabs[3].GetComponent<Tower>().price + "";
 
 
-        p = GameObject.FindWithTag("player").GetComponent<Player>();
+        p = GameObject.FindWithTag("Player").GetComponent<Player>();
         overlay = GameObject.FindWithTag("ui_overlay");
         overlay.SetActive(true);
 
