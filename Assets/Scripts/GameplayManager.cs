@@ -7,6 +7,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 // using DG.Tweening;
 using PrimeTween;
+using UnityEngine.UI;
 
 public class GameplayManager : MonoBehaviour
 {
@@ -107,10 +108,10 @@ public class GameplayManager : MonoBehaviour
         //    })
         //};
 
-        GameObject.Find("BombPrice").GetComponent<TMP_Text>().text = towerPrefabs[0].GetComponent<Tower>().price + "";
-        GameObject.Find("GeneratorPrice").GetComponent<TMP_Text>().text = towerPrefabs[1].GetComponent<Tower>().price + "";
-        GameObject.Find("TurretPrice").GetComponent<TMP_Text>().text = towerPrefabs[2].GetComponent<Tower>().price + "";
-        GameObject.Find("RailPrice").GetComponent<TMP_Text>().text = towerPrefabs[3].GetComponent<Tower>().price + "";
+        GameObject.Find("BombPrice").GetComponent<Text>().text = towerPrefabs[0].GetComponent<Tower>().price + "";
+        GameObject.Find("GeneratorPrice").GetComponent<Text>().text = towerPrefabs[1].GetComponent<Tower>().price + "";
+        GameObject.Find("TurretPrice").GetComponent<Text>().text = towerPrefabs[2].GetComponent<Tower>().price + "";
+        GameObject.Find("RailPrice").GetComponent<Text>().text = towerPrefabs[3].GetComponent<Tower>().price + "";
 
 
         p = GameObject.FindWithTag("player").GetComponent<Player>();

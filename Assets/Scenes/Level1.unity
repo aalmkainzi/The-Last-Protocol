@@ -735,8 +735,8 @@ GameObject:
   - component: {fileID: 1234099074}
   - component: {fileID: 1234099073}
   m_Layer: 5
-  m_Name: Canvas
-  m_TagString: Untagged
+  m_Name: Canvas_Tower
+  m_TagString: ui_tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2310,14 +2310,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4566037, g: 0.41266638, b: 0.41266638, a: 0.53333336}
+  m_Color: {r: 0.6981132, g: 0.5940548, b: 0.5940548, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 08c499b340ece304484b75e86aa0b2de, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 21a9fbf05b929714e8fbcb8c633aee97, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2630,7 +2630,7 @@ GameObject:
   - component: {fileID: 5409161271492714276}
   - component: {fileID: 4452298204131231341}
   m_Layer: 5
-  m_Name: T
+  m_Name: Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2742,14 +2742,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4566037, g: 0.41266638, b: 0.41266638, a: 0.53333336}
+  m_Color: {r: 0.6981132, g: 0.5940548, b: 0.5940548, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 08c499b340ece304484b75e86aa0b2de, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 21a9fbf05b929714e8fbcb8c633aee97, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2819,11 +2819,11 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
+    m_ColorMultiplier: 1.1
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
@@ -2840,7 +2840,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4196257035571741612}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 145331844}
+        m_TargetAssemblyTypeName: GameplayManager, Assembly-CSharp
+        m_MethodName: SelectTower
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &4795674992155754560
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2853,6 +2865,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Managers
       objectReference: {fileID: 0}
+    - target: {fileID: 1481400892652300718, guid: 7655fabe02626df4593eeefc1e2a7c8f, type: 3}
+      propertyPath: towerUI
+      value: 
+      objectReference: {fileID: 1234099072}
+    - target: {fileID: 1481400892652300718, guid: 7655fabe02626df4593eeefc1e2a7c8f, type: 3}
+      propertyPath: upgradeUI
+      value: 
+      objectReference: {fileID: 7326294743578092559}
     - target: {fileID: 1481400892652300718, guid: 7655fabe02626df4593eeefc1e2a7c8f, type: 3}
       propertyPath: defeatedMenuController
       value: 
@@ -3190,14 +3210,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4566037, g: 0.41266638, b: 0.41266638, a: 0.53333336}
+  m_Color: {r: 0.6981132, g: 0.5940548, b: 0.5940548, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 08c499b340ece304484b75e86aa0b2de, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 21a9fbf05b929714e8fbcb8c633aee97, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -3511,11 +3531,11 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
+    m_ColorMultiplier: 1.1
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
@@ -3532,7 +3552,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6277565724260763101}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 145331844}
+        m_TargetAssemblyTypeName: GameplayManager, Assembly-CSharp
+        m_MethodName: SelectTower
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &6993733078672938609
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3775,7 +3807,9 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4942559825474244019, guid: c4800a2294bfcaa488076ee7e8847448, type: 3}
+    - {fileID: -8197548619750057043, guid: c4800a2294bfcaa488076ee7e8847448, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8194362634576532368, guid: c4800a2294bfcaa488076ee7e8847448, type: 3}
       insertIndex: -1
@@ -3785,6 +3819,11 @@ PrefabInstance:
 --- !u!4 &7326294743578092558 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8194362634576532368, guid: c4800a2294bfcaa488076ee7e8847448, type: 3}
+  m_PrefabInstance: {fileID: 7326294743578092557}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7326294743578092559 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2613776397563367104, guid: c4800a2294bfcaa488076ee7e8847448, type: 3}
   m_PrefabInstance: {fileID: 7326294743578092557}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &7447626846642605508
@@ -4031,11 +4070,11 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
+    m_ColorMultiplier: 1.1
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
@@ -4052,7 +4091,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8855579319619479476}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 145331844}
+        m_TargetAssemblyTypeName: GameplayManager, Assembly-CSharp
+        m_MethodName: SelectTower
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8153689823582884342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4378,14 +4429,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4566037, g: 0.41266638, b: 0.41266638, a: 0.53333336}
+  m_Color: {r: 0.6981132, g: 0.5940548, b: 0.5940548, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 08c499b340ece304484b75e86aa0b2de, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 21a9fbf05b929714e8fbcb8c633aee97, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -4417,11 +4468,11 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
+    m_ColorMultiplier: 1.1
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
@@ -4438,7 +4489,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2810597791626746232}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 145331844}
+        m_TargetAssemblyTypeName: GameplayManager, Assembly-CSharp
+        m_MethodName: SelectTower
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &8952766405780669243
 CanvasRenderer:
   m_ObjectHideFlags: 0
