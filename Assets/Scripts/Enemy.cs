@@ -50,7 +50,7 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
     {
         audioSource = GetComponent<AudioSource>();
         id = curId++;
-        player = GameObject.FindWithTag("player").GetComponent<Player>();
+        player = GameObject.FindWithTag("Player").GetComponent<Player>();
         radarTower = GameObject.FindWithTag("radioTower").GetComponent<RadarTower>();
         agent.speed = speed;
         if (flying)
