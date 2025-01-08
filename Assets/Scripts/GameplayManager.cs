@@ -1,11 +1,7 @@
-using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
-using JetBrains.Annotations;
 using System.Collections;
 using TMPro;
-using UnityEngine.SceneManagement;
-// using DG.Tweening;
 using PrimeTween;
 using UnityEngine.UI;
 
@@ -14,11 +10,9 @@ public class GameplayManager : MonoBehaviour
     public static GameplayManager instance;
 
     public List<Enemy> enemies;
-
+    public Player player;
     public GameObject[] enemyPrefabs;
     public GameObject[] towerPrefabs;
-
-    // public EnemyWave[] waves;
 
     [System.Serializable]
     public struct Round
@@ -38,7 +32,7 @@ public class GameplayManager : MonoBehaviour
     public Vector3[] path1;
     public Vector3[] path2;
 
-    public TowerTile currentTowerTile;
+    // public TowerTile currentTowerTile;
     GameObject cube;
 
     public List<FixedTower> placedTowers;
@@ -70,6 +64,7 @@ public class GameplayManager : MonoBehaviour
 
         PrimeTweenConfig.SetTweensCapacity(1000);
 
+        player = GameObject.FindWithTag("Player").GetComponent<Player>();
         enemies = new();
 
         rounds = new Round[5]
@@ -142,16 +137,13 @@ public class GameplayManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if(currentTowerTile != null)
+            if(player.nearTower == null)
             {
-                if (currentTowerTile.placedTower == null)
-                {
-                    EnableTowerUI();
-                }
-                else
-                {
-                    EnableUpgradeUI();
-                }
+                EnableTowerUI();
+            }
+            else
+            {
+                EnableUpgradeUI();
             }
         }
 
@@ -177,8 +169,8 @@ public class GameplayManager : MonoBehaviour
     public void EnableUpgradeUI()
     {
         upgradeUI.SetActive(true);
-        Upgrade u1 = currentTowerTile.placedTower.upgradePath.GetUpgrade1();
-        Upgrade u2 = currentTowerTile.placedTower.upgradePath.GetUpgrade2();
+        Upgrade u1 = player.nearTower.upgradePath.GetUpgrade1();
+        Upgrade u2 = player.nearTower.upgradePath.GetUpgrade2();
 
         // TODO should also disable button when null
         upgradeUI.transform.Find("U1").GetChild(0).GetComponent<TMP_Text>().text = u1 != null ? u1.text : "No More Upgrades";
@@ -190,11 +182,10 @@ public class GameplayManager : MonoBehaviour
 
     public void ApplyUpgradeOfCurrentTower(int which)
     {
-        currentTowerTile.placedTower.upgradePath.ApplyUpgrade(which);
+        player.nearTower.upgradePath.ApplyUpgrade(which);
     }
 
-    public
-        void DisableUI()
+    public void DisableUI()
     {
         towerUI.SetActive(false);
         upgradeUI.SetActive(false);
@@ -208,7 +199,7 @@ public class GameplayManager : MonoBehaviour
         if (p.money >= towerPrefab.price)
         {
             p.money -= towerPrefab.price;
-            currentTowerTile.PlaceTower(towerPrefab);
+            // currentTowerTile.PlaceTower(towerPrefab);
             DisableUI();
         }
     }

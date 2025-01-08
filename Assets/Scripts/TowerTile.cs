@@ -1,3 +1,4 @@
+#if false
 using UnityEngine;
 
 public class TowerTile : MonoBehaviour
@@ -44,3 +45,4 @@ public class TowerTile : MonoBehaviour
         }
     }
 }
+#endif
