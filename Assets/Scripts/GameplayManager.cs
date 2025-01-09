@@ -133,14 +133,22 @@ public class GameplayManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if(player.nearTower == null)
+            if(!towerUI.activeSelf && !upgradeUI.activeSelf)
             {
-                EnableTowerUI();
+                if (player.nearTower == null)
+                {
+                    EnableTowerUI();
+                }
+                else
+                {
+                    EnableUpgradeUI();
+                }
             }
             else
             {
-                EnableUpgradeUI();
+                DisableUI();
             }
+
         }
 
         moneyText.text = p.money + "";
