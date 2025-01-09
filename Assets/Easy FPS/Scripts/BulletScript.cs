@@ -25,8 +25,8 @@ public class BulletScript : MonoBehaviour {
     	if(Physics.Raycast(transform.position, transform.forward,out hit, maxDistance, ~ignoreLayer))
 		{
 			hit.collider.gameObject.GetComponent<Enemy>().TakeDamage(dmg);
-            Destroy(gameObject);
         }
+        Destroy(gameObject);
     }
 
 }
