@@ -46,10 +46,11 @@ public class GameplayManager : MonoBehaviour
 
     [SerializeField] private AudioClip[] enemyDamageSounds;
 
-    public GameObject towerUI;
-    public GameObject upgradeUI;
+    GameObject towerUI;
+    GameObject upgradeUI;
     public DefeatedMenuController defeatedMenuController;
 
+    public TowerPlacer towerPlacer;
     void Start()
     {
         if(instance == null)
@@ -195,11 +196,13 @@ public class GameplayManager : MonoBehaviour
 
     public void SelectTower(int towerTy)
     {
+        Debug.Log("SELECT TOWER CALLED WITH " + towerTy);
         Tower towerPrefab = towerPrefabs[(int)towerTy].GetComponent<Tower>();
         if (p.money >= towerPrefab.price)
         {
             p.money -= towerPrefab.price;
             // currentTowerTile.PlaceTower(towerPrefab);
+            towerPlacer.SetTowerPrefab(towerPrefab.gameObject);
             DisableUI();
         }
     }

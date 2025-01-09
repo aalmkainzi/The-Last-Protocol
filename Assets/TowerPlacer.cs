@@ -9,6 +9,10 @@ public class TowerPlacer : MonoBehaviour
     List<Color> ogColors;
     Renderer[] rends;
     bool alreadyRed = false;
+
+    public bool canPlace = false;
+    [SerializeField] GameObject prefab;
+
     private void Start()
     {
         ogColors = new();
@@ -21,6 +25,12 @@ public class TowerPlacer : MonoBehaviour
             }
         }
     }
+
+    public void SetTowerPrefab(GameObject prefab)
+    {
+        this.prefab = prefab;
+    }
+
     void Update()
     {
         Vector3 pos = transform.position;
@@ -35,6 +45,16 @@ public class TowerPlacer : MonoBehaviour
             pos.y -= hit.distance;
         }
         transform.position = pos;
+
+        if(canPlace)
+        {
+            if(Input.GetAxisRaw("Fire1") > 0.1f)
+            {
+                GameObject newTower = Instantiate(prefab, transform.position, Quaternion.identity);
+                FixedTower placedTower = newTower.GetComponent<FixedTower>();
+                GameplayManager.instance.placedTowers.Add(placedTower);
+            }
+        }
     }
 
     void MakeChildrenRed()
@@ -57,7 +77,7 @@ public class TowerPlacer : MonoBehaviour
     int i = 0;
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("INSIDE COLLIDER " + i++ + " " + other.gameObject.name);
+        canPlace = false;
         if (!alreadyRed)
         {
             alreadyRed = true;
@@ -67,6 +87,7 @@ public class TowerPlacer : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        canPlace = true;
         alreadyRed = false;
         ResetChildrenColors();
     }
