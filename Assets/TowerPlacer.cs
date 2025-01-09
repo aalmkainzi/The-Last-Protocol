@@ -82,7 +82,10 @@ public class TowerPlacer : MonoBehaviour
                 {
                     Destroy(towerVisual.transform.GetChild(0).gameObject);
                     DisableTowerPlacer();
+
+                    Debug.Log("NEW TOWER PLACED AT " + transform.position);
                     GameObject newTower = Instantiate(prefab, transform.position, Quaternion.identity);
+                    newTower.transform.position = transform.position;
                     FixedTower placedTower = newTower.GetComponent<FixedTower>();
                     GameplayManager.instance.placedTowers.Add(placedTower);
                 }

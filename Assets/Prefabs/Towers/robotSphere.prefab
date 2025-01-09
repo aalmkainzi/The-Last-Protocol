@@ -84,6 +84,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 8df5b386369d54778a922298504d1aba, type: 2}
+    - target: {fileID: 9500000, guid: bff429107601444d59c67940e6ad78c4, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -125,6 +129,7 @@ MonoBehaviour:
   canDetectCamo: 0
   canAttackFlying: 0
   reloadTime: 1
+  projectileScale: 0
   upgradePath:
     tower: {fileID: 4152643097734272564}
     currentUpgrade1: 0
@@ -138,6 +143,7 @@ MonoBehaviour:
       reloadTimeOffset: 0
       explosionRangeOffset: 0
       moneyPerAttackOffset: 5
+      projectileScaleOffset: 0
       newColor: {r: 0.54380214, g: 1, b: 0, a: 1}
     upgrade2:
     - text: 'Faster Production: Generates Money Faster'
@@ -148,6 +154,7 @@ MonoBehaviour:
       reloadTimeOffset: -2
       explosionRangeOffset: 0
       moneyPerAttackOffset: 0
+      projectileScaleOffset: 0
       newColor: {r: 0.4801774, g: 0, b: 1, a: 1}
   rend: {fileID: 8335230829922714725}
   audioSource: {fileID: 0}

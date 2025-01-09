@@ -32,9 +32,6 @@ public class GameplayManager : MonoBehaviour
     public Vector3[] path1;
     public Vector3[] path2;
 
-    // public TowerTile currentTowerTile;
-    GameObject cube;
-
     public List<FixedTower> placedTowers;
 
     GameObject overlay;
@@ -128,8 +125,6 @@ public class GameplayManager : MonoBehaviour
 
         placedTowers = new List<FixedTower> ();
         Enemy.curId = 0;
-        cube = transform.GetChild(0).gameObject;
-        cube.SetActive(false);
 
         StartCoroutine(IterateRounds());
     }
