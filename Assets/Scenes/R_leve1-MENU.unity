@@ -3020,7 +3020,7 @@ Transform:
   m_GameObject: {fileID: 1338505176}
   serializedVersion: 2
   m_LocalRotation: {x: 0.28752154, y: -0.36564144, z: 0.11986331, w: 0.8770807}
-  m_LocalPosition: {x: 76.635925, y: 40.85196, z: 128.74092}
+  m_LocalPosition: {x: 109.77029, y: 29.101711, z: 126.61612}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3796,7 +3796,7 @@ Transform:
   m_GameObject: {fileID: 1791612584}
   serializedVersion: 2
   m_LocalRotation: {x: 0.28752154, y: -0.36564144, z: 0.11986331, w: 0.8770807}
-  m_LocalPosition: {x: 76.635925, y: 40.85196, z: 128.74092}
+  m_LocalPosition: {x: 109.77029, y: 29.101711, z: 126.61612}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4749,7 +4749,7 @@ MonoBehaviour:
   m_UpdateMethod: 1
   m_PositionUnits: 0
   m_Speed: 0.3
-  m_Position: 0
+  m_Position: 3.85
 --- !u!4 &3348039142490621263
 Transform:
   m_ObjectHideFlags: 0
@@ -4759,7 +4759,7 @@ Transform:
   m_GameObject: {fileID: 7535664075145943428}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 72.9, y: 18.1, z: 192.7}
+  m_LocalPosition: {x: 102.1, y: 9.5, z: 192.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4773,8 +4773,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804339910647040991}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.041571088, y: -0.54176074, z: 0.026840966, w: 0.8390749}
-  m_LocalPosition: {x: 76.635925, y: 40.85196, z: 138.74092}
+  m_LocalRotation: {x: 0.050556272, y: -0.43411803, z: 0.024410266, w: 0.89910495}
+  m_LocalPosition: {x: 109.77029, y: 29.101711, z: 136.61612}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4792,18 +4792,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a200b19ca1a9685429ed7e043c28e904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Resolution: 4
+  m_Resolution: 49
   m_Appearance:
     pathColor: {r: 0, g: 1, b: 0, a: 1}
     inactivePathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     width: 0.2
   m_Looped: 1
   m_Waypoints:
-  - position: {x: 3.7359238, y: 22.751959, z: -53.959076}
+  - position: {x: 3.7359238, y: 19.08844, z: -53.959076}
     roll: 0
   - position: {x: -45.85926, y: 13.1946125, z: -52.455032}
     roll: 0
-  - position: {x: -33.277294, y: 5.855158, z: -85.26088}
+  - position: {x: -33.27729, y: 10.781067, z: -85.26088}
     roll: 0
   - position: {x: -0.75891876, y: 18.207708, z: -72.693855}
     roll: 0
