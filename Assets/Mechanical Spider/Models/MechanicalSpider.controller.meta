@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 80f46dbd2f86d564dbf043aba751f6b3
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 207719
+  packageName: Animated Mechanical Spider
+  packageVersion: 1.0
+  assetPath: Assets/Mechanical Spider/Models/MechanicalSpider.controller
+  uploadId: 532697

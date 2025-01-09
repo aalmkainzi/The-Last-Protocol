@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 38c4ab88467c84d4f9616fe45b84c1f4
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 44129
+  packageName: 'Mech Constructor: Heavy Robot'
+  packageVersion: 2.2
+  assetPath: Assets/Mech_Constructor_Heavy/Materials/Source/MC_Heavy__Source_PSD_Link.txt
+  uploadId: 609379

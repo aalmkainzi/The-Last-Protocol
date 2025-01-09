@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f0f2517550ed85b4a94b5c8ee13ae3eb
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 44129
+  packageName: 'Mech Constructor: Heavy Robot'
+  packageVersion: 2.2
+  assetPath: Assets/Mech_Constructor_Heavy/Materials/A_Mech_Heavy_Realistic_Mat.mat
+  uploadId: 609379

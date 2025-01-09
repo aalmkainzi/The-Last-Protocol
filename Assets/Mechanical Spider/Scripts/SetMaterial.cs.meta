@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 9022cc2eaa96d9b4aa40aa54518e2b9e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 207719
+  packageName: Animated Mechanical Spider
+  packageVersion: 1.0
+  assetPath: Assets/Mechanical Spider/Scripts/SetMaterial.cs
+  uploadId: 532697
