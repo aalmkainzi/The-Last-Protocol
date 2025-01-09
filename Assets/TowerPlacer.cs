@@ -12,47 +12,80 @@ public class TowerPlacer : MonoBehaviour
 
     public bool canPlace = false;
     [SerializeField] GameObject prefab;
+    GameObject towerVisual;
+    bool readyToPlace = false;
 
-    private void Start()
+    private void Awake()
     {
-        ogColors = new();
-        rends = transform.GetComponentsInChildren<Renderer>();
+        DisableTowerPlacer();
+
+        towerVisual = transform.Find("TowerVisual").gameObject;
+
+        ogColors = new();        
+    }
+
+    void EnableTowerPlacer()
+    {
+        readyToPlace = true;
+        GetComponent<SphereCollider>().enabled = true;
+    }
+    void DisableTowerPlacer()
+    {
+        readyToPlace = false;
+        GetComponent<SphereCollider>().enabled = false;
+    }
+
+    public void SetTowerPrefab(GameObject prefab)
+    {
+        EnableTowerPlacer();
+
+        if (towerVisual.transform.childCount > 0)
+        {
+            Destroy(towerVisual.transform.GetChild(0).gameObject);
+        }
+
+        this.prefab = prefab;
+        GameObject visual = Instantiate(prefab, towerVisual.transform);
+        visual.GetComponentInChildren<FixedTower>().enabled = false;
+        
+        ogColors.Clear();
+        rends = visual.GetComponentsInChildren<Renderer>();
         foreach (Renderer r in rends)
         {
-            foreach(Material m in r.materials)
+            foreach (Material m in r.materials)
             {
                 ogColors.Add(m.color);
             }
         }
     }
 
-    public void SetTowerPrefab(GameObject prefab)
-    {
-        this.prefab = prefab;
-    }
-
     void Update()
     {
-        Vector3 pos = transform.position;
-        bool hitDown = Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 100, ground);
-        if(!hitDown)
+        if(readyToPlace)
         {
-            Physics.Raycast(transform.position, Vector3.up, out hit, 100, ground);
-            pos.y += hit.distance;
-        }
-        else
-        {
-            pos.y -= hit.distance;
-        }
-        transform.position = pos;
-
-        if(canPlace)
-        {
-            if(Input.GetAxisRaw("Fire1") > 0.1f)
+            Vector3 pos = transform.position;
+            bool hitDown = Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 100, ground);
+            if (!hitDown)
             {
-                GameObject newTower = Instantiate(prefab, transform.position, Quaternion.identity);
-                FixedTower placedTower = newTower.GetComponent<FixedTower>();
-                GameplayManager.instance.placedTowers.Add(placedTower);
+                Physics.Raycast(transform.position, Vector3.up, out hit, 100, ground);
+                pos.y += hit.distance;
+            }
+            else
+            {
+                pos.y -= hit.distance;
+            }
+            transform.position = pos;
+
+            if (canPlace)
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    Destroy(towerVisual.transform.GetChild(0).gameObject);
+                    DisableTowerPlacer();
+                    GameObject newTower = Instantiate(prefab, transform.position, Quaternion.identity);
+                    FixedTower placedTower = newTower.GetComponent<FixedTower>();
+                    GameplayManager.instance.placedTowers.Add(placedTower);
+                }
             }
         }
     }
