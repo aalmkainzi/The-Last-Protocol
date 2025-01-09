@@ -1,0 +1,36 @@
+fileFormatVersion: 2
+guid: a67c7e14640506f48ab048664441bf71
+labels:
+- Robot
+- Mech
+- Modular
+- Constructor
+- Pack
+- Mobile
+- Lowpoly
+- Cartoon
+- Battle
+- Military
+- Sci-fi
+- SciFi
+- Animated
+- Walking
+- Gun
+- Upgrade
+- Heavy
+- Armed
+- Handpainted
+- Hand-painted
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 44129
+  packageName: 'Mech Constructor: Heavy Robot'
+  packageVersion: 2.2
+  assetPath: Assets/Mech_Constructor_Heavy/Prefabs/Shoulders_Heavy_lvl1.prefab
+  uploadId: 609379

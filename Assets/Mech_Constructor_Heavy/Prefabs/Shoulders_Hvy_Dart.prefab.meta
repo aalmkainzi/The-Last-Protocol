@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 55e23a42ec827864ba870693bb92fe13
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 44129
+  packageName: 'Mech Constructor: Heavy Robot'
+  packageVersion: 2.2
+  assetPath: Assets/Mech_Constructor_Heavy/Prefabs/Shoulders_Hvy_Dart.prefab
+  uploadId: 609379

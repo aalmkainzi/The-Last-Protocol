@@ -1,0 +1,36 @@
+fileFormatVersion: 2
+guid: 2f419ac3540cb1845bce83a50422b7d6
+labels:
+- Robot
+- Mech
+- Modular
+- Constructor
+- Pack
+- Mobile
+- Lowpoly
+- Cartoon
+- Battle
+- Military
+- Sci-fi
+- SciFi
+- Animated
+- Walking
+- Weapon
+- Gun
+- Upgrade
+- Rocket
+- Heavy
+- Armed
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 44129
+  packageName: 'Mech Constructor: Heavy Robot'
+  packageVersion: 2.2
+  assetPath: Assets/Mech_Constructor_Heavy/Prefabs/Weapon_BigRocket_Combined/Weapon_BigRocket_combined_lvl5.prefab
+  uploadId: 609379
