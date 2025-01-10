@@ -7,14 +7,24 @@ public class Player : MonoBehaviour
     public float moveSpeed;
     public int money;
     public int power = 1;
-    void Start()
+    public FixedTower nearTower;
+
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if(other.TryGetComponent<FixedTower>(out FixedTower ft))
+        {
+            nearTower = ft;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit(Collider other)
     {
-        
+        if(other.gameObject.TryGetComponent<FixedTower>(out FixedTower ft))
+        {
+            if(ft == nearTower)
+            {
+                nearTower = null;
+            }
+        }
     }
 }

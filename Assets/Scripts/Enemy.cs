@@ -151,7 +151,7 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
         }
         else
         {
-            Debug.Log("PLAYING SOUND " + ii++);
+            //Debug.Log("PLAYING SOUND " + ii++);
             audioSource.PlayOneShot(GameplayManager.instance.GetDamageSound());
         }
         return false;
