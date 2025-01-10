@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e340e6903c6279c4eb0e31d575aef89c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 44129
+  packageName: 'Mech Constructor: Heavy Robot'
+  packageVersion: 2.2
+  assetPath: Assets/Mech_Constructor_Heavy/Animations/Legs_Heavy_Ctrl.controller
+  uploadId: 609379

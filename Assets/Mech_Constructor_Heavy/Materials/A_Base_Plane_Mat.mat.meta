@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b0ab9a38e29f3c04b872c59b2eb54f30
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 44129
+  packageName: 'Mech Constructor: Heavy Robot'
+  packageVersion: 2.2
+  assetPath: Assets/Mech_Constructor_Heavy/Materials/A_Base_Plane_Mat.mat
+  uploadId: 609379

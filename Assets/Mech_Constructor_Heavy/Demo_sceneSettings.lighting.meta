@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a199ea08efdd63d4cb1dce3bdf56f4f6
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 4890085278179872738
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 44129
+  packageName: 'Mech Constructor: Heavy Robot'
+  packageVersion: 2.2
+  assetPath: Assets/Mech_Constructor_Heavy/Demo_sceneSettings.lighting
+  uploadId: 609379
