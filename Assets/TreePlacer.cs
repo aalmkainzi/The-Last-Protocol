@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEngine;
 using static UnityEditor.PlayerSettings;
 
@@ -34,3 +35,4 @@ public class TreePlacer : MonoBehaviour
         Gizmos.DrawCube(new Vector3((minX + maxX) / 2.0f, 4.0f, (minZ + maxZ) / 2.0f), new Vector3(maxX - minX , 3.0f, maxZ - minZ));
     }
 }
+#endif
