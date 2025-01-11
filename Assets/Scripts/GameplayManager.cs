@@ -54,7 +54,7 @@ public class GameplayManager : MonoBehaviour
         {
             instance = this;
         }
-        else
+        else if(instance != this)
         {
             Destroy(gameObject);
             return;
