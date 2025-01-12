@@ -9,7 +9,7 @@ public class MenuController : MonoBehaviour
     public GameObject levelSelectionPanel; // The level selection panel
     public float fadeDuration = 1f;     // Fade duration in seconds
     public CanvasGroup fadeCanvasGroup; // CanvasGroup of the fade panel
-
+    // public CanvasGroup mainMenuGroup;
 
     public void PlayButtonClicked()
     {
@@ -37,6 +37,31 @@ public class MenuController : MonoBehaviour
 
         // Activate the level selection panel after the fade-out
         levelSelectionPanel.SetActive(true);
+    }
+
+    public void BackButtonClicked()
+    {
+        
+        levelSelectionPanel.SetActive(false);
+        float startAlpha = mainMenuGroup.alpha;
+        float time = 0;
+        
+        // Fading the main menu out
+        while (time < fadeDuration)
+        {
+            mainMenuGroup.alpha = Mathf.Lerp(startAlpha, 0, time / fadeDuration);
+            time += Time.deltaTime;
+        }
+        mainMenuGroup.alpha = 1;
+        mainMenuGroup.interactable = true;
+
+        // Activate the level selection panel after the fade-out
+        // levelSelectionPanel.SetActive(true);
+        // mainMenuGroup.interactable = true;
+        // mainMenuGroup.alpha = 1;
+
+        
+
     }
     
     public void LoadLevel1()
