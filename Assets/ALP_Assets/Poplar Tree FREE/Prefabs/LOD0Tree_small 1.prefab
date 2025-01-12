@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 529726968048085581}
   - component: {fileID: 3933105170714757975}
   m_Layer: 0
-  m_Name: LOD0Tree_large
+  m_Name: LOD0Tree_small 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -146,8 +146,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.45, y: 0.45, z: 0.45}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7252617465133174063}
   m_Father: {fileID: 0}
