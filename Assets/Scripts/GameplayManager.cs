@@ -25,9 +25,10 @@ public class GameplayManager : MonoBehaviour
     };
 
     public Round[] rounds;
+    bool roundFinished = true;
 
     public EnemySpanwer[] spawners;
-    int curWaveIdx = 0;
+    int curRoundIdx = 0;
 
     public Vector3[] path1;
     public Vector3[] path2;
@@ -51,7 +52,8 @@ public class GameplayManager : MonoBehaviour
     void Start()
     {
         Invoke(nameof(DoYouCopy), 2.0f);
-        if(instance == null)
+        roundFinished = true;
+        if (instance == null)
         {
             instance = this;
         }
@@ -127,7 +129,6 @@ public class GameplayManager : MonoBehaviour
         placedTowers = new List<FixedTower> ();
         Enemy.curId = 0;
 
-        StartCoroutine(IterateRounds());
     }
 
     void DoYouCopy()
@@ -154,7 +155,20 @@ public class GameplayManager : MonoBehaviour
             {
                 DisableUI();
             }
+        }
 
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            if(player.nearRadio && roundFinished)
+            {
+                roundFinished = false;
+                StartCoroutine(IterateWaves(rounds[curRoundIdx++]));
+            }
+            else if(player.nearTower != null)
+            {
+                Debug.Log("UPGRADE MENU");
+                EnableUpgradeUI();
+            }
         }
 
         moneyText.text = p.money + "";
@@ -225,31 +239,12 @@ public class GameplayManager : MonoBehaviour
     }
 
     bool roundFinishedSpawning = false;
-    IEnumerator IterateRounds()
-    {
-        for (int i = 0; i < rounds.Length; i++)
-        {
-            roundText.text = "Round: " + (i + 1);
-            Round round = rounds[i];
-            roundFinishedSpawning = false;
-            StartCoroutine(IterateWaves(round));
-            while (!roundFinishedSpawning) yield return null;
 
-            WaitForSeconds checkTime = new WaitForSeconds(1.0f);
-
-            redoLoop:
-            yield return checkTime;
-            foreach(Enemy e in enemies)
-            {
-                if (e == null || e.dead) continue;
-                goto redoLoop;
-            }
-            Debug.Log("FINISHED ROUND");
-        }
-    }
     IEnumerator IterateWaves(Round round)
     {
+        Debug.Log("ITERATING WAVES");
         yield return new WaitForSeconds(1.5f);
+        int curWaveIdx = 0;
         for (int i = 0; i < round.waves.Length; i++)
         {
             EnemyWave curWave = round.waves[curWaveIdx];
@@ -259,6 +254,17 @@ public class GameplayManager : MonoBehaviour
         }
         roundFinishedSpawning = true;
         curWaveIdx = 0;
+
+        WaitForSeconds checkRoundClearWaitTime = new WaitForSeconds(1.5f);
+    redoLoop:
+        yield return checkRoundClearWaitTime;
+        foreach (Enemy e in enemies)
+        {
+            if (e == null || e.dead) continue;
+            goto redoLoop;
+        }
+
+        roundFinished = true;
     }
     public void Lose()
     {
