@@ -81,6 +81,6 @@ public class DefeatedMenuController : MonoBehaviour
     private void GoToMainMenu()
     {
         Time.timeScale = 1f;  // Ensure the game is running
-        SceneManager.LoadScene("MainMenu");  // Load main menu scene
+        SceneManager.LoadScene("R_leve1-MENU");  // Load main menu scene
     }
 }
