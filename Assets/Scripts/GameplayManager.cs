@@ -73,8 +73,8 @@ public class GameplayManager : MonoBehaviour
             new Round(new EnemyWave[] {new EnemyWave(EnemyType.SmallDrone, 3, 0.5f, 0, 1.0f), new EnemyWave(EnemyType.Crawler, 3, 0.5f, 0, 1.0f)}),
             new Round(new EnemyWave[] {new EnemyWave(EnemyType.SmallDrone, 2, 0.5f, 1, 0.0f), new EnemyWave(EnemyType.SmallDrone, 3, 0.5f, 0, 0.0f)}),
             new Round(new EnemyWave[] {new EnemyWave(EnemyType.BigDrone, 2, 0.6f, 0, 0.0f), new EnemyWave(EnemyType.BigDrone, 2, 0.6f, 1, 0.0f), new EnemyWave(EnemyType.Crawler, 2, 0.6f, 0, 0.0f), new EnemyWave(EnemyType.Crawler, 2, 0.6f, 1, 0.0f)}),
-            new Round(new EnemyWave[] {new EnemyWave(EnemyType.BigDrone, 2, 0.6f, 0, 0.0f), new EnemyWave(EnemyType.BigDrone, 2, 0.6f, 1, 0.0f), new EnemyWave(EnemyType.Crawler, 2, 0.6f, 0, 0.0f), new EnemyWave(EnemyType.Crawler, 2, 0.6f, 1, 0.0f)}),
-            new Round(new EnemyWave[] {new EnemyWave(EnemyType.DroneSpawnerBoss, 1, 0.6f, 0, 0.0f), new EnemyWave(EnemyType.DroneSpawnerBoss, 2, 0.6f, 1, 0.0f), new EnemyWave(EnemyType.Crawler, 2, 0.6f, 0, 0.0f), new EnemyWave(EnemyType.Crawler, 2, 0.6f, 1, 0.0f)}),
+            new Round(new EnemyWave[] {new EnemyWave(EnemyType.DroneSpawnerBoss, 1, 0.6f, 0, 0.0f), new EnemyWave(EnemyType.Crawler, 2, 0.6f, 0, 0.0f), new EnemyWave(EnemyType.Crawler, 2, 0.6f, 1, 0.0f)}),
+            new Round(new EnemyWave[] {new EnemyWave(EnemyType.Stealth, 2, 0.6f, 0, 3.0f)}),
             //new Round(new EnemyWave[] {}),
             //new Round(new EnemyWave[] {}),
             //new Round(new EnemyWave[] {}),
@@ -142,14 +142,7 @@ public class GameplayManager : MonoBehaviour
         {
             if(!towerUI.activeSelf && !upgradeUI.activeSelf)
             {
-                if (player.nearTower == null)
-                {
-                    EnableTowerUI();
-                }
-                else
-                {
-                    EnableUpgradeUI();
-                }
+               EnableTowerUI();
             }
             else
             {
