@@ -50,6 +50,7 @@ public class GameplayManager : MonoBehaviour
     public TowerPlacer towerPlacer;
     void Start()
     {
+        Invoke(nameof(DoYouCopy), 2.0f);
         if(instance == null)
         {
             instance = this;
@@ -127,6 +128,11 @@ public class GameplayManager : MonoBehaviour
         Enemy.curId = 0;
 
         StartCoroutine(IterateRounds());
+    }
+
+    void DoYouCopy()
+    {
+        GetComponent<AudioSource>().Play();
     }
 
     void Update()
