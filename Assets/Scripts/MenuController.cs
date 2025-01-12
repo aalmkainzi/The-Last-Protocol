@@ -27,7 +27,7 @@ public class MenuController : MonoBehaviour
         //
         // // Fading the main menu out
         // while (time < fadeDuration)
-        // {
+        // //{
         //     mainMenuGroup.alpha = Mathf.Lerp(startAlpha, 0, time / fadeDuration);
         //     time += Time.deltaTime;
         yield return null;
@@ -41,7 +41,8 @@ public class MenuController : MonoBehaviour
     
     public void LoadLevel1()
     {
-        GameObject.Find("VidPlay").GetComponent<PlayIntro>().PlayVideo();
+        FadeAndLoadScene("R_leve1-cut-scene");
+        // GameObject.Find("VidPlay").GetComponent<PlayIntro>().PlayVideo();
         GetComponent<Canvas>().enabled = false;
     }
 

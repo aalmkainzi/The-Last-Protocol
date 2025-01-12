@@ -2157,13 +2157,53 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 888529144589399548, guid: 4c143e435ad119f478444b4d70c7bf78, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: a004572783c587a409956d97cf0c3acb, type: 3}
+    - target: {fileID: 888529144589399548, guid: 4c143e435ad119f478444b4d70c7bf78, type: 3}
+      propertyPath: m_UVRect.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1185402514432011804, guid: 4c143e435ad119f478444b4d70c7bf78, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayButtonClicked
+      objectReference: {fileID: 0}
     - target: {fileID: 2221071536555488329, guid: 4c143e435ad119f478444b4d70c7bf78, type: 3}
       propertyPath: m_Name
       value: CC
       objectReference: {fileID: 0}
+    - target: {fileID: 4024307596402375360, guid: 4c143e435ad119f478444b4d70c7bf78, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024307596402375360, guid: 4c143e435ad119f478444b4d70c7bf78, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 374
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024307596402375360, guid: 4c143e435ad119f478444b4d70c7bf78, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 666
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024307596402375360, guid: 4c143e435ad119f478444b4d70c7bf78, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 220
+      objectReference: {fileID: 0}
     - target: {fileID: 5298349291909363358, guid: 4c143e435ad119f478444b4d70c7bf78, type: 3}
       propertyPath: m_Name
       value: Title Image
+      objectReference: {fileID: 0}
+    - target: {fileID: 5519824951131119714, guid: 4c143e435ad119f478444b4d70c7bf78, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6382165293346305903, guid: 4c143e435ad119f478444b4d70c7bf78, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7299441310038708731, guid: 4c143e435ad119f478444b4d70c7bf78, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8898483314096407963, guid: 4c143e435ad119f478444b4d70c7bf78, type: 3}
       propertyPath: m_Pivot.x
@@ -4131,7 +4171,7 @@ Transform:
   m_GameObject: {fileID: 1799824663}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.89, y: 4, z: 0}
+  m_LocalPosition: {x: 27.89, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
