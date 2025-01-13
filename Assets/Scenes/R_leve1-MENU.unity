@@ -2157,9 +2157,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1407606219391007930, guid: 4c143e435ad119f478444b4d70c7bf78, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2221071536555488329, guid: 4c143e435ad119f478444b4d70c7bf78, type: 3}
       propertyPath: m_Name
       value: CC
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616817584087805531, guid: 4c143e435ad119f478444b4d70c7bf78, type: 3}
+      propertyPath: m_fontSize
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616817584087805531, guid: 4c143e435ad119f478444b4d70c7bf78, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3064719075784576996, guid: 4c143e435ad119f478444b4d70c7bf78, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8898483314096407963, guid: 4c143e435ad119f478444b4d70c7bf78, type: 3}
       propertyPath: m_Pivot.x
@@ -2242,7 +2258,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1407606219391007930, guid: 4c143e435ad119f478444b4d70c7bf78, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c143e435ad119f478444b4d70c7bf78, type: 3}
