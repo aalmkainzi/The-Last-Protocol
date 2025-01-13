@@ -3237,6 +3237,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OptionsButtonClicked
       objectReference: {fileID: 0}
+    - target: {fileID: 7565978520991380539, guid: 4c143e435ad119f478444b4d70c7bf78, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 782.8691
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565978520991380539, guid: 4c143e435ad119f478444b4d70c7bf78, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565978520991380539, guid: 4c143e435ad119f478444b4d70c7bf78, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7748834797380567999, guid: 4c143e435ad119f478444b4d70c7bf78, type: 3}
       propertyPath: OptionsPanel
       value: 
