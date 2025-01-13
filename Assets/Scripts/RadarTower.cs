@@ -36,7 +36,8 @@ public class RadarTower : MonoBehaviour
 
     public void PlayBeeps()
     {
-        audioSource.PlayOneShot(audioSource.clip);
+        Debug.Log("BEEPIN");
+        audioSource.Play();
     }    
 
     public void StopBeeps()

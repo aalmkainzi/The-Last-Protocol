@@ -56,8 +56,10 @@ public class GameplayManager : MonoBehaviour
     public AudioClip whyWouldThey;
     public AudioClip alertNearby;
     public AudioClip radioOld;
+    public AudioClip thatSound;
     public Transform antenna;
 
+    bool playedBeep = false;
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -149,7 +151,6 @@ public class GameplayManager : MonoBehaviour
         {
             if(roundFinished)
             {
-                Debug.Log("ROTTING");
                 antenna.Rotate(new Vector3(0, 40 * Time.deltaTime, 0));
 
             }
@@ -301,7 +302,18 @@ public class GameplayManager : MonoBehaviour
         }
 
         roundFinished = true;
+        
         radioTower.PlayBeeps();
+        if(!playedBeep)
+        {
+            Invoke(nameof(ThatSound), 1.5f);
+            playedBeep = true;
+        }
+    }
+
+    void ThatSound()
+    {
+        audioSource.PlayOneShot(thatSound);
     }
     public void Lose()
     {

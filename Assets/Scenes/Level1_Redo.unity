@@ -3421,6 +3421,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3669741622955586480, guid: f101169de5e8545499c4cd76383fd4c5, type: 3}
   m_PrefabInstance: {fileID: 2143268613}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1087902651 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8998517677453738185, guid: f101169de5e8545499c4cd76383fd4c5, type: 3}
+  m_PrefabInstance: {fileID: 2143268613}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087902648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f446026b092fec4e84c0d184ab37bd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &1087902652
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3433,7 +3444,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 02f66ce0ea18a354db42935a0c214c14, type: 3}
   m_Resource: {fileID: 8300000, guid: 02f66ce0ea18a354db42935a0c214c14, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -5512,9 +5523,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 03f5d8a82c1d87f48a1a50ff1d622d5d, type: 3}
     - target: {fileID: 1481400892652300718, guid: 7655fabe02626df4593eeefc1e2a7c8f, type: 3}
+      propertyPath: thatSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8d94d9b606a7c924196e33e5d0493e27, type: 3}
+    - target: {fileID: 1481400892652300718, guid: 7655fabe02626df4593eeefc1e2a7c8f, type: 3}
       propertyPath: upgradeUI
       value: 
       objectReference: {fileID: 2613776399379689492}
+    - target: {fileID: 1481400892652300718, guid: 7655fabe02626df4593eeefc1e2a7c8f, type: 3}
+      propertyPath: radioTower
+      value: 
+      objectReference: {fileID: 1087902651}
     - target: {fileID: 1481400892652300718, guid: 7655fabe02626df4593eeefc1e2a7c8f, type: 3}
       propertyPath: alertNearby
       value: 
@@ -5537,11 +5556,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1481400892652300718, guid: 7655fabe02626df4593eeefc1e2a7c8f, type: 3}
       propertyPath: path1.Array.data[0].x
-      value: 82.2
+      value: 86.2
       objectReference: {fileID: 0}
     - target: {fileID: 1481400892652300718, guid: 7655fabe02626df4593eeefc1e2a7c8f, type: 3}
       propertyPath: path1.Array.data[0].y
-      value: 6
+      value: 0.46
       objectReference: {fileID: 0}
     - target: {fileID: 1481400892652300718, guid: 7655fabe02626df4593eeefc1e2a7c8f, type: 3}
       propertyPath: path1.Array.data[0].z
@@ -5553,7 +5572,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1481400892652300718, guid: 7655fabe02626df4593eeefc1e2a7c8f, type: 3}
       propertyPath: path1.Array.data[1].y
-      value: 6
+      value: 2.1
       objectReference: {fileID: 0}
     - target: {fileID: 1481400892652300718, guid: 7655fabe02626df4593eeefc1e2a7c8f, type: 3}
       propertyPath: path1.Array.data[1].z
@@ -5581,7 +5600,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1481400892652300718, guid: 7655fabe02626df4593eeefc1e2a7c8f, type: 3}
       propertyPath: path2.Array.data[0].y
-      value: 6
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 1481400892652300718, guid: 7655fabe02626df4593eeefc1e2a7c8f, type: 3}
       propertyPath: path2.Array.data[0].z
@@ -5593,7 +5612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1481400892652300718, guid: 7655fabe02626df4593eeefc1e2a7c8f, type: 3}
       propertyPath: path2.Array.data[1].y
-      value: 6
+      value: 1.03
       objectReference: {fileID: 0}
     - target: {fileID: 1481400892652300718, guid: 7655fabe02626df4593eeefc1e2a7c8f, type: 3}
       propertyPath: path2.Array.data[1].z
@@ -5605,7 +5624,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1481400892652300718, guid: 7655fabe02626df4593eeefc1e2a7c8f, type: 3}
       propertyPath: path2.Array.data[2].y
-      value: 6
+      value: 2.56
       objectReference: {fileID: 0}
     - target: {fileID: 1481400892652300718, guid: 7655fabe02626df4593eeefc1e2a7c8f, type: 3}
       propertyPath: path2.Array.data[2].z
@@ -5617,7 +5636,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1481400892652300718, guid: 7655fabe02626df4593eeefc1e2a7c8f, type: 3}
       propertyPath: path2.Array.data[3].y
-      value: 6
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 1481400892652300718, guid: 7655fabe02626df4593eeefc1e2a7c8f, type: 3}
       propertyPath: path2.Array.data[3].z
