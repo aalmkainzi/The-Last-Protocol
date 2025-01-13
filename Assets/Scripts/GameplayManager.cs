@@ -48,16 +48,26 @@ public class GameplayManager : MonoBehaviour
     GameObject upgradeUI;
     public DefeatedMenuController defeatedMenuController;
 
+    public RadarTower radioTower;
     public TowerPlacer towerPlacer;
+
+    bool interactedWithTower = false;
+    AudioSource audioSource;
+    public AudioClip whyWouldThey;
+    public AudioClip alertNearby;
+    public AudioClip radioOld;
+    public Transform antenna;
+
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         Invoke(nameof(DoYouCopy), 2.0f);
         roundFinished = true;
         if (instance == null)
         {
             instance = this;
         }
-        else if(instance != this)
+        else if (instance != this)
         {
             Destroy(gameObject);
             return;
@@ -126,14 +136,36 @@ public class GameplayManager : MonoBehaviour
         moneyText = GameObject.FindWithTag("MoneyText").GetComponent<TMP_Text>();
         moneyText.text = p.money + "";
 
-        placedTowers = new List<FixedTower> ();
+        placedTowers = new List<FixedTower>();
         Enemy.curId = 0;
 
+        StartCoroutine(SpinAntenna());
+
+    }
+
+    IEnumerator SpinAntenna()
+    {
+        while (true)
+        {
+            if(roundFinished)
+            {
+                Debug.Log("ROTTING");
+                antenna.Rotate(new Vector3(0, 40 * Time.deltaTime, 0));
+
+            }
+            yield return null;
+        }
     }
 
     void DoYouCopy()
     {
-        GetComponent<AudioSource>().Play();
+        audioSource.Play();
+        Invoke(nameof(WhyWouldThey), 9.0f);
+    }
+
+    void WhyWouldThey()
+    {
+        audioSource.PlayOneShot(whyWouldThey);
     }
 
     void Update()
@@ -154,6 +186,12 @@ public class GameplayManager : MonoBehaviour
         {
             if(player.nearRadio && roundFinished)
             {
+                if(!interactedWithTower)
+                {
+                    interactedWithTower = true;
+                    audioSource.PlayOneShot(radioOld);
+                    Invoke(nameof(AlertNearbyAudio), 6.5f);
+                }
                 roundFinished = false;
                 StartCoroutine(IterateWaves(rounds[curRoundIdx++]));
             }
@@ -165,6 +203,11 @@ public class GameplayManager : MonoBehaviour
         }
 
         moneyText.text = p.money + "";
+    }
+
+    void AlertNearbyAudio()
+    {
+        audioSource.PlayOneShot(alertNearby);
     }
 
     public void GetMoney(int money)
@@ -258,6 +301,7 @@ public class GameplayManager : MonoBehaviour
         }
 
         roundFinished = true;
+        radioTower.PlayBeeps();
     }
     public void Lose()
     {

@@ -7,12 +7,13 @@ public class RadarTower : MonoBehaviour
     public int fullHealth;
     public int health;
     public Player player;
-
+    AudioSource audioSource;
     // player can upgrade his weapon at the radar tower
 
     Slider healthSlider;
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         healthSlider = GameObject.FindWithTag("HealthSlider").GetComponent<Slider>();
         healthSlider.value = 0;
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
@@ -31,5 +32,15 @@ public class RadarTower : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         player.moveSpeed += 2.0f;
+    }
+
+    public void PlayBeeps()
+    {
+        audioSource.PlayOneShot(audioSource.clip);
+    }    
+
+    public void StopBeeps()
+    {
+        audioSource.Stop();
     }
 }
