@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level1_Redo.unity
     guid: 42607bc54c7843d4886670907e13e9c3
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 04ba57353b4f0284686265d3d150c23c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

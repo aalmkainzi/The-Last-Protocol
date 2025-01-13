@@ -4,6 +4,8 @@ using System.Collections;
 using TMPro;
 using PrimeTween;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 public class GameplayManager : MonoBehaviour
 {
@@ -57,9 +59,11 @@ public class GameplayManager : MonoBehaviour
     public AudioClip alertNearby;
     public AudioClip radioOld;
     public AudioClip thatSound;
+    public AudioClip justRecieved;
     public Transform antenna;
 
     bool playedBeep = false;
+    bool won = false;
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -171,6 +175,10 @@ public class GameplayManager : MonoBehaviour
 
     void Update()
     {
+        if (won)
+        {
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.E))
         {
             if(!towerUI.activeSelf && !upgradeUI.activeSelf)
@@ -193,8 +201,15 @@ public class GameplayManager : MonoBehaviour
                     audioSource.PlayOneShot(radioOld);
                     Invoke(nameof(AlertNearbyAudio), 6.5f);
                 }
-                roundFinished = false;
-                StartCoroutine(IterateWaves(rounds[curRoundIdx++]));
+                if(curRoundIdx == rounds.Length)
+                {
+                    PlayWinAudio();
+                }
+                else
+                {
+                    roundFinished = false;
+                    StartCoroutine(IterateWaves(rounds[curRoundIdx++]));
+                }
             }
             else if(player.nearTower != null)
             {
@@ -204,6 +219,18 @@ public class GameplayManager : MonoBehaviour
         }
 
         moneyText.text = p.money + "";
+    }
+
+    void PlayWinAudio()
+    {
+        won = true;
+        audioSource.PlayOneShot(justRecieved);
+        Invoke(nameof(GoToLevel2), 10f);
+    }
+
+    void GoToLevel2()
+    {
+        SceneManager.LoadScene("level2");
     }
 
     void AlertNearbyAudio()
@@ -261,7 +288,6 @@ public class GameplayManager : MonoBehaviour
         if (p.money >= towerPrefab.price)
         {
             p.money -= towerPrefab.price;
-            // currentTowerTile.PlaceTower(towerPrefab);
             towerPlacer.SetTowerPrefab(towerPrefab.gameObject);
             DisableUI();
         }
