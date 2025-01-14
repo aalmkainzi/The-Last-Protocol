@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/R_leve1-MENU.unity
     guid: 9cbe42cf15d2df44caad154c11182bf5
+  - enabled: 1
+    path: Assets/Scenes/UI.unity
+    guid: ecc8861fe10bba94db1dfce95c716c16
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
