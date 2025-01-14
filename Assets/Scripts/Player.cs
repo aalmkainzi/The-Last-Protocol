@@ -9,10 +9,10 @@ public class Player : MonoBehaviour
     public int power = 1;
     public FixedTower nearTower;
     public bool nearRadio = false;
-
+    public bool holdingBattery = false;
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.name);
+        // Debug.Log(other.gameObject.name);
         if(other.gameObject.transform.parent.TryGetComponent<FixedTower>(out FixedTower ft))
         {
             nearTower = ft;
