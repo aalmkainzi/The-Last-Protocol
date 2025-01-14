@@ -82,10 +82,11 @@ public class GameplayManagerL2 : MonoBehaviour
                     new Round(new EnemyWave[] {new EnemyWave(EnemyType.Stealth, 2, 0.6f, 0, 3.0f)}),
                 };*/
 
-        rounds = new Round[2]
+        rounds = new Round[3]
         {
-            new Round(new EnemyWave[]{ new EnemyWave(EnemyType.SmallDrone, 3, 0.5f, 0, 1.0f) }),
-            new Round(new EnemyWave[]{ new EnemyWave(EnemyType.SmallDrone, 3, 0.5f, 0, 1.0f) }),
+            new Round(new EnemyWave[]{ new EnemyWave(EnemyType.SmallDrone, 3, 5f, 0, 2.0f) }),
+            new Round(new EnemyWave[]{ new EnemyWave(EnemyType.SmallDrone, 3, 5f, 0, 1.0f) }),
+            new Round(new EnemyWave[]{ new EnemyWave(EnemyType.Grunt, 1, 5f, 0, 1.0f) }),
         };
 
 /*        GameObject.Find("BombPrice").GetComponent<Text>().text = towerPrefabs[0].GetComponent<Tower>().price + "";

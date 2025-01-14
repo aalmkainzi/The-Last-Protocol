@@ -117,7 +117,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4605951701990715884, guid: 6f83d0d0d917b584aa846e81f9de09bf, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4077472024136758311}
+      addedObject: {fileID: 8319761782805049941}
   m_SourcePrefab: {fileID: 100100000, guid: 6f83d0d0d917b584aa846e81f9de09bf, type: 3}
 --- !u!4 &244366306113495351 stripped
 Transform:
@@ -129,7 +129,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4605951701990715884, guid: 6f83d0d0d917b584aa846e81f9de09bf, type: 3}
   m_PrefabInstance: {fileID: 780478088980849352}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4077472024136758311
+--- !u!114 &8319761782805049941
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3836908573136180004}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1930a0379e1f56a44ab90f0441b336ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 0313ff45f9f659942ba4ea1c798b1f21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
@@ -151,14 +151,13 @@ MonoBehaviour:
   path: []
   agent: {fileID: 8183359279009182242}
   player: {fileID: 0}
-  sightRange: 0
-  attackRange: 0
+  sightRange: 4.54
+  attackRange: 4.09
   audioSource: {fileID: 0}
-  timeBetweenAttacks: 0
+  timeBetweenAttacks: 1
   lastAttackTime: 0
   dead: 0
   pathId: 0
-  attackPlayer: 0
 --- !u!95 &7921315102809951309 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 7438533377642294917, guid: 6f83d0d0d917b584aa846e81f9de09bf, type: 3}

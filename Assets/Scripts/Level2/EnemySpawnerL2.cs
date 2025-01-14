@@ -19,7 +19,7 @@ public class EnemySpawnerL2 : MonoBehaviour
             GameObject newObj = Instantiate(prefab, spawnOffset, Quaternion.identity);
             EnemyL2 newE = newObj.GetComponent<EnemyL2>();
 
-            yield return null;
+            yield return delay;
         }
     }
 

@@ -62,13 +62,25 @@ public class EnemyL2 :MonoBehaviour, IEquatable<Enemy>
         Vector3 posIgnorY = transform.position;
         posIgnorY.y = wagon.transform.position.y;
         float distanceFromGoal = Vector3.Distance(wagon.transform.position, posIgnorY);
-        if (distanceFromGoal <= attackRange && Time.time - lastAttackTime >= timeBetweenAttacks)
+        if (distanceFromGoal <= attackRange)
         {
-            lastAttackTime = Time.time;
-            Attack();
+            if(Time.time - lastAttackTime >= timeBetweenAttacks)
+            {
+                lastAttackTime = Time.time;
+                Attack();
+            }
+        }
+        else
+        {
+            RunAnim();
         }
     }
     
+    protected virtual void RunAnim()
+    {
+
+    }
+
     void FollowWagon()
     {
         agent.SetDestination(wagon.transform.position);
@@ -99,6 +111,8 @@ public class EnemyL2 :MonoBehaviour, IEquatable<Enemy>
     public virtual void Die()
     {
         StopAllCoroutines();
+        CancelInvoke();
+
         dead = true;
         GameplayManagerL2.instance.RemoveEnemyFromAllTowers(this);
         GameplayManagerL2.instance.GetMoney(gearsWhenKilled);
