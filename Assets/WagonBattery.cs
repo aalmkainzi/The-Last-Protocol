@@ -20,7 +20,7 @@ public class WagonBattery : MonoBehaviour
             {
                 player.holdingBattery = true;
                 anim.SetTrigger("Pickup");
-                Invoke(nameof(DestroyThis), 2.5f);
+                Invoke(nameof(DestroyThis), 1.8f);
             }
         }
     }
