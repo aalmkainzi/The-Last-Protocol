@@ -23,6 +23,7 @@ TagManager:
   - LevelPart
   - Dummie
   - Main Camera
+  - Wagon
   layers:
   - Default
   - TransparentFX

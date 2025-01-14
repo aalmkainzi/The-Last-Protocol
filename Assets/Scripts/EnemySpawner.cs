@@ -6,15 +6,6 @@ public class EnemySpanwer : MonoBehaviour
     public Vector3 spawnOffsetDirection; // either (1,0,0) or (0,0,1)
     public int id;
 
-    void Start()
-    {
-    }
-
-    void Update()
-    {
-        
-    }
-
     IEnumerator SpawnWaveLoop(EnemyWave wave)
     {
         GameObject prefab = GameplayManager.instance.enemyPrefabs[(int)wave.type];

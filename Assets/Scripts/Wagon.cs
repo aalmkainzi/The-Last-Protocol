@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class Wagon : MonoBehaviour
 {
+    public int health;
+
     int loadedBatteries = 0;
     public Vector3[] wayPoints;
     int curWayPoint = -1;
@@ -54,6 +56,11 @@ public class Wagon : MonoBehaviour
         }
     }
 
+    void playWalkSound()
+    {
+        audioSource.Play();
+    }
+
     public void WinScreen()
     {
         SceneManager.LoadScene("MainMenu");
@@ -80,6 +87,15 @@ public class Wagon : MonoBehaviour
         foreach (var point in wayPoints)
         {
             Gizmos.DrawSphere(point, 1.0f);
+        }
+    }
+
+    public void TakeDamage(int dmg)
+    {
+        health -= dmg;
+        if(health <= 0)
+        {
+            // GameplayManager2.
         }
     }
 
