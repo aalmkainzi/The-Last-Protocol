@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEngine.Video;
 
 public class MenuController : MonoBehaviour
@@ -9,10 +10,29 @@ public class MenuController : MonoBehaviour
     public GameObject levelSelectionPanel; // The level selection panel
     public float fadeDuration = 1f;     // Fade duration in seconds
     public CanvasGroup fadeCanvasGroup; // CanvasGroup of the fade panel
-    public GameObject OptionsPanel; 
+    public GameObject optionsPanel; 
+    public Slider SoundSlider;
+    public AudioSource audioSource;
+    private float currentSound;
 
-    // public CanvasGroup mainMenuGroup;
 
+    void Start()
+    {
+        currentSound = PlayerPrefs.GetFloat("GameVolume", 0.5f);
+        audioSource.volume = currentSound;
+        SoundSlider.value = currentSound;
+
+        // Listen to slider value changes
+        SoundSlider.onValueChanged.AddListener(HandleVolumeChanged);
+    }
+
+    public void HandleVolumeChanged(float value)
+    {
+        currentSound = value;
+        audioSource.volume = currentSound;
+        PlayerPrefs.SetFloat("GameVolume", currentSound);
+
+    }
     public void PlayButtonClicked()
     {
         StartCoroutine(FadeOutMenu());
@@ -45,7 +65,7 @@ public class MenuController : MonoBehaviour
     {
         mainMenuGroup.alpha = 0;
         mainMenuGroup.interactable = false;
-        OptionsPanel.SetActive(true);
+        optionsPanel.SetActive(true);
     }
 
     public void BackButtonClicked()
@@ -68,15 +88,12 @@ public class MenuController : MonoBehaviour
         // levelSelectionPanel.SetActive(true);
         // mainMenuGroup.interactable = true;
         // mainMenuGroup.alpha = 1;
-
-        
-
     }
     
     public void BackButton2Clicked()
     {
         
-        OptionsPanel.SetActive(false);
+        optionsPanel.SetActive(false);
         float startAlpha = mainMenuGroup.alpha;
         float time = 0;
         
