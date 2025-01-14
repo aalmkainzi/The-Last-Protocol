@@ -10,8 +10,10 @@ public class Wagon : MonoBehaviour
     NavMeshAgent agent;
     bool playerNear = false;
     Player player;
+    Animator anim;
     void Start()
     {
+        anim = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
         agent = GetComponent<NavMeshAgent>();
     }
@@ -30,6 +32,11 @@ public class Wagon : MonoBehaviour
                         WinScreen();
                     }
                     agent.SetDestination(wayPoints[curWayPoint]);
+                    anim.SetBool("Walking", true);
+                }
+                else
+                {
+                    anim.SetBool("Walking", false);
                 }
             }
         }
@@ -54,6 +61,7 @@ public class Wagon : MonoBehaviour
         {
             curWayPoint = 0;
             agent.SetDestination(wayPoints[curWayPoint]);
+            anim.SetBool("Walking", true);
         }
         loadedBatteries++;
 
