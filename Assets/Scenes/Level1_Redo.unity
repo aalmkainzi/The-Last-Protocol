@@ -819,17 +819,6 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!114 &139862569 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1871587948954423165, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
-  m_PrefabInstance: {fileID: 5228482521850257641}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c7ab665bd66f6447b7b576e2b297c8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &157810843
 GameObject:
   m_ObjectHideFlags: 0
@@ -5014,7 +5003,7 @@ PrefabInstance:
     - target: {fileID: 5041939089862952092, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 139862569}
+      objectReference: {fileID: 7125854343619600570}
     - target: {fileID: 5041939089862952092, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: RestartLevel
@@ -5087,6 +5076,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5850925696793797713, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5885545285969596900, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -5114,7 +5107,7 @@ PrefabInstance:
     - target: {fileID: 6527990153065024241, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 139862569}
+      objectReference: {fileID: 7125854343619600570}
     - target: {fileID: 6527990153065024241, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: GoToMainMenu
@@ -5155,7 +5148,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1871587948954423165, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
