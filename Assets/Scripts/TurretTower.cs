@@ -23,7 +23,7 @@ public class TurretTower : FixedTower
         //Vector3 projectileRotation = railGunHead.transform.rotation.eulerAngles;
         //projectileRotation.x += -90.0f;
         GameObject newRail = Instantiate(rail, bulletSpawn.position, Quaternion.identity);//Quaternion.Euler(projectileRotation));
-
+        
         newRail.GetComponent<Rail>().Launch(target.transform.position, power, pierce);
     }
 }

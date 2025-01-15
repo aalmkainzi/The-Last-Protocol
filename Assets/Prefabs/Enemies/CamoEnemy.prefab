@@ -408,7 +408,7 @@ MonoBehaviour:
   player: {fileID: 0}
   sightRange: 3
   attackRange: 5
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 3443151946461485988}
   timeBetweenAttacks: 1
   lastAttackTime: 0
   dead: 0

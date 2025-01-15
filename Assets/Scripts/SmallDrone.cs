@@ -22,8 +22,8 @@ public class SmallDrone : Enemy
     public override void Die()
     {
         base.Die();
-        GetComponent<AudioSource>().clip = GameplayManager.instance.booms[Random.Range(0, GameplayManager.instance.booms.Length)];
-        GetComponent<AudioSource>().Play();
+        audioSource.clip = GameplayManager.instance.booms[Random.Range(0, GameplayManager.instance.booms.Length)];
+        audioSource.Play();
         StartCoroutine(SpinInSpiral());
         particle1.SetActive(true);
     }

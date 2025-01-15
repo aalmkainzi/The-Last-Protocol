@@ -177,14 +177,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5292067ab1535f549bfc8ca7531c72ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  price: 5
+  price: 10
   sellPrice: 5
   health: 0
   power: 2
   fullHealth: 0
   fullAmmo: 500
   ammo: 500
-  timeBetweenShots: 4
+  timeBetweenShots: 10
   reloading: 0
   canDamageMetal: 0
   canDetectCamo: 0
@@ -197,6 +197,7 @@ MonoBehaviour:
     currentUpgrade2: 0
     upgrade1:
     - text: 'Efficiency: Earns 5 More'
+      upgradePrice: 15
       powerOffset: 0
       fullAmmoOffset: 0
       ammoOffset: 0
@@ -205,9 +206,11 @@ MonoBehaviour:
       explosionRangeOffset: 0
       moneyPerAttackOffset: 5
       projectileScaleOffset: 0
+      pierceOffset: 0
       newColor: {r: 0.54380214, g: 1, b: 0, a: 1}
     upgrade2:
-    - text: 'Faster Production: Generates Money Faster'
+    - text: Faster Production
+      upgradePrice: 15
       powerOffset: 0
       fullAmmoOffset: 0
       ammoOffset: -1
@@ -216,6 +219,7 @@ MonoBehaviour:
       explosionRangeOffset: 0
       moneyPerAttackOffset: 0
       projectileScaleOffset: 0
+      pierceOffset: 0
       newColor: {r: 0.4801774, g: 0, b: 1, a: 1}
   rend: {fileID: 8335230829922714725}
   audioSource: {fileID: 0}

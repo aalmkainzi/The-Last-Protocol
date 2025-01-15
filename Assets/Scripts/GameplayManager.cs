@@ -194,7 +194,11 @@ public class GameplayManager : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.F))
         {
-            if(player.nearRadio && roundFinished)
+            if (upgradeUI.activeSelf || towerUI.activeSelf)
+            {
+                DisableUI();
+            }
+            else if(player.nearRadio && roundFinished)
             {
                 if(!interactedWithTower)
                 {
@@ -266,8 +270,29 @@ public class GameplayManager : MonoBehaviour
         Upgrade u2 = player.nearTower.upgradePath.GetUpgrade2();
 
         // TODO should also disable button when null
-        upgradeUI.transform.Find("Panel/U1").GetChild(0).GetComponent<TMP_Text>().text = u1 != null ? u1.text : "No More Upgrades";
-        upgradeUI.transform.Find("Panel/U2").GetChild(0).GetComponent<TMP_Text>().text = u2 != null ? u2.text : "No More Upgrades";
+
+        TMP_Text U1Txt = upgradeUI.transform.Find("Panel/U1").GetChild(0).GetComponent<TMP_Text>();
+        if(u1 != null)
+        {
+            U1Txt.text = "$" + u1.upgradePrice + " ";
+            U1Txt.text += u1.text;
+        }
+        else
+        {
+            U1Txt.text = "No more Upgrades";
+        }
+
+        TMP_Text U2Txt = upgradeUI.transform.Find("Panel/U2").GetChild(0).GetComponent<TMP_Text>();
+        if(u2 != null )
+        {
+            U2Txt.text = "$" + u2.upgradePrice + " ";
+            U2Txt.text += u2.text;
+        }
+        else
+        {
+            U2Txt.text = "No more Upgrades";
+        }
+
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;

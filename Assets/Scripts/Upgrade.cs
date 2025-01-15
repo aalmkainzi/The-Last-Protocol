@@ -4,7 +4,8 @@ using UnityEngine;
 public class Upgrade
 {
     public string text;
-    
+    public int upgradePrice;
+
     public int powerOffset;
     public int fullAmmoOffset;
     public int ammoOffset;
@@ -13,6 +14,8 @@ public class Upgrade
     public float explosionRangeOffset;
     public int moneyPerAttackOffset;
     public float projectileScaleOffset;
+    public int pierceOffset;
+    
 
     public Color newColor;
 
@@ -34,6 +37,17 @@ public class Upgrade
         {
             GeneratorTower gt = (GeneratorTower) tower;
             gt.moneyPerAttack += moneyPerAttackOffset;
+        }
+        if(pierceOffset > 0)
+        {
+            if(tower.TryGetComponent<TurretTower>(out TurretTower tt))
+            {
+                tt.pierce += pierceOffset;
+            }
+            else if(tower.TryGetComponent<RailTower>(out RailTower rt))
+            {
+                rt.pierce += pierceOffset;
+            }
         }
 
         tower.rend.material.color = newColor;

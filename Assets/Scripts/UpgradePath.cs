@@ -17,13 +17,29 @@ public class UpgradePath
     {
         if (which == 0)
         {
-            if (currentUpgrade1 >= upgrade1.Length) goto end;
-            upgrade1[currentUpgrade1++].Apply(tower);
+            if (currentUpgrade1 >= upgrade1.Length)
+                goto end;
+
+            Upgrade upgrade = upgrade1[currentUpgrade1];
+
+            if (GameplayManager.instance.player.money < upgrade.upgradePrice)
+                goto end;
+            
+            upgrade.Apply(tower);
+            currentUpgrade1++;
         }
         else
         {
-            if (currentUpgrade2 >= upgrade2.Length) goto end;
-            upgrade2[currentUpgrade2++].Apply(tower);
+            if (currentUpgrade2 >= upgrade2.Length)
+                goto end;
+
+            Upgrade upgrade = upgrade2[currentUpgrade2];
+
+            if (GameplayManager.instance.player.money < upgrade.upgradePrice)
+                goto end;
+
+            upgrade.Apply(tower);
+            currentUpgrade2++;
         }
 
         end:

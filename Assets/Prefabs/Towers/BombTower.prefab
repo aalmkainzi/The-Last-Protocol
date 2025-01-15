@@ -241,6 +241,7 @@ MonoBehaviour:
     currentUpgrade2: 0
     upgrade1:
     - text: 'Big Bombs: Increase Explosion Radius'
+      upgradePrice: 10
       powerOffset: 0
       fullAmmoOffset: 0
       ammoOffset: 0
@@ -249,9 +250,11 @@ MonoBehaviour:
       explosionRangeOffset: 0.2
       moneyPerAttackOffset: 0
       projectileScaleOffset: 0.5
+      pierceOffset: 0
       newColor: {r: 1, g: 0.36276448, b: 0, a: 1}
     upgrade2:
     - text: 'Barrel Spin: Increase Fire Rate'
+      upgradePrice: 12
       powerOffset: 0
       fullAmmoOffset: 0
       ammoOffset: 0
@@ -260,8 +263,10 @@ MonoBehaviour:
       explosionRangeOffset: 0
       moneyPerAttackOffset: 0
       projectileScaleOffset: 0
+      pierceOffset: 0
       newColor: {r: 0.24296895, g: 0.33780733, b: 0.6603774, a: 1}
     - text: Machine Gun Bombs
+      upgradePrice: 25
       powerOffset: -1
       fullAmmoOffset: 0
       ammoOffset: 0
@@ -270,13 +275,14 @@ MonoBehaviour:
       explosionRangeOffset: -2.5
       moneyPerAttackOffset: 0
       projectileScaleOffset: -0.25
+      pierceOffset: 0
       newColor: {r: 0.8126445, g: 0, b: 1, a: 1}
   rend: {fileID: 6741124689138561686}
   audioSource: {fileID: 0}
   attackSound: {fileID: 8300000, guid: 4886ad5b4b3d68c49b648776c2e8218f, type: 3}
   enemiesInRange: []
   bomb: {fileID: 8500547112247097650, guid: a132f6d1b68d52d4996cd4e8235cbf72, type: 3}
-  explosionRange: 0
+  explosionRange: 6.5
   bombThrowPower: 3
   force: 10
 --- !u!135 &4779211355167687192

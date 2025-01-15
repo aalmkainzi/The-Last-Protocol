@@ -226,7 +226,7 @@ MonoBehaviour:
   fullHealth: 0
   fullAmmo: 12
   ammo: 12
-  timeBetweenShots: 0.2
+  timeBetweenShots: 0.7
   reloading: 0
   canDamageMetal: 0
   canDetectCamo: 0
@@ -237,8 +237,56 @@ MonoBehaviour:
     tower: {fileID: 5927311202886319625}
     currentUpgrade1: 0
     currentUpgrade2: 0
-    upgrade1: []
-    upgrade2: []
+    upgrade1:
+    - text: Faster firing
+      upgradePrice: 10
+      powerOffset: 0
+      fullAmmoOffset: 0
+      ammoOffset: 0
+      timeBetweenShotsOffset: -0.15
+      reloadTimeOffset: 0
+      explosionRangeOffset: 0
+      moneyPerAttackOffset: 0
+      projectileScaleOffset: 0
+      pierceOffset: 0
+      newColor: {r: 0.6981132, g: 0.25350836, b: 0.2272161, a: 0}
+    - text: Even Faster Firing!
+      upgradePrice: 10
+      powerOffset: 0
+      fullAmmoOffset: 0
+      ammoOffset: 0
+      timeBetweenShotsOffset: -0.15
+      reloadTimeOffset: 0
+      explosionRangeOffset: 0
+      moneyPerAttackOffset: 0
+      projectileScaleOffset: 0
+      pierceOffset: 0
+      newColor: {r: 0.5377358, g: 0.27140442, b: 0.52731586, a: 0}
+    upgrade2:
+    - text: 'Sharp Bullets: Adds +1 Pierce'
+      upgradePrice: 8
+      powerOffset: 0
+      fullAmmoOffset: 0
+      ammoOffset: 0
+      timeBetweenShotsOffset: 0
+      reloadTimeOffset: 0
+      explosionRangeOffset: 0
+      moneyPerAttackOffset: 0
+      projectileScaleOffset: 0
+      pierceOffset: 1
+      newColor: {r: 0.45563945, g: 0.5660378, b: 0.248309, a: 0}
+    - text: '9mm Rounds: Deal 1 more damage'
+      upgradePrice: 14
+      powerOffset: 1
+      fullAmmoOffset: 0
+      ammoOffset: 0
+      timeBetweenShotsOffset: 0
+      reloadTimeOffset: 0
+      explosionRangeOffset: 0
+      moneyPerAttackOffset: 0
+      projectileScaleOffset: 0
+      pierceOffset: 0
+      newColor: {r: 0.3513706, g: 0.5283019, b: 0.4119711, a: 0}
   rend: {fileID: 3684141342137732744}
   audioSource: {fileID: 0}
   attackSound: {fileID: 8300000, guid: abe79a0349874cd4388fbf962e69cf6c, type: 3}
@@ -282,7 +330,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.446
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
     
     protected virtual void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        // audioSource = GetComponent<AudioSource>();
         id = curId++;
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
         radarTower = GameObject.FindWithTag("radioTower").GetComponent<RadarTower>();
@@ -159,9 +159,10 @@ public class Enemy : MonoBehaviour, IEquatable<Enemy>
 
     public virtual void Die()
     {
-/*        if(attackCor != null)
-            StopCoroutine(attackCor);        
-        StopCoroutine(navCor);*/
+        /*        if(attackCor != null)
+                    StopCoroutine(attackCor);        
+                StopCoroutine(navCor);*/
+        if (dead) return;
         StopAllCoroutines();
         dead = true;
         GameplayManager.instance.RemoveEnemyFromAllTowers(this);

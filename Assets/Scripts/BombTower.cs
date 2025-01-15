@@ -54,7 +54,7 @@ public class BombTower : FixedTower
     {
         GameObject newBomb = Instantiate(bomb, transform.position + new Vector3(0, 0.7f, 0), Quaternion.identity);
         newBomb.transform.localScale = new Vector3(projectileScale, projectileScale, projectileScale);
-        // newBomb.GetComponent<Bomb>().radius = explosionRange;
+        newBomb.GetComponent<Bomb>().radius = explosionRange;
 
         newBomb.GetComponent<Bomb>().Launch(GetVelocityOfProjectile(target.transform.position, 1.0f), force, power);
 

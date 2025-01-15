@@ -350,17 +350,32 @@ MonoBehaviour:
     currentUpgrade2: 0
     upgrade1:
     - text: 'Fast Charge: Increase Fire Rate'
+      upgradePrice: 15
       powerOffset: 0
       fullAmmoOffset: 0
       ammoOffset: 0
-      timeBetweenShotsOffset: -0.5
-      reloadTimeOffset: -0.5
+      timeBetweenShotsOffset: -0.2
+      reloadTimeOffset: -0.2
       explosionRangeOffset: 0
       moneyPerAttackOffset: 0
       projectileScaleOffset: 0
-      newColor: {r: 1, g: 0, b: 0.8475332, a: 1}
+      pierceOffset: 0
+      newColor: {r: 0.9150943, g: 0.41869882, b: 0.839175, a: 1}
+    - text: Rail Machine Gun
+      upgradePrice: 45
+      powerOffset: 0
+      fullAmmoOffset: 0
+      ammoOffset: 0
+      timeBetweenShotsOffset: -0.4
+      reloadTimeOffset: -0.2
+      explosionRangeOffset: 0
+      moneyPerAttackOffset: 0
+      projectileScaleOffset: 0
+      pierceOffset: 0
+      newColor: {r: 0.7924528, g: 0.2728729, b: 0.46653482, a: 0}
     upgrade2:
-    - text: 'Power Rails: Increase Damage by 1'
+    - text: 'Sharp Rails: Increase Damage And Pierce'
+      upgradePrice: 15
       powerOffset: 1
       fullAmmoOffset: 0
       ammoOffset: 0
@@ -369,9 +384,22 @@ MonoBehaviour:
       explosionRangeOffset: 0
       moneyPerAttackOffset: 0
       projectileScaleOffset: 0
-      newColor: {r: 0.08757973, g: 0, b: 1, a: 1}
+      pierceOffset: 1
+      newColor: {r: 0.42110708, g: 0.37624598, b: 0.8962264, a: 1}
+    - text: 'Ultra Pierce: Increase Pierce Even More!'
+      upgradePrice: 20
+      powerOffset: 1
+      fullAmmoOffset: 0
+      ammoOffset: 0
+      timeBetweenShotsOffset: 0
+      reloadTimeOffset: 0
+      explosionRangeOffset: 0
+      moneyPerAttackOffset: 0
+      projectileScaleOffset: 0
+      pierceOffset: 3
+      newColor: {r: 0.40939838, g: 0.6265918, b: 0.754717, a: 0}
   rend: {fileID: 6545618862471559498}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 7177062772118362302}
   attackSound: {fileID: 8300000, guid: 6fadc5ad8d9cf1341b869e95de5ff7d7, type: 3}
   enemiesInRange: []
   rail: {fileID: 2266430398975871140, guid: e1cb2625b4d52814c812d31cc78eafdc, type: 3}
