@@ -258,13 +258,16 @@ public class GunScript : MonoBehaviour {
 	 * After calculation the recoil amount are decreased to 0.
 	 */
 	void PositionGun(){
-		try
+		//try
 		{
-			transform.position = Vector3.SmoothDamp(transform.position,
-				mainCamera.transform.position -
-				(mainCamera.transform.right * (currentGunPosition.x + currentRecoilXPos)) +
-				(mainCamera.transform.up * (currentGunPosition.y + currentRecoilYPos)) +
-				(mainCamera.transform.forward * (currentGunPosition.z + currentRecoilZPos)), ref velV, 0);
+			Vector3 newPos_ = Vector3.SmoothDamp(transform.position,
+                mainCamera.transform.position -
+                (mainCamera.transform.right * (currentGunPosition.x + currentRecoilXPos)) +
+                (mainCamera.transform.up * (currentGunPosition.y + currentRecoilYPos)) +
+                (mainCamera.transform.forward * (currentGunPosition.z + currentRecoilZPos)), ref velV, 0);
+
+			if (!float.IsNaN(newPos_.x) && !float.IsNaN(newPos_.y) && !float.IsNaN(newPos_.z))
+				transform.position = newPos_;
 
 
 
@@ -273,10 +276,6 @@ public class GunScript : MonoBehaviour {
 			currentRecoilZPos = Mathf.SmoothDamp(currentRecoilZPos, 0, ref velocity_z_recoil, recoilOverTime_z);
 			currentRecoilXPos = Mathf.SmoothDamp(currentRecoilXPos, 0, ref velocity_x_recoil, recoilOverTime_x);
 			currentRecoilYPos = Mathf.SmoothDamp(currentRecoilYPos, 0, ref velocity_y_recoil, recoilOverTime_y);
-		}
-		catch
-		{
-
 		}
 	}
 
