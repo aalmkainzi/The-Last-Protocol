@@ -84,7 +84,7 @@ public class GameplayManager : MonoBehaviour
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
         enemies = new();
 
-        rounds = new Round[5]
+/*        rounds = new Round[5]
         {
             new Round(new EnemyWave[] {new EnemyWave(EnemyType.SmallDrone, 3, 0.5f, 0, 1.0f), new EnemyWave(EnemyType.Crawler, 3, 0.5f, 0, 1.0f)}),
             new Round(new EnemyWave[] {new EnemyWave(EnemyType.SmallDrone, 2, 0.5f, 1, 0.0f), new EnemyWave(EnemyType.SmallDrone, 3, 0.5f, 0, 0.0f)}),
@@ -96,7 +96,7 @@ public class GameplayManager : MonoBehaviour
             //new Round(new EnemyWave[] {}),
             //new Round(new EnemyWave[] {}),
             //new Round(new EnemyWave[] {})
-        };
+        };*/
 
         //rounds = new Round[1]
         //{
@@ -209,6 +209,7 @@ public class GameplayManager : MonoBehaviour
                 {
                     roundFinished = false;
                     StartCoroutine(IterateWaves(rounds[curRoundIdx++]));
+                    roundText.text = "Round: " + curRoundIdx;
                 }
             }
             else if(player.nearTower != null)
