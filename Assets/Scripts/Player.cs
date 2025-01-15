@@ -8,10 +8,12 @@ public class Player : MonoBehaviour
     public int money;
     public int power = 1;
     public FixedTower nearTower;
-
+    public bool nearRadio = false;
+    public bool holdingBattery = false;
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent<FixedTower>(out FixedTower ft))
+        // Debug.Log(other.gameObject.name);
+        if(other.gameObject.transform.parent.TryGetComponent<FixedTower>(out FixedTower ft))
         {
             nearTower = ft;
         }

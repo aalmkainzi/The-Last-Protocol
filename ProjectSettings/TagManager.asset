@@ -23,6 +23,7 @@ TagManager:
   - LevelPart
   - Dummie
   - Main Camera
+  - Wagon
   layers:
   - Default
   - TransparentFX
@@ -43,9 +44,9 @@ TagManager:
   - 
   - Weapon
   - NoTowerPlace
-  - 
-  - 
-  - 
+  - Borders
+  - TowerUpgradeRange
+  - Wagon
   - 
   - 
   - 

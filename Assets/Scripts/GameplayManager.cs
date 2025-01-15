@@ -4,6 +4,8 @@ using System.Collections;
 using TMPro;
 using PrimeTween;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 public class GameplayManager : MonoBehaviour
 {
@@ -25,9 +27,10 @@ public class GameplayManager : MonoBehaviour
     };
 
     public Round[] rounds;
+    bool roundFinished = true;
 
     public EnemySpanwer[] spawners;
-    int curWaveIdx = 0;
+    int curRoundIdx = 0;
 
     public Vector3[] path1;
     public Vector3[] path2;
@@ -47,14 +50,30 @@ public class GameplayManager : MonoBehaviour
     GameObject upgradeUI;
     public DefeatedMenuController defeatedMenuController;
 
+    public RadarTower radioTower;
     public TowerPlacer towerPlacer;
+
+    bool interactedWithTower = false;
+    AudioSource audioSource;
+    public AudioClip whyWouldThey;
+    public AudioClip alertNearby;
+    public AudioClip radioOld;
+    public AudioClip thatSound;
+    public AudioClip justRecieved;
+    public Transform antenna;
+
+    bool playedBeep = false;
+    bool won = false;
     void Start()
     {
-        if(instance == null)
+        audioSource = GetComponent<AudioSource>();
+        Invoke(nameof(DoYouCopy), 2.0f);
+        roundFinished = true;
+        if (instance == null)
         {
             instance = this;
         }
-        else
+        else if (instance != this)
         {
             Destroy(gameObject);
             return;
@@ -65,19 +84,19 @@ public class GameplayManager : MonoBehaviour
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
         enemies = new();
 
-        rounds = new Round[5]
+/*        rounds = new Round[5]
         {
             new Round(new EnemyWave[] {new EnemyWave(EnemyType.SmallDrone, 3, 0.5f, 0, 1.0f), new EnemyWave(EnemyType.Crawler, 3, 0.5f, 0, 1.0f)}),
             new Round(new EnemyWave[] {new EnemyWave(EnemyType.SmallDrone, 2, 0.5f, 1, 0.0f), new EnemyWave(EnemyType.SmallDrone, 3, 0.5f, 0, 0.0f)}),
             new Round(new EnemyWave[] {new EnemyWave(EnemyType.BigDrone, 2, 0.6f, 0, 0.0f), new EnemyWave(EnemyType.BigDrone, 2, 0.6f, 1, 0.0f), new EnemyWave(EnemyType.Crawler, 2, 0.6f, 0, 0.0f), new EnemyWave(EnemyType.Crawler, 2, 0.6f, 1, 0.0f)}),
-            new Round(new EnemyWave[] {new EnemyWave(EnemyType.BigDrone, 2, 0.6f, 0, 0.0f), new EnemyWave(EnemyType.BigDrone, 2, 0.6f, 1, 0.0f), new EnemyWave(EnemyType.Crawler, 2, 0.6f, 0, 0.0f), new EnemyWave(EnemyType.Crawler, 2, 0.6f, 1, 0.0f)}),
-            new Round(new EnemyWave[] {new EnemyWave(EnemyType.DroneSpawnerBoss, 1, 0.6f, 0, 0.0f), new EnemyWave(EnemyType.DroneSpawnerBoss, 2, 0.6f, 1, 0.0f), new EnemyWave(EnemyType.Crawler, 2, 0.6f, 0, 0.0f), new EnemyWave(EnemyType.Crawler, 2, 0.6f, 1, 0.0f)}),
+            new Round(new EnemyWave[] {new EnemyWave(EnemyType.DroneSpawnerBoss, 1, 0.6f, 0, 0.0f), new EnemyWave(EnemyType.Crawler, 2, 0.6f, 0, 0.0f), new EnemyWave(EnemyType.Crawler, 2, 0.6f, 1, 0.0f)}),
+            new Round(new EnemyWave[] {new EnemyWave(EnemyType.Stealth, 2, 0.6f, 0, 3.0f)}),
             //new Round(new EnemyWave[] {}),
             //new Round(new EnemyWave[] {}),
             //new Round(new EnemyWave[] {}),
             //new Round(new EnemyWave[] {}),
             //new Round(new EnemyWave[] {})
-        };
+        };*/
 
         //rounds = new Round[1]
         //{
@@ -123,35 +142,105 @@ public class GameplayManager : MonoBehaviour
         moneyText = GameObject.FindWithTag("MoneyText").GetComponent<TMP_Text>();
         moneyText.text = p.money + "";
 
-        placedTowers = new List<FixedTower> ();
+        placedTowers = new List<FixedTower>();
         Enemy.curId = 0;
 
-        StartCoroutine(IterateRounds());
+        StartCoroutine(SpinAntenna());
+
+    }
+
+    IEnumerator SpinAntenna()
+    {
+        while (true)
+        {
+            if(roundFinished)
+            {
+                antenna.Rotate(new Vector3(0, 40 * Time.deltaTime, 0));
+
+            }
+            yield return null;
+        }
+    }
+
+    void DoYouCopy()
+    {
+        audioSource.Play();
+        Invoke(nameof(WhyWouldThey), 9.0f);
+    }
+
+    void WhyWouldThey()
+    {
+        audioSource.Stop();
+        audioSource.PlayOneShot(whyWouldThey);
     }
 
     void Update()
     {
+        if (won)
+        {
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.E))
         {
             if(!towerUI.activeSelf && !upgradeUI.activeSelf)
             {
-                if (player.nearTower == null)
-                {
-                    EnableTowerUI();
-                }
-                else
-                {
-                    EnableUpgradeUI();
-                }
+               EnableTowerUI();
             }
             else
             {
                 DisableUI();
             }
+        }
 
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            if(player.nearRadio && roundFinished)
+            {
+                if(!interactedWithTower)
+                {
+                    interactedWithTower = true;
+                    audioSource.Stop();
+                    audioSource.PlayOneShot(radioOld);
+                    Invoke(nameof(AlertNearbyAudio), 6.5f);
+                }
+                if(curRoundIdx == rounds.Length)
+                {
+                    PlayWinAudio();
+                }
+                else
+                {
+                    roundFinished = false;
+                    StartCoroutine(IterateWaves(rounds[curRoundIdx++]));
+                    roundText.text = "Round: " + curRoundIdx;
+                }
+            }
+            else if(player.nearTower != null)
+            {
+                Debug.Log("UPGRADE MENU");
+                EnableUpgradeUI();
+            }
         }
 
         moneyText.text = p.money + "";
+    }
+
+    void PlayWinAudio()
+    {
+        won = true;
+        audioSource.Stop();
+        audioSource.PlayOneShot(justRecieved);
+        Invoke(nameof(GoToLevel2), 10f);
+    }
+
+    void GoToLevel2()
+    {
+        SceneManager.LoadScene("level2");
+    }
+
+    void AlertNearbyAudio()
+    {
+        audioSource.Stop();
+        audioSource.PlayOneShot(alertNearby);
     }
 
     public void GetMoney(int money)
@@ -177,8 +266,8 @@ public class GameplayManager : MonoBehaviour
         Upgrade u2 = player.nearTower.upgradePath.GetUpgrade2();
 
         // TODO should also disable button when null
-        upgradeUI.transform.Find("U1").GetChild(0).GetComponent<TMP_Text>().text = u1 != null ? u1.text : "No More Upgrades";
-        upgradeUI.transform.Find("U2").GetChild(0).GetComponent<TMP_Text>().text = u2 != null ? u2.text : "No More Upgrades";
+        upgradeUI.transform.Find("Panel/U1").GetChild(0).GetComponent<TMP_Text>().text = u1 != null ? u1.text : "No More Upgrades";
+        upgradeUI.transform.Find("Panel/U2").GetChild(0).GetComponent<TMP_Text>().text = u2 != null ? u2.text : "No More Upgrades";
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -204,7 +293,6 @@ public class GameplayManager : MonoBehaviour
         if (p.money >= towerPrefab.price)
         {
             p.money -= towerPrefab.price;
-            // currentTowerTile.PlaceTower(towerPrefab);
             towerPlacer.SetTowerPrefab(towerPrefab.gameObject);
             DisableUI();
         }
@@ -218,32 +306,14 @@ public class GameplayManager : MonoBehaviour
         }
     }
 
-    bool roundFinishedSpawning = false;
-    IEnumerator IterateRounds()
-    {
-        for (int i = 0; i < rounds.Length; i++)
-        {
-            roundText.text = "Round: " + (i + 1);
-            Round round = rounds[i];
-            roundFinishedSpawning = false;
-            StartCoroutine(IterateWaves(round));
-            while (!roundFinishedSpawning) yield return null;
+    public bool isSpawning = false;
 
-            WaitForSeconds checkTime = new WaitForSeconds(1.0f);
-
-            redoLoop:
-            yield return checkTime;
-            foreach(Enemy e in enemies)
-            {
-                if (e == null || e.dead) continue;
-                goto redoLoop;
-            }
-            Debug.Log("FINISHED ROUND");
-        }
-    }
     IEnumerator IterateWaves(Round round)
     {
+        Debug.Log("ITERATING WAVES");
         yield return new WaitForSeconds(1.5f);
+        int curWaveIdx = 0;
+        isSpawning = true;
         for (int i = 0; i < round.waves.Length; i++)
         {
             EnemyWave curWave = round.waves[curWaveIdx];
@@ -251,8 +321,32 @@ public class GameplayManager : MonoBehaviour
             curWaveIdx++;
             yield return new WaitForSeconds(curWave.afterWaveDelay);
         }
-        roundFinishedSpawning = true;
         curWaveIdx = 0;
+
+        WaitForSeconds checkRoundClearWaitTime = new WaitForSeconds(1.5f);
+    redoLoop:
+        yield return checkRoundClearWaitTime;
+        foreach (Enemy e in enemies)
+        {
+            if (e == null || e.dead) continue;
+            goto redoLoop;
+        }
+
+        roundFinished = true;
+        
+        radioTower.PlayBeeps();
+        isSpawning = false;
+        if(!playedBeep)
+        {
+            Invoke(nameof(ThatSound), 1.5f);
+            playedBeep = true;
+        }
+    }
+
+    void ThatSound()
+    {
+        audioSource.Stop();
+        audioSource.PlayOneShot(thatSound);
     }
     public void Lose()
     {

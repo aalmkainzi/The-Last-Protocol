@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2ab10d098edf3c648ba17708393a9c82
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 23800000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 207719
+  packageName: Animated Mechanical Spider
+  packageVersion: 1.0
+  assetPath: Assets/Mechanical Spider/Scenes/SampleScene/NavMesh.asset
+  uploadId: 532697

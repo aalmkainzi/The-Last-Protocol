@@ -294,6 +294,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1990190190291920294}
+  - {fileID: 771722052467040651}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &3806176051745350578
@@ -329,8 +330,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 898c1623d7de0cc458073e68f7e59bc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  price: 2000
-  sellPrice: 1000
+  price: 40
+  sellPrice: 20
   health: 0
   power: 2
   fullHealth: 0
@@ -342,6 +343,7 @@ MonoBehaviour:
   canDetectCamo: 0
   canAttackFlying: 0
   reloadTime: 2.5
+  projectileScale: 0
   upgradePath:
     tower: {fileID: 9086901898694949524}
     currentUpgrade1: 0
@@ -355,6 +357,7 @@ MonoBehaviour:
       reloadTimeOffset: -0.5
       explosionRangeOffset: 0
       moneyPerAttackOffset: 0
+      projectileScaleOffset: 0
       newColor: {r: 1, g: 0, b: 0.8475332, a: 1}
     upgrade2:
     - text: 'Power Rails: Increase Damage by 1'
@@ -365,6 +368,7 @@ MonoBehaviour:
       reloadTimeOffset: 0
       explosionRangeOffset: 0
       moneyPerAttackOffset: 0
+      projectileScaleOffset: 0
       newColor: {r: 0.08757973, g: 0, b: 1, a: 1}
   rend: {fileID: 6545618862471559498}
   audioSource: {fileID: 0}
@@ -504,6 +508,59 @@ Transform:
   - {fileID: 5992859384847010141}
   m_Father: {fileID: 3342571533115435589}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &8302081541291541979
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 771722052467040651}
+  - component: {fileID: 1814155679929918748}
+  m_Layer: 20
+  m_Name: UpgradeInteractionRange
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &771722052467040651
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8302081541291541979}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5309107398827645648}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1814155679929918748
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8302081541291541979}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 7.77
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8560941622847736544
 GameObject:
   m_ObjectHideFlags: 0

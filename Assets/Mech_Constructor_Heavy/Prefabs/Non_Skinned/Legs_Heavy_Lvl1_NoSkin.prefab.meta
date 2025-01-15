@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 43a2e213dd5c8e543b2ddbab77882674
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 44129
+  packageName: 'Mech Constructor: Heavy Robot'
+  packageVersion: 2.2
+  assetPath: Assets/Mech_Constructor_Heavy/Prefabs/Non_Skinned/Legs_Heavy_Lvl1_NoSkin.prefab
+  uploadId: 609379

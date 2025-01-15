@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d46ede8a719aa5c44921012fa2c5a474
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 207719
+  packageName: Animated Mechanical Spider
+  packageVersion: 1.0
+  assetPath: Assets/Mechanical Spider/Materials/MechanicalSpider-Leg-Carbon.mat
+  uploadId: 532697
