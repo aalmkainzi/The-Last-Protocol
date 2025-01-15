@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 4779211355167687192}
   - component: {fileID: 5884157734058661538}
   m_Layer: 6
-  m_Name: BombTower
+  m_Name: BombTower2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

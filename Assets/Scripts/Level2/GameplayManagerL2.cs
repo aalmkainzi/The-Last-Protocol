@@ -48,7 +48,7 @@ public class GameplayManagerL2 : MonoBehaviour
     public DefeatedMenuController defeatedMenuController;
 
     public Wagon wagon;
-    public TowerPlacer towerPlacer;
+    public TowerPlacerL2 towerPlacer;
 
     AudioSource audioSource;
 

@@ -274,7 +274,7 @@ GameObject:
   - component: {fileID: 9086901898694949524}
   - component: {fileID: 7177062772118362302}
   m_Layer: 6
-  m_Name: RailGun
+  m_Name: RailGunL2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -21,6 +21,6 @@ public class TurretTowerL2 : FixedTowerL2
     {
         GameObject newRail = Instantiate(rail, bulletSpawn.position, Quaternion.identity);
 
-        newRail.GetComponent<Rail>().Launch(target.transform.position, power, pierce);
+        newRail.GetComponent<RailL2>().Launch(target.transform.position, power, pierce);
     }
 }
