@@ -52,10 +52,10 @@ public class FixedTowerL2 : Tower
     private void OnTriggerEnter(Collider other)
     {
         // Debug.Log("ENEMY ENTERED TRIGGER");
-        Enemy e = other.gameObject.GetComponent<Enemy>();
+        EnemyL2 e = other.gameObject.GetComponent<EnemyL2>();
         if (!e.dead)
         {
-            enemiesInRange.Add(other.gameObject.GetComponent<EnemyL2>());
+            enemiesInRange.Add(e);
         }
     }
 

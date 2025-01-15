@@ -180,11 +180,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7516924984582947656}
-  - component: {fileID: 5927311202886319625}
   - component: {fileID: 7084742444842240438}
   - component: {fileID: 1262500228997365633}
+  - component: {fileID: 3870619261867651711}
   m_Layer: 6
-  m_Name: TurretTower
+  m_Name: TurretTowerL2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,47 +207,6 @@ Transform:
   - {fileID: 4963744468271097515}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5927311202886319625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8717836045142420663}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a80f127df0dab7b42980881f1dc84466, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  price: 600
-  sellPrice: 450
-  health: 0
-  power: 1
-  fullHealth: 0
-  fullAmmo: 12
-  ammo: 12
-  timeBetweenShots: 0.2
-  reloading: 0
-  canDamageMetal: 0
-  canDetectCamo: 0
-  canAttackFlying: 0
-  reloadTime: 4
-  projectileScale: 0
-  upgradePath:
-    tower: {fileID: 5927311202886319625}
-    currentUpgrade1: 0
-    currentUpgrade2: 0
-    upgrade1: []
-    upgrade2: []
-  rend: {fileID: 3684141342137732744}
-  audioSource: {fileID: 0}
-  attackSound: {fileID: 8300000, guid: abe79a0349874cd4388fbf962e69cf6c, type: 3}
-  enemiesInRange: []
-  rail: {fileID: 2266430398975871140, guid: 0046012b3a920c54283fb1205cd07fce, type: 3}
-  railLaunchPower: 1
-  pierce: 1
-  bulletSpawn: {fileID: 8931391628310779338}
-  force: 10
 --- !u!135 &7084742444842240438
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -366,3 +325,44 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3870619261867651711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8717836045142420663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c7c166125bebbc49a38f8c783466e13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  price: 600
+  sellPrice: 450
+  health: 0
+  power: 1
+  fullHealth: 0
+  fullAmmo: 12
+  ammo: 12
+  timeBetweenShots: 0.2
+  reloading: 0
+  canDamageMetal: 0
+  canDetectCamo: 0
+  canAttackFlying: 0
+  reloadTime: 4
+  projectileScale: 0
+  upgradePath:
+    tower: {fileID: 0}
+    currentUpgrade1: 0
+    currentUpgrade2: 0
+    upgrade1: []
+    upgrade2: []
+  rend: {fileID: 3684141342137732744}
+  audioSource: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: abe79a0349874cd4388fbf962e69cf6c, type: 3}
+  enemiesInRange: []
+  rail: {fileID: 2266430398975871140, guid: 0c020680d075730488a74384b7dfa2ff, type: 3}
+  railLaunchPower: 1
+  pierce: 1
+  bulletSpawn: {fileID: 8931391628310779338}
+  force: 10
