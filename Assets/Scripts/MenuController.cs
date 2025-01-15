@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEngine.Video;
 
 public class MenuController : MonoBehaviour
@@ -9,8 +10,29 @@ public class MenuController : MonoBehaviour
     public GameObject levelSelectionPanel; // The level selection panel
     public float fadeDuration = 1f;     // Fade duration in seconds
     public CanvasGroup fadeCanvasGroup; // CanvasGroup of the fade panel
+    public GameObject optionsPanel; 
+    public Slider SoundSlider;
+    public AudioSource audioSource;
+    private float currentSound;
 
 
+    void Start()
+    {
+        currentSound = PlayerPrefs.GetFloat("GameVolume", 0.5f);
+        audioSource.volume = currentSound;
+        SoundSlider.value = currentSound;
+
+        // Listen to slider value changes
+        SoundSlider.onValueChanged.AddListener(HandleVolumeChanged);
+    }
+
+    public void HandleVolumeChanged(float value)
+    {
+        currentSound = value;
+        audioSource.volume = currentSound;
+        PlayerPrefs.SetFloat("GameVolume", currentSound);
+
+    }
     public void PlayButtonClicked()
     {
         StartCoroutine(FadeOutMenu());
@@ -27,7 +49,7 @@ public class MenuController : MonoBehaviour
         //
         // // Fading the main menu out
         // while (time < fadeDuration)
-        // {
+        // //{
         //     mainMenuGroup.alpha = Mathf.Lerp(startAlpha, 0, time / fadeDuration);
         //     time += Time.deltaTime;
         yield return null;
@@ -38,10 +60,65 @@ public class MenuController : MonoBehaviour
         // Activate the level selection panel after the fade-out
         levelSelectionPanel.SetActive(true);
     }
+
+    public void OptionsButtonClicked()
+    {
+        mainMenuGroup.alpha = 0;
+        mainMenuGroup.interactable = false;
+        optionsPanel.SetActive(true);
+    }
+
+    public void BackButtonClicked()
+    {
+        
+        levelSelectionPanel.SetActive(false);
+        float startAlpha = mainMenuGroup.alpha;
+        float time = 0;
+        
+        // Fading the main menu out
+        while (time < fadeDuration)
+        {
+            mainMenuGroup.alpha = Mathf.Lerp(startAlpha, 0, time / fadeDuration);
+            time += Time.deltaTime;
+        }
+        mainMenuGroup.alpha = 1;
+        mainMenuGroup.interactable = true;
+
+        // Activate the level selection panel after the fade-out
+        // levelSelectionPanel.SetActive(true);
+        // mainMenuGroup.interactable = true;
+        // mainMenuGroup.alpha = 1;
+    }
+    
+    public void BackButton2Clicked()
+    {
+        
+        optionsPanel.SetActive(false);
+        float startAlpha = mainMenuGroup.alpha;
+        float time = 0;
+        
+        // Fading the main menu out
+        while (time < fadeDuration)
+        {
+            mainMenuGroup.alpha = Mathf.Lerp(startAlpha, 0, time / fadeDuration);
+            time += Time.deltaTime;
+        }
+        mainMenuGroup.alpha = 1;
+        mainMenuGroup.interactable = true;
+    
+        // Activate the level selection panel after the fade-out
+        // levelSelectionPanel.SetActive(true);
+        // mainMenuGroup.interactable = true;
+        // mainMenuGroup.alpha = 1;
+    
+        
+    
+    }
     
     public void LoadLevel1()
     {
-        GameObject.Find("VidPlay").GetComponent<PlayIntro>().PlayVideo();
+        FadeAndLoadScene("R_leve1-cut-scene");
+        // GameObject.Find("VidPlay").GetComponent<PlayIntro>().PlayVideo();
         GetComponent<Canvas>().enabled = false;
     }
 
