@@ -177,8 +177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5292067ab1535f549bfc8ca7531c72ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  price: 500
-  sellPrice: 300
+  price: 5
+  sellPrice: 5
   health: 0
   power: 1
   fullHealth: 0

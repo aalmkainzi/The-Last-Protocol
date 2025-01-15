@@ -398,7 +398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   health: 5
-  gearsWhenKilled: 25
+  gearsWhenKilled: 10
   speed: 15
   power: 5
   animator: {fileID: 2916074689289741681}
