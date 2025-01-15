@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Sirenix.OdinInspector.Editor;
 //using UnityStandardAssets.ImageEffects;
 
 public enum GunStyles{

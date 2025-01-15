@@ -12,14 +12,14 @@ public class MenuController : MonoBehaviour
     public CanvasGroup fadeCanvasGroup; // CanvasGroup of the fade panel
     public GameObject optionsPanel; 
     public Slider SoundSlider;
-    public AudioSource audioSource;
+    // public AudioSource audioSource;
     private float currentSound;
 
 
     void Start()
     {
         currentSound = PlayerPrefs.GetFloat("GameVolume", 0.5f);
-        audioSource.volume = currentSound;
+        // audioSource.volume = currentSound;
         SoundSlider.value = currentSound;
 
         // Listen to slider value changes
@@ -29,7 +29,7 @@ public class MenuController : MonoBehaviour
     public void HandleVolumeChanged(float value)
     {
         currentSound = value;
-        audioSource.volume = currentSound;
+        // audioSource.volume = currentSound;
         PlayerPrefs.SetFloat("GameVolume", currentSound);
 
     }

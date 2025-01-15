@@ -8107,6 +8107,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2106928004312277134, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2106928004312277134, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2106928004312277134, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -8120,6 +8128,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2669999951936292896, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2669999951936292896, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2669999951936292896, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2886314301591682251, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
@@ -8227,6 +8243,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5542820516768511899, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542820516768511899, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542820516768511899, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -8300,6 +8324,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5955763372259098177, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
       propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5955763372259098177, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5955763372259098177, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5955763372259098177, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
@@ -8406,12 +8438,28 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8151748718519735005, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151748718519735005, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8783340515661322332, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8783340515661322332, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
       propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8783340515661322332, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8783340515661322332, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8783340515661322332, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
@@ -35560,7 +35608,6 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 256
-  canPlace: 0
   prefab: {fileID: 0}
   readyToPlace: 0
 --- !u!1001 &1729378890
