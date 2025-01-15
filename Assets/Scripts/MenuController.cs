@@ -117,7 +117,9 @@ public class MenuController : MonoBehaviour
     
     public void LoadLevel1()
     {
-        FadeAndLoadScene("R_leve1-cut-scene");
+        SceneManager.LoadScene("FirstCutscene");
+
+        FadeAndLoadScene("FirstCutscene");
         // GameObject.Find("VidPlay").GetComponent<PlayIntro>().PlayVideo();
         GetComponent<Canvas>().enabled = false;
     }
