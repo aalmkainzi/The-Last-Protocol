@@ -19,7 +19,7 @@ public class GeneratorTower : FixedTower
             Reload();
         }
 
-        bool shouldFire = !reloading && ammo > 0 && Time.time - lastTimeMoneyMade >= timeBetweenShots;
+        bool shouldFire = !reloading && ammo > 0 && Time.time - lastTimeMoneyMade >= timeBetweenShots && GameplayManager.instance.isSpawning;
         if (shouldFire)
         {
             audioSource.PlayOneShot(attackSound);

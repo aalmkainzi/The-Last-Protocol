@@ -3,21 +3,16 @@ using UnityEngine;
 public class Bomb : MonoBehaviour
 {
     public float radius;
-    int layerMask;
+    public LayerMask layerMask;
     int power;
     public Rigidbody rb;
     ParticleSystem ps;
-    ParticleSystem ps2;
-    ParticleSystem ps3;
-    ParticleSystem ps4;
+    AudioSource audioSource;
 
     void Start()
     {
-        layerMask = 1 << LayerMask.NameToLayer("EnemyBot");
+        audioSource = GetComponent<AudioSource>();
         ps = transform.GetChild(0).GetComponent<ParticleSystem>();
-        ps2 = ps.transform.GetChild(0).GetComponent<ParticleSystem>();
-        ps3 = ps.transform.GetChild(1).GetComponent<ParticleSystem>();
-        ps4 = ps.transform.GetChild(2).GetComponent<ParticleSystem>();
     }
 
     public void Launch(Vector3 forceDir, float force, int damage)
@@ -33,11 +28,12 @@ public class Bomb : MonoBehaviour
 
     private void BlowUp()
     {
+        audioSource.Play();
         rb.isKinematic = true;
         GetComponent<SphereCollider>().enabled = false;
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius, layerMask);
-
+        Debug.Log("collidersNB = " + colliders.Length);
         foreach (Collider collider in colliders)
         {
             GameObject obj = collider.gameObject;

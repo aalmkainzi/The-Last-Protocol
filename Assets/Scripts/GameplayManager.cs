@@ -302,13 +302,14 @@ public class GameplayManager : MonoBehaviour
         }
     }
 
-    bool roundFinishedSpawning = false;
+    public bool isSpawning = false;
 
     IEnumerator IterateWaves(Round round)
     {
         Debug.Log("ITERATING WAVES");
         yield return new WaitForSeconds(1.5f);
         int curWaveIdx = 0;
+        isSpawning = true;
         for (int i = 0; i < round.waves.Length; i++)
         {
             EnemyWave curWave = round.waves[curWaveIdx];
@@ -316,7 +317,6 @@ public class GameplayManager : MonoBehaviour
             curWaveIdx++;
             yield return new WaitForSeconds(curWave.afterWaveDelay);
         }
-        roundFinishedSpawning = true;
         curWaveIdx = 0;
 
         WaitForSeconds checkRoundClearWaitTime = new WaitForSeconds(1.5f);
@@ -331,6 +331,7 @@ public class GameplayManager : MonoBehaviour
         roundFinished = true;
         
         radioTower.PlayBeeps();
+        isSpawning = false;
         if(!playedBeep)
         {
             Invoke(nameof(ThatSound), 1.5f);
