@@ -170,6 +170,7 @@ public class GameplayManager : MonoBehaviour
 
     void WhyWouldThey()
     {
+        audioSource.Stop();
         audioSource.PlayOneShot(whyWouldThey);
     }
 
@@ -198,6 +199,7 @@ public class GameplayManager : MonoBehaviour
                 if(!interactedWithTower)
                 {
                     interactedWithTower = true;
+                    audioSource.Stop();
                     audioSource.PlayOneShot(radioOld);
                     Invoke(nameof(AlertNearbyAudio), 6.5f);
                 }
@@ -225,6 +227,7 @@ public class GameplayManager : MonoBehaviour
     void PlayWinAudio()
     {
         won = true;
+        audioSource.Stop();
         audioSource.PlayOneShot(justRecieved);
         Invoke(nameof(GoToLevel2), 10f);
     }
@@ -236,6 +239,7 @@ public class GameplayManager : MonoBehaviour
 
     void AlertNearbyAudio()
     {
+        audioSource.Stop();
         audioSource.PlayOneShot(alertNearby);
     }
 
@@ -341,6 +345,7 @@ public class GameplayManager : MonoBehaviour
 
     void ThatSound()
     {
+        audioSource.Stop();
         audioSource.PlayOneShot(thatSound);
     }
     public void Lose()
