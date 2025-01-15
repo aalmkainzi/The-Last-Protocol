@@ -10,6 +10,7 @@ public class PauseController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            Debug.Log("paused");
             if (isPaused)
             {
                 Resume();
@@ -23,14 +24,19 @@ public class PauseController : MonoBehaviour
 
     public void Resume()
     {
+        Debug.Log("con");
         pauseMenuUI.SetActive(false);  
-        Time.timeScale = 1f;      
+        Time.timeScale = 1f;    
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         isPaused = false;
     }
 
     public void Pause()
     {
         pauseMenuUI.SetActive(true);   
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         Time.timeScale = 0f;          
         isPaused = true;
     }
