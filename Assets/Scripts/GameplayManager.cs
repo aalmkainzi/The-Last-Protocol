@@ -261,8 +261,8 @@ public class GameplayManager : MonoBehaviour
         Upgrade u2 = player.nearTower.upgradePath.GetUpgrade2();
 
         // TODO should also disable button when null
-        upgradeUI.transform.Find("U1").GetChild(0).GetComponent<TMP_Text>().text = u1 != null ? u1.text : "No More Upgrades";
-        upgradeUI.transform.Find("U2").GetChild(0).GetComponent<TMP_Text>().text = u2 != null ? u2.text : "No More Upgrades";
+        upgradeUI.transform.Find("Panel/U1").GetChild(0).GetComponent<TMP_Text>().text = u1 != null ? u1.text : "No More Upgrades";
+        upgradeUI.transform.Find("Panel/U2").GetChild(0).GetComponent<TMP_Text>().text = u2 != null ? u2.text : "No More Upgrades";
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;

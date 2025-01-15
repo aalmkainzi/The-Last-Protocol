@@ -8098,6 +8098,42 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2106928004312277134, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2106928004312277134, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2106928004312277134, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2106928004312277134, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2669999951936292896, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2669999951936292896, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2886314301591682251, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1188605241}
+    - target: {fileID: 2886314301591682251, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ApplyUpgradeOfCurrentTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 2886314301591682251, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameplayManagerL2, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 3038092727424920754, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -8121,6 +8157,18 @@ PrefabInstance:
     - target: {fileID: 3038092727424920754, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3472563177189749650, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1188605241}
+    - target: {fileID: 3472563177189749650, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 3472563177189749650, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameplayManagerL2, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3800817948284441066, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
       propertyPath: m_AnchorMax.y
@@ -8153,6 +8201,46 @@ PrefabInstance:
     - target: {fileID: 4730030756257499020, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5090166789614594204, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1188605241}
+    - target: {fileID: 5090166789614594204, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 5090166789614594204, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameplayManagerL2, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542820516768511899, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542820516768511899, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542820516768511899, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542820516768511899, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5552711353423785252, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1188605241}
+    - target: {fileID: 5552711353423785252, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ApplyUpgradeOfCurrentTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 5552711353423785252, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameplayManagerL2, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5805715361487673295, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8194,6 +8282,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5955763372259098177, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5955763372259098177, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5955763372259098177, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5955763372259098177, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6102852557149980392, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -8242,6 +8346,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: GameplayManagerL2, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 7800597514619867684, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1188605241}
+    - target: {fileID: 7800597514619867684, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800597514619867684, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameplayManagerL2, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7860130151452078883, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -8261,6 +8377,34 @@ PrefabInstance:
     - target: {fileID: 8064745475158740063, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096857339241436457, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1188605241}
+    - target: {fileID: 8096857339241436457, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096857339241436457, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameplayManagerL2, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8783340515661322332, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8783340515661322332, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8783340515661322332, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8783340515661322332, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8797409716137137314, guid: 1c6bc219f27a22a4ba1575fc506d6256, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
